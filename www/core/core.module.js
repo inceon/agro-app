@@ -10,6 +10,7 @@
          */
         'ngStorage',
         'ngMessages',
+        'ngMaterial',
         /*
          * Our reusable cross app code modules
          */
