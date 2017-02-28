@@ -23,7 +23,7 @@
          * and login user
          */
         function login() {
-
+            $state.go('app.main');
         }
     }
 })();
