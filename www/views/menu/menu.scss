@@ -1,6 +1,8 @@
 .menu {
     background-color: #303030;
-    ion-item {
+    ion-item,
+    ion-item.activated
+    {
         color: white;
         background-color: #303030;
         border-top: 1px solid black;

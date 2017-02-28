@@ -5,16 +5,16 @@
         .module('app')
         .controller('AppCtrl', AppCtrl);
 
-    AppCtrl.$inject = ['$scope'];
+    AppCtrl.$inject = ['$scope', '$state'];
 
-    function AppCtrl($scope) {
+    function AppCtrl($scope, $state) {
 
         var vm = this;
         vm.logout = logout;
         vm.data = {};
 
         function logout() {
-            console.log('logout');
+            $state.go('login');
         }
 
     }
