@@ -1,3 +1,16 @@
 .menu {
-
+    background-color: #303030;
+    ion-item {
+        color: white;
+        background-color: #303030;
+        border-top: 1px solid black;
+        border-bottom: 2px solid black;
+        &:first-of-type {
+            border-top: none;
+        }
+        .icon {
+            font-size: 1em;
+            color: #ccc;
+        }
+    }
 }

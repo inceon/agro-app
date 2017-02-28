@@ -5,35 +5,17 @@
         .module('app')
         .controller('AppCtrl', AppCtrl);
 
-    AppCtrl.$inject = ['$scope', '$ionicModal', '$timeout'];
+    AppCtrl.$inject = ['$scope'];
 
-    function AppCtrl($scope, $ionicModal, $timeout) {
+    function AppCtrl($scope) {
 
         var vm = this;
-        vm.doLogin = doLogin;
+        vm.logout = logout;
+        vm.data = {};
 
-        vm.loginData = {};
-
-        $ionicModal.fromTemplateUrl('templates/login.html', {
-            scope: $scope
-        }).then(function(modal) {
-            $scope.modal = modal;
-        });
-
-        $scope.closeLogin = function() {
-            $scope.modal.hide();
-        };
-
-        $scope.login = function() {
-            $scope.modal.show();
-        };
-
-        function doLogin() {
-            console.log('Doing login', vm.loginData);
-
-            $timeout(function() {
-                $scope.closeLogin();
-            }, 1000);
+        function logout() {
+            console.log('logout');
         }
+
     }
 })();

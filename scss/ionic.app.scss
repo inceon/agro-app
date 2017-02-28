@@ -12,8 +12,9 @@ $balanced:                        #33cd5f !default;
 $energized:                       #ffc900 !default;
 $assertive:                       #ef473a !default;
 $royal:                           #886aea !default;
-$dark:                            #444 !default;
 */
+$dark:                            #212121 !default;
+$body-color:                      #303030 !default;
 
 // The path for our ionicons font files, relative to the built CSS in www/css
 $ionicons-font-path: "../lib/ionic/fonts" !default;
@@ -25,3 +26,6 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 @import "www/views/main/main";
 @import "www/views/menu/menu";
 
+ion-content {
+    background-color: $body-color;
+}
