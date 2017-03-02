@@ -14,11 +14,13 @@
         md-input-container.md-default-theme:not(.md-input-invalid).md-input-resized,
         md-input-container:not(.md-input-invalid).md-input-resized,
         md-input-container:not(.md-input-invalid).md-input-has-value{
+            margin: 0;
             md-icon {
                 color: white;
             }
             label {
                 color: #ccc;
+                font-size: 1.2em;
             }
             .md-input {
                 border-bottom: 1px solid #ccc;
@@ -30,6 +32,7 @@
     .link {
         text-align: center;
         a {
+            padding: 0 5px;
             color: white;
             font-size: 1.2em;
         }

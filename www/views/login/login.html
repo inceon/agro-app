@@ -5,11 +5,11 @@
         </p>
         <form>
             <md-input-container class="md-block" flex>
-                <md-icon md-font-icon="fa fa-paper-plane fa-2x" aria-hidden="true"></md-icon>
+                <md-icon md-font-icon="fa fa-phone fa-2x" aria-hidden="true"></md-icon>
                 <input ng-model="vm.data.phone" type="number" maxlength="11" placeholder="Номер телефону">
             </md-input-container>
             <md-input-container class="md-block" flex>
-                <md-icon md-font-icon="fa fa-paper-plane fa-2x" aria-hidden="true"></md-icon>
+                <md-icon md-font-icon="fa fa-lock fa-2x" aria-hidden="true"></md-icon>
                 <input ng-model="vm.data.password" type="text" placeholder="Пароль">
             </md-input-container>
         </form>
@@ -22,8 +22,8 @@
             </md-button>
         </div>
         <div class="link">
-            <a href="#/reset-password">Забули пароль?</a>
-            <a href="#/registration">Створити аккаунт</a>
+            <a ui-sref="signup">Забули пароль?</a>
+            <a ui-sref="signup">Створити аккаунт</a>
         </div>
     </ion-content>
 </ion-view>

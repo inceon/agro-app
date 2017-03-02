@@ -8,9 +8,9 @@
         .module('app')
         .controller('Signup', Signup);
 
-    Signup.$inject = ['$state', '$ionicHistory', 'util', 'site', 'user'];
+    Signup.$inject = ['$state', '$ionicHistory', 'user'];
 
-    function Signup($state, $ionicHistory, util, site, user) {
+    function Signup($state, $ionicHistory, user) {
 
         var vm = this;
         vm.signup = signup;

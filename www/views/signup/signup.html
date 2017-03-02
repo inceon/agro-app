@@ -1,5 +1,33 @@
 <ion-view class="signup">
     <ion-content>
-
+        <p class="title">
+            Реєстрація
+        </p>
+        <form>
+            <md-input-container class="md-block" flex>
+                <md-icon md-font-icon="fa fa-phone fa-2x" aria-hidden="true"></md-icon>
+                <input ng-model="vm.data.phone" type="number" maxlength="11" placeholder="Номер телефону">
+            </md-input-container>
+            <md-input-container class="md-block" flex>
+                <md-icon md-font-icon="fa fa-lock fa-2x" aria-hidden="true"></md-icon>
+                <input ng-model="vm.data.password" type="text" placeholder="Пароль">
+            </md-input-container>
+            <md-input-container class="md-block" flex>
+                <md-icon md-font-icon="fa fa-lock fa-2x" aria-hidden="true"></md-icon>
+                <input ng-model="vm.data.rpassword" type="text" placeholder="Повторити пароль">
+            </md-input-container>
+        </form>
+        <div layout="column" layout-margin>
+            <md-button class="md-primary md-raised waves-effect waves-light"
+                       md-colors="{background: 'grey-700'}"
+                       ng-click="vm.login()"
+                       aria-label="true">
+                Зареєструватися
+            </md-button>
+        </div>
+        <div class="link">
+            У Вас вже є аккаунт?
+            <a href="#/login">Увійти</a>
+        </div>
     </ion-content>
 </ion-view>
