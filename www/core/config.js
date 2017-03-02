@@ -45,13 +45,22 @@
                 controller: 'AppCtrl',
                 controllerAs: 'vm'
             })
-
             .state('app.main', {
                 url: '/main',
                 views: {
                     'menuContent': {
                         templateUrl: 'views/main/main.html',
                         controller: 'Main',
+                        controllerAs: 'vm'
+                    }
+                }
+            })
+            .state('app.buy', {
+                url: '/buy',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'views/buy/buy.html',
+                        controller: 'Buy',
                         controllerAs: 'vm'
                     }
                 }

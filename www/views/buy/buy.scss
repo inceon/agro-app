@@ -1,0 +1,26 @@
+.buy {
+    color: white;
+    .row {
+        padding: 0 5px;
+    }
+    .item {
+        line-height: 1.5em;
+        background: #424242;
+        border: 1px solid #333;
+        color: white;
+        padding: 15px 20px;
+        h2 {
+            color: white;
+            font-size: 1.15em;
+            font-weight: bold;
+            padding: 3px 0;
+        }
+        .icon {
+            font-size: 28px;
+        }
+        p {
+            color: white;
+            white-space: normal;
+        }
+    }
+}
