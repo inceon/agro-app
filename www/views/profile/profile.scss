@@ -1,0 +1,54 @@
+.profile {
+    color: white;
+
+    .item {
+        padding: 5px 0;
+        .icon {
+            font-size: 28px;
+            display: inline;
+            width: 15%;
+            float: left;
+        }
+
+        input, .name {
+            float: right;
+            width: 80%;
+            font-size: 1em;
+            background-color: #424242;
+            input {
+                width: 100%;
+                &:first-child {
+                    border-bottom: 1px solid #666;
+                    padding-bottom: 25px;
+                }
+                margin: 5px 0 0;
+            }
+            color: #dedede;
+        }
+
+
+        .avatar {
+            width: 60px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+        h2 {
+            color: white;
+            font-size: 1.35em;
+            font-weight: bold;
+        }
+        p {
+            color: #ccc;
+            white-space: normal;
+        }
+        .input {
+            border-bottom: 1px solid #666;
+            padding: 12px 0 12px 10px;
+            &:after {
+                clear: both;
+                content: "";
+                display: table;
+            }
+        }
+    }
+}
