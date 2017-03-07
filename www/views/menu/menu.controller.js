@@ -11,10 +11,15 @@
 
         var vm = this;
         vm.logout = logout;
+        vm.profile = profile;
         vm.data = {};
 
         function logout() {
             $state.go('login');
+        }
+
+        function profile() {
+            $state.go('app.profile');
         }
 
     }
