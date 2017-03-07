@@ -21,12 +21,41 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
-@import "www/views/login/login";
-@import "www/views/signup/signup";
-@import "www/views/main/main";
-@import "www/views/buy/buy";
-@import "www/views/menu/menu";
 
 ion-content {
     background-color: $body-color;
 }
+md-input-container,
+md-input-container.md-default-theme:not(.md-input-invalid).md-input-focused,
+md-input-container:not(.md-input-invalid).md-input-focused,
+md-input-container.md-default-theme:not(.md-input-invalid).md-input-resized,
+md-input-container:not(.md-input-invalid).md-input-resized,
+md-input-container:not(.md-input-invalid).md-input-has-value{
+    margin: 0;
+    md-icon {
+        color: white;
+    }
+    label {
+        color: #ccc;
+        font-size: 1.2em;
+    }
+    .md-input {
+        border-bottom: 1px solid #ccc;
+        color: #ccc;
+    }
+}
+.item {
+    line-height: 1.5em;
+    background: #424242;
+    border: 1px solid #333;
+    color: white;
+}
+
+@import "www/views/login/login";
+@import "www/views/signup/signup";
+@import "www/views/main/main";
+@import "www/views/buy/buy";
+@import "www/views/profile/profile";
+@import "www/views/recommend/recommend";
+@import "www/views/menu/menu";
+
