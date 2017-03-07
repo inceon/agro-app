@@ -1,0 +1,43 @@
+.recommend {
+    .item {
+        .avatar {
+            width: 50px;
+            border-radius: 50%;
+            float: left;
+            margin-right: 10px;
+        }
+
+        h2 {
+            font-size: 1.05em;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 5px;
+        }
+
+        p {
+            white-space: normal;
+            color: white;
+            font-size: 0.9em;
+            text-align: justify;
+            line-height: 1.3em;
+        }
+
+        .date {
+            display: block;
+            color: #ccc;
+            margin-top: 6px;
+        }
+    }
+
+    .add {
+        position: fixed;
+        right: 5px;
+        bottom: 9px;
+    }
+}
+
+.add_recommend {
+    .item {
+        padding-top: 22px;
+    }
+}

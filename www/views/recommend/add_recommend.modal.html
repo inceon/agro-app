@@ -1,0 +1,38 @@
+<ion-modal-view class="add_recommend">
+    <ion-header-bar>
+        <h1 class="title">Додати пропозицію</h1>
+        <div class="buttons">
+            <div class="button button-icon button-clear ion-close-circled"
+                 ng-click="vm.modal.hide()">
+            </div>
+        </div>
+    </ion-header-bar>
+    <ion-content>
+        <div class="row">
+            <div class="col">
+                <div class="item">
+                    <md-input-container class="md-block" flex>
+                        <textarea name="answer"
+                                  md-maxlength="150"
+                                  ng-maxlength="150"
+                                  rows="8"
+                                  md-select-on-focus
+                                  placeholder="Пропозиція"
+                                  ng-model="vm.data.text"
+                                  autocomplete="off"
+                                  required> </textarea>
+                    </md-input-container>
+
+                    <div layout="column">
+                        <md-button class="md-primary md-raised waves-effect waves-light"
+                                   md-colors="{background: 'grey-700'}"
+                                   ng-click="vm.add()"
+                                   flex>
+                            Додати пропозицію
+                        </md-button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-modal-view>
