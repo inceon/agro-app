@@ -11,6 +11,7 @@
         'ngStorage',
         'ngMessages',
         'ngMaterial',
+        'ngFileUpload',
         /*
          * Our reusable cross app code modules
          */

@@ -64,6 +64,26 @@
                         controllerAs: 'vm'
                     }
                 }
+            })
+            .state('app.profile', {
+                url: '/profile',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'views/profile/profile.html',
+                        controller: 'Profile',
+                        controllerAs: 'vm'
+                    }
+                }
+            })
+            .state('app.recommend', {
+                url: '/recommend',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'views/recommend/recommend.html',
+                        controller: 'Recommend',
+                        controllerAs: 'vm'
+                    }
+                }
             });
 
         $urlRouterProvider.otherwise('/main');
