@@ -4,10 +4,6 @@
         padding: 0 5px;
     }
     .item {
-        line-height: 1.5em;
-        background: #424242;
-        border: 1px solid #333;
-        color: white;
         padding: 15px 20px;
         h2 {
             color: white;
@@ -20,7 +16,13 @@
         }
         p {
             color: white;
+            width: 100%;
             white-space: normal;
+            &.trunc {
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
         }
     }
 }
