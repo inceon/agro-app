@@ -12,6 +12,7 @@
         'ngMessages',
         'ngMaterial',
         'ngFileUpload',
+        'ngCordova',
         /*
          * Our reusable cross app code modules
          */

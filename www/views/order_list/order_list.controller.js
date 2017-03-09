@@ -5,9 +5,9 @@
         .module('app')
         .controller('BuyList', BuyList);
 
-    BuyList.$inject = ['$rootScope', '$state'];
+    BuyList.$inject = ['$rootScope', '$scope'];
 
-    function BuyList($rootScope, $state) {
+    function BuyList($rootScope, $scope) {
 
         var vm = this;
 
