@@ -1,0 +1,69 @@
+<ion-view class="order_list" view-title="Купити">
+    <ion-content>
+        <div class="row">
+            <div class="col">
+                <div class="header">
+                    <div class="hashtags">
+                        <span ng-repeat="hashtag in ['#зернові', '#мясо'] track by $index">
+                            {{hashtag}}
+                        </span>
+                    </div>
+                    <div class="more">
+                        ...
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" ng-repeat="item in vm.items">
+            <div class="col">
+                <div class="item">
+                    <div class="avatar">
+                        <img src="img/cm_5Wvf1VuE.jpg"
+                             alt="avatar"/>
+                    </div>
+
+                    <div class="info">
+                        <h2>{{::item.name}} {{::item.surname}}</h2>
+                        <p class="hashtag">
+                            <span ng-repeat="hashtag in item.hashtags track by $index">
+                                {{hashtag}}
+                            </span>
+                        </p>
+                        <p class="text">
+                            {{::item.text}}
+                        </p>
+                        <p class="footer-info">
+                            <span class="city">
+                                {{::item.city}}
+                            </span>
+                            <span class="action">
+                                <i class="fa fa-phone fa-lg"></i>
+                                <i class="fa fa-comments fa-lg"></i>
+                                <i class="fa fa-star fa-lg"></i>
+                            </span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+    <div class="add">
+        <md-fab-speed-dial md-open="false" md-direction="left" class="md-scale">
+            <md-fab-trigger>
+                <md-button class=" md-icon-button md-fab waves-effect waves-light"
+                           md-colors="{background: 'red-300'}"
+                           aria-label="true"
+                           ng-click="vm.modal.show()">
+
+                    <md-icon md-font-icon="fa fa-plus fa-lg" aria-hidden="true"></md-icon>
+                </md-button>
+            </md-fab-trigger>
+            <md-fab-actions>
+                <div>
+                    <span class="menu-item">Купити</span>
+                    <span class="menu-item">Продати</span>
+                </div>
+            </md-fab-actions>
+        </md-fab-speed-dial>
+    </div>
+</ion-view>

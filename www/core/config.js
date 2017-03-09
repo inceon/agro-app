@@ -4,16 +4,17 @@
         .module('app')
         .config(mainConfig);
 
-    mainConfig.$inject = ['$stateProvider', '$urlRouterProvider', '$ionicLoadingConfig', '$ionicConfigProvider'];
+    mainConfig.$inject = ['$stateProvider', '$urlRouterProvider', '$ionicLoadingConfig', '$ionicConfigProvider', '$mdGestureProvider'];
 
     /**
      * Function for configurate angular app
      */
-    function mainConfig($stateProvider, $urlRouterProvider, $ionicLoadingConfig, $ionicConfigProvider) {
+    function mainConfig($stateProvider, $urlRouterProvider, $ionicLoadingConfig, $ionicConfigProvider, $mdGestureProvider) {
 
         // $ionicConfigProvider.views.maxCache(0);
         $ionicConfigProvider.backButton.text('Back');
         $ionicConfigProvider.views.swipeBackEnabled(false);
+        $mdGestureProvider.skipClickHijack();
 
         /**
          * Configuring ionic loader
@@ -61,6 +62,16 @@
                     'menuContent': {
                         templateUrl: 'views/buy/buy.html',
                         controller: 'Buy',
+                        controllerAs: 'vm'
+                    }
+                }
+            })
+            .state('app.order_list', {
+                url: '/order_list',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'views/order_list/order_list.html',
+                        controller: 'BuyList',
                         controllerAs: 'vm'
                     }
                 }
