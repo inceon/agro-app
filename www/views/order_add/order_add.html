@@ -1,0 +1,51 @@
+<ion-view class="profile" view-title="Оформлення заявки">
+    <ion-content>
+        <div class="row">
+            <div class="col">
+                <div class="item">
+                    <div class="input">
+                        <img src="img/cm_5Wvf1VuE.jpg"
+                             alt="avatar"
+                             class="avatar">
+                        <div class="name">
+                            <input ng-model="vm.data.surname" type="text" placeholder="Прізвище">
+                            <input ng-model="vm.data.name" type="text" placeholder="Ім'я">
+                        </div>
+                    </div>
+                    <div class="input">
+                        <div class="icon text-center">
+                            <i class="fa fa-camera"></i>
+                        </div>
+                        <input ng-model="vm.data.photo" type="text" placeholder="Завантажити фото">
+                    </div>
+                    <div class="input">
+                        <div class="icon text-center">
+                            <i class="fa fa-phone"></i>
+                        </div>
+                        <input ng-model="vm.data.phone" type="text" placeholder="Номер телефону" value="0959999999">
+                    </div>
+                    <div class="input">
+                        <div class="icon text-center">
+                            <i class="fa fa-lock"></i>
+                        </div>
+                        <input ng-model="vm.data.password" type="text" placeholder="Змінити пароль">
+                    </div>
+                    <div class="input">
+                        <div class="icon text-center">
+                            <i class="fa fa-lock"></i>
+                        </div>
+                        <input ng-model="vm.data.rpassword" type="text" placeholder="Повторити пароль">
+                    </div>
+                    <br>
+                    <div layout="column" layout-margin>
+                        <md-button class="md-primary md-raised waves-effect waves-light"
+                                   md-colors="{background: 'grey-700'}"
+                                   flex>
+                            Зберегти
+                        </md-button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

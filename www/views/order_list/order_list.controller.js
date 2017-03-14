@@ -3,13 +3,16 @@
 
     angular
         .module('app')
-        .controller('BuyList', BuyList);
+        .controller('OrderList', OrderList);
 
-    BuyList.$inject = ['$rootScope', '$scope'];
+    OrderList.$inject = ['$rootScope', '$scope', '$ionicPopup'];
 
-    function BuyList($rootScope, $scope) {
+    function OrderList($rootScope, $scope, $ionicPopup) {
 
         var vm = this;
+        vm.buy = buy;
+        vm.sell = sell;
+        vm.showModal = showModal;
 
         vm.items = [
             {
@@ -37,6 +40,26 @@
                 hashtags: ['#зернові', '#мясо']
             }
         ];
+
+        function sell() {
+            vm.showModal();
+        }
+
+        function buy() {
+            vm.showModal();
+        }
+
+        function showModal() {
+            var alertPopup = $ionicPopup.alert({
+                title: 'Don\'t eat that!',
+                template: 'It might taste good',
+                buttons: []
+            });
+
+            alertPopup.then(function(res) {
+                console.log('Thank you for not eating my delicious ice cream cone');
+            });
+        }
 
     }
 })();

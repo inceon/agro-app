@@ -71,7 +71,17 @@
                 views: {
                     'menuContent': {
                         templateUrl: 'views/order_list/order_list.html',
-                        controller: 'BuyList',
+                        controller: 'OrderList',
+                        controllerAs: 'vm'
+                    }
+                }
+            })
+            .state('app.order_add', {
+                url: '/order_add',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'views/order_add/order_add.html',
+                        controller: 'OrderAdd',
                         controllerAs: 'vm'
                     }
                 }
