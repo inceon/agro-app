@@ -1,16 +1,46 @@
-<ion-view class="profile" view-title="Оформлення заявки">
+<ion-view class="order_add" view-title="Оформлення заявки">
     <ion-content>
         <div class="row">
             <div class="col">
                 <div class="item">
                     <div class="input">
-                        <img src="img/cm_5Wvf1VuE.jpg"
-                             alt="avatar"
-                             class="avatar">
-                        <div class="name">
-                            <input ng-model="vm.data.surname" type="text" placeholder="Прізвище">
-                            <input ng-model="vm.data.name" type="text" placeholder="Ім'я">
-                        </div>
+                        #text #text #text
+                    </div>
+                    <div class="input">
+                        <md-input-container class="md-block" flex md-no-float>
+                            <textarea name="description"
+                                      class="description"
+                                      md-maxlength="150"
+                                      ng-maxlength="150"
+                                      rows="8"
+                                      placeholder="Додати опис..."
+                                      ng-model="vm.data.description"
+                                      autocomplete="off"
+                                      required> </textarea>
+                        </md-input-container>
+                    </div>
+                    <div class="input">
+                        <md-input-container class="md-block md-icon-float md-icon-left" md-no-float>
+                            <md-icon md-font-icon="icon text-center fa fa-map-marker" aria-hidden="true" style="color: indianred; display:inline-block;"></md-icon>
+                            <md-autocomplete md-no-cache="true"
+                                             md-selected-item="vm.selectedItem"
+                                             md-search-text-change="vm.search(vm.searchText)"
+                                             md-search-text="vm.searchText"
+                                             md-items="item in vm.search(vm.searchText)"
+                                             md-item-text="item.description"
+                                             md-min-length="0"
+                                             md-selected-item-change="vm.changeCity()"
+                                             md-clear-button="false"
+                                             name="city"
+                                             placeholder="Додати розташування">
+                                <md-item-template>
+                                    <span md-highlight-text="vm.searchText" md-highlight-flags="^i">{{item.description}}</span>
+                                </md-item-template>
+                                <md-not-found>
+                                    Не знайдено "{{vm.searchText}}".
+                                </md-not-found>
+                            </md-autocomplete>
+                        </md-input-container>
                     </div>
                     <div class="input">
                         <div class="icon text-center">
@@ -18,30 +48,17 @@
                         </div>
                         <input ng-model="vm.data.photo" type="text" placeholder="Завантажити фото">
                     </div>
-                    <div class="input">
-                        <div class="icon text-center">
-                            <i class="fa fa-phone"></i>
-                        </div>
-                        <input ng-model="vm.data.phone" type="text" placeholder="Номер телефону" value="0959999999">
-                    </div>
-                    <div class="input">
-                        <div class="icon text-center">
-                            <i class="fa fa-lock"></i>
-                        </div>
-                        <input ng-model="vm.data.password" type="text" placeholder="Змінити пароль">
-                    </div>
-                    <div class="input">
-                        <div class="icon text-center">
-                            <i class="fa fa-lock"></i>
-                        </div>
-                        <input ng-model="vm.data.rpassword" type="text" placeholder="Повторити пароль">
-                    </div>
                     <br>
-                    <div layout="column" layout-margin>
+                    <div layout="row" layout-margin>
+                        <md-button class="md-primary md-raised waves-effect waves-light"
+                                   md-colors="{background: 'grey-200'}"
+                                   flex>
+                            Відмінити
+                        </md-button>
                         <md-button class="md-primary md-raised waves-effect waves-light"
                                    md-colors="{background: 'grey-700'}"
                                    flex>
-                            Зберегти
+                            Додати
                         </md-button>
                     </div>
                 </div>

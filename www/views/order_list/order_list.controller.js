@@ -5,14 +5,16 @@
         .module('app')
         .controller('OrderList', OrderList);
 
-    OrderList.$inject = ['$rootScope', '$scope', '$ionicPopup'];
+    OrderList.$inject = ['$state', '$scope', '$ionicPopup', 'IonicClosePopupService'];
 
-    function OrderList($rootScope, $scope, $ionicPopup) {
+    function OrderList($state, $scope, $ionicPopup, IonicClosePopupService) {
 
         var vm = this;
         vm.buy = buy;
         vm.sell = sell;
         vm.showModal = showModal;
+        vm.select = select;
+        vm.alertPopup = null;
 
         vm.items = [
             {
@@ -42,23 +44,29 @@
         ];
 
         function sell() {
-            vm.showModal();
+            vm.showModal('Продать сіно');
         }
 
         function buy() {
-            vm.showModal();
+            vm.showModal('Купить сіно');
         }
 
-        function showModal() {
-            var alertPopup = $ionicPopup.alert({
-                title: 'Don\'t eat that!',
-                template: 'It might taste good',
+        function showModal(title) {
+            vm.alertPopup =  $ionicPopup.show({
+                templateUrl: 'views/order_list/tags.popup.html',
+                title: title,
+                cssClass: 'order-tags-popup',
+                scope: $scope,
                 buttons: []
             });
 
-            alertPopup.then(function(res) {
-                console.log('Thank you for not eating my delicious ice cream cone');
-            });
+            IonicClosePopupService.register(vm.alertPopup);
+        }
+
+        function select(name) {
+            console.log(name);
+            vm.alertPopup.close();
+            $state.go('app.order_add');
         }
 
     }

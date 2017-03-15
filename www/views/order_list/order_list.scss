@@ -106,3 +106,23 @@
     }
 }
 
+.order-tags-popup {
+    .popup-head {
+        background: #424242;
+        border-bottom: none;
+        .popup-title {
+            color: #FFFFFF;
+        }
+    }
+    .popup-body {
+        background: #757575;
+        color: #FFFFFF;
+        .tag {
+            width: 44%;
+            padding: 7px 1% 7px 3%;
+            display: inline-block;
+            font-size: 1.15em;
+        }
+    }
+}
+

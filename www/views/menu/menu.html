@@ -9,10 +9,10 @@
                 </button>
             </ion-nav-buttons>
 
-            <ion-nav-buttons side="right">
+            <ion-nav-buttons side="right" ng-if="$root.page.showMapButton">
                 <div class="button button-icon button-clear fa fa-map-marker"
                      style="color: indianred"
-                    ng-click="vm.showMap()">
+                     ng-click="vm.showMap()">
                 </div>
             </ion-nav-buttons>
         </ion-nav-bar>

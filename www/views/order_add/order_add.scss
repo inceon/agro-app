@@ -1,3 +1,89 @@
 .order_add {
+    color: white;
 
+    .item {
+        padding: 5px 0;
+        .icon {
+            font-size: 28px;
+            display: inline;
+            width: 15%;
+            float: left;
+        }
+
+        input, md-autocomplete {
+            float: right;
+            width: 80%;
+            font-size: 1em;
+            background-color: #424242;
+            border-bottom: none;
+            color: #dedede;
+            $placeholder-color: white;
+            &::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+                color:    $placeholder-color;
+            }
+            &:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+                color:    $placeholder-color;
+                opacity:  1;
+            }
+            &::-moz-placeholder { /* Mozilla Firefox 19+ */
+                color:    $placeholder-color;
+                opacity:  1;
+            }
+            &:-ms-input-placeholder { /* Internet Explorer 10-11 */
+                color:    $placeholder-color;
+            }
+        }
+        md-autocomplete {
+            width: 90%;
+            .md-whiteframe-z1 {
+                box-shadow: none;
+            }
+            input {
+                padding: 5px;
+            }
+        }
+
+        md-input-container:not(.md-input-invalid).md-input-has-value{
+            .md-input {
+                border-bottom: none;
+                color: #eee;
+            }
+        }
+        h2 {
+            color: white;
+            font-size: 1.35em;
+            font-weight: bold;
+        }
+        p {
+            color: #ccc;
+            white-space: normal;
+        }
+        .input {
+            border-bottom: 1px solid #666;
+            padding: 12px 0 12px 10px;
+            &:after {
+                clear: both;
+                content: "";
+                display: table;
+            }
+            .description {
+                $placeholder-color: gray;
+                font-size: 1em;
+                &::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+                    color:    $placeholder-color;
+                }
+                &:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+                    color:    $placeholder-color;
+                    opacity:  1;
+                }
+                &::-moz-placeholder { /* Mozilla Firefox 19+ */
+                    color:    $placeholder-color;
+                    opacity:  1;
+                }
+                &:-ms-input-placeholder { /* Internet Explorer 10-11 */
+                    color:    $placeholder-color;
+                }
+            }
+        }
+    }
 }
