@@ -1,3 +1,6 @@
+.fill {
+    color: #b25b57;
+}
 .user_rating {
     .info {
         text-align: center;
@@ -17,9 +20,6 @@
                 color: white;
                 padding: 5px;
                 font-size: 1.2em;
-            }
-            .fill {
-                color: #b25b57;
             }
         }
         .phone {
@@ -79,5 +79,13 @@
                 font-size: 1em;
             }
         }
+    }
+    .add {
+        position: absolute;
+        right: 5px;
+        bottom: 9px;
+    }
+    .row {
+        margin-bottom: 70px;
     }
 }

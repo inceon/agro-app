@@ -1,0 +1,50 @@
+<ion-modal-view class="add_recommend">
+    <ion-header-bar class="bar-dark">
+        <h1 class="title">Залишити відгук</h1>
+        <div class="buttons">
+            <div class="button button-icon button-clear ion-close-circled"
+                 ng-click="vm.modal.hide()">
+            </div>
+        </div>
+    </ion-header-bar>
+    <ion-content>
+        <div class="row">
+            <div class="col">
+                <div class="item text-center" ng-click="vm.data.rating = 0">
+                    <i class="fa fa-star fa-2x"
+                       ng-class="{'fill':i <= vm.data.rating}"
+                       ng-click="vm.data.rating = i; $event.stopPropagation();"
+                       ng-repeat="i in [1,2,3,4,5]"
+                       aria-hidden="true">&nbsp;</i>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <div class="item">
+                    <md-input-container class="md-block" flex>
+                        <textarea name="answer"
+                                  md-maxlength="150"
+                                  ng-maxlength="150"
+                                  rows="8"
+                                  md-select-on-focus
+                                  placeholder="Відгук.."
+                                  ng-model="vm.data.text"
+                                  autocomplete="off"
+                                  required> </textarea>
+                    </md-input-container>
+
+                    <div layout="column">
+                        <md-button class="md-primary md-raised waves-effect waves-light"
+                                   md-colors="{background: 'grey-700'}"
+                                   ng-click="vm.addRating()"
+                                   flex>
+                            Залишити відгук
+                        </md-button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-modal-view>

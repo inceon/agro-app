@@ -22,31 +22,37 @@
         <span class="text">Відгуки про роботу</span>
         <div class="row">
             <div class="col">
-                <div class="item" ng-repeat="i in [1,2,3,4,5]">
+                <div class="item" ng-repeat="item in vm.items">
                     <div class="avatar">
-                        <img src="img/cm_5Wvf1VuE.jpg"
+                        <img ng-src="{{item.avatar}}"
                              alt="avatar"/>
                     </div>
                     <div class="info">
                         <div class="clearfix">
-                            <h2 ui-sref="app.user_rating">Юлія Кириченко 2</h2>
+                            <h2 ui-sref="app.user_rating">{{::item.name}} {{::item.surname}}</h2>
                             <p class="stars">
-                                <i class="fa fa-star fill" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
+                                <i class="fa fa-star"
+                                   ng-class="{'fill':i <= item.rating}"
+                                   ng-click="vm.rating = i; $event.stopPropagation();"
+                                   ng-repeat="i in [1,2,3,4,5]"
+                                   aria-hidden="true">&nbsp;</i>
                             </p>
                         </div>
                         <p class="text">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                            Accusantium ad aut, cumque dolores et ipsum magnam
-                            minima quam similique sit.
+                            {{::item.text}}
                         </p>
                     </div>
                 </div>
             </div>
         </div>
-
     </ion-content>
+    <div class="add">
+        <md-button class=" md-icon-button md-fab waves-effect waves-light"
+                   md-colors="{background: 'red-300'}"
+                   aria-label="true"
+                   ng-click="vm.modal.show()">
+
+            <md-icon md-font-icon="fa fa-pencil fa-lg" aria-hidden="true"></md-icon>
+        </md-button>
+    </div>
 </ion-view>
