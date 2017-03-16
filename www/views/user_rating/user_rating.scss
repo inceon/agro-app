@@ -1,0 +1,83 @@
+.user_rating {
+    .info {
+        text-align: center;
+        margin: 10px 0;
+        color: white;
+        .avatar {
+            border-radius: 50%;
+            width: 25%;
+        }
+        .name {
+            padding: 10px;
+            font-size: 1.2em;
+        }
+        .stars {
+            color: gray;
+            .count {
+                color: white;
+                padding: 5px;
+                font-size: 1.2em;
+            }
+            .fill {
+                color: #b25b57;
+            }
+        }
+        .phone {
+            font-size: 1.2em;
+            color: gray;
+            span {
+                color: white;
+            }
+        }
+    }
+    span.text {
+        color: white;
+        font-size: 1.2em;
+        margin: 20px 10px 15px 10px;
+    }
+    .item {
+        margin: 5px 0;
+        .avatar {
+            width: 15%;
+            display: inline-block;
+            margin-right: 10px;
+            img {
+                width: 100%;
+                border-radius: 50%;
+            }
+        }
+        h2 {
+            font-size: 1.05em;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 5px;
+            float: left;
+        }
+        .info {
+            float: right;
+            padding: 0;
+            margin: 0;
+            width: 80%;
+            .stars {
+                float: right;
+            }
+            .text {
+                display: block;
+            }
+            .clearfix {
+                &:before {
+                    clear: both;
+                    content: "";
+                    display: table;
+                }
+            }
+            .text {
+                white-space: normal;
+                text-align: justify;
+                color: white;
+                line-height: 1.1em;
+                font-size: 1em;
+            }
+        }
+    }
+}
