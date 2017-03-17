@@ -23,7 +23,7 @@
                 name: 'Юлія',
                 surname: 'Кириченко',
                 rating: 2,
-                text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium ad aut, cumque dolores et ipsum magnam minima quam similique sit.'
+                text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium ad aut, cumque dolores et ipsum magnam minima quam similique sit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium ad aut, cumque dolores et ipsum magnam minima quam similique sit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium ad aut, cumque dolores et ipsum magnam minima quam similique sit.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium ad aut, cumque dolores et ipsum magnam minima quam similique sit.'
             },
             {
                 avatar: 'img/cm_5Wvf1VuE.jpg',
