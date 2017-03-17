@@ -9925,7 +9925,9 @@ md-input-container:not(.md-input-invalid).md-input-has-value {
       .buy .item p.trunc {
         white-space: nowrap;
         overflow: hidden;
-        text-overflow: ellipsis; }
+        text-overflow: clip; }
+    .buy .item .overflow {
+      padding: 0 5px; }
 
 .order_list ion-content {
   padding-bottom: 15px; }
@@ -10022,6 +10024,37 @@ md-input-container:not(.md-input-invalid).md-input-has-value {
     padding: 7px 1% 7px 3%;
     display: inline-block;
     font-size: 1.15em; }
+
+.call-popup .popup-head, .call-popup .popup-body {
+  padding: 0; }
+
+.call-popup .popup-body {
+  margin-top: -1px; }
+
+.call-popup .user {
+  background-color: #424242; }
+  .call-popup .user img {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%; }
+  .call-popup .user .name {
+    padding: 12px;
+    color: white; }
+
+.call-popup .programs {
+  background-color: #757575;
+  border-bottom: 1px solid #424242; }
+  .call-popup .programs img {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    margin: 5px 10px; }
+  .call-popup .programs .label {
+    padding: 20px 0 0 5px;
+    color: white; }
+
+.call-popup .programs.row {
+  margin-top: 0; }
 
 .order_add {
   color: white; }
@@ -10180,3 +10213,6 @@ md-input-container:not(.md-input-invalid).md-input-has-value {
     .menu ion-item.activated .icon {
       font-size: 1em;
       color: #ccc; }
+
+.text-overflow {
+  padding: 5px; }

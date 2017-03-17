@@ -15,9 +15,11 @@
         vm.showModal = showModal;
         vm.select = select;
         vm.alertPopup = null;
+        vm.callUser = callUser;
 
         vm.items = [
             {
+                number: '+380957542354',
                 img: 'fa-shopping-cart',
                 name: 'Юлія',
                 surname: 'Кириченко',
@@ -26,6 +28,7 @@
                 hashtags: ['#зернові', '#мясо']
             },
             {
+                number: '+380957542354',
                 img: 'fa-arrows',
                 name: 'Юлія',
                 surname: 'Кириченко',
@@ -34,6 +37,7 @@
                 hashtags: ['#зернові', '#мясо']
             },
             {
+                number: '+380957542354',
                 img: 'fa-bolt',
                 name: 'Юлія',
                 surname: 'Кириченко',
@@ -67,6 +71,17 @@
             console.log(name);
             vm.alertPopup.close();
             $state.go('app.order_add');
+        }
+        
+        function callUser(number) {
+            $ionicPopup.show({
+                templateUrl: 'views/order_list/call.popup.html',
+                scope: $scope,
+                cssClass: 'call-popup',
+                buttons: []
+            }).then(function(res) {
+                console.log('Tapped!', res);
+            });
         }
 
     }

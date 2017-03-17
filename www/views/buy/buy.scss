@@ -1,28 +1,31 @@
 .buy {
-    color: white;
-    .row {
-        padding: 0 5px;
+  color: white;
+  .row {
+    padding: 0 5px;
+  }
+  .item {
+    padding: 15px 20px;
+    h2 {
+      color: white;
+      font-size: 1.15em;
+      font-weight: bold;
+      padding: 3px 0;
     }
-    .item {
-        padding: 15px 20px;
-        h2 {
-            color: white;
-            font-size: 1.15em;
-            font-weight: bold;
-            padding: 3px 0;
-        }
-        .icon {
-            font-size: 28px;
-        }
-        p {
-            color: white;
-            width: 100%;
-            white-space: normal;
-            &.trunc {
-                white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis;
-            }
-        }
+    .icon {
+      font-size: 28px;
     }
+    p {
+      color: white;
+      width: 100%;
+      white-space: normal;
+      &.trunc {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: clip;
+      }
+    }
+    .overflow {
+      padding: 0 5px;
+    }
+  }
 }

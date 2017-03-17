@@ -10,7 +10,8 @@ var sh = require('shelljs');
 var paths = {
     sass: [
         './scss/**/*.scss',
-        './www/views/**/*.scss'
+        './www/views/**/*.scss',
+        './www/core/blocks/directives/**/*.scss'
     ]
 };
 
