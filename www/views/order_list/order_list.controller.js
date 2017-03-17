@@ -74,14 +74,14 @@
         }
         
         function callUser(number) {
-            $ionicPopup.show({
+            vm.callDialog = $ionicPopup.show({
                 templateUrl: 'views/order_list/call.popup.html',
                 scope: $scope,
                 cssClass: 'call-popup',
                 buttons: []
-            }).then(function(res) {
-                console.log('Tapped!', res);
             });
+
+            IonicClosePopupService.register(vm.callDialog);
         }
 
     }

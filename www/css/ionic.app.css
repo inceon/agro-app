@@ -10044,6 +10044,10 @@ md-input-container:not(.md-input-invalid).md-input-has-value {
 .call-popup .programs {
   background-color: #757575;
   border-bottom: 1px solid #424242; }
+  .call-popup .programs .fa {
+    padding: 0 10px;
+    color: white;
+    line-height: 100%; }
   .call-popup .programs img {
     width: 48px;
     height: 48px;
@@ -10165,6 +10169,79 @@ md-input-container:not(.md-input-invalid).md-input-has-value {
         clear: both;
         content: "";
         display: table; }
+
+.fill {
+  color: #b25b57; }
+
+.user_rating .info {
+  text-align: center;
+  margin: 10px 0;
+  color: white; }
+  .user_rating .info .avatar {
+    border-radius: 50%;
+    width: 25%; }
+  .user_rating .info .name {
+    padding: 10px;
+    font-size: 1.2em; }
+  .user_rating .info .stars {
+    color: gray; }
+    .user_rating .info .stars .count {
+      color: white;
+      padding: 5px;
+      font-size: 1.2em; }
+  .user_rating .info .phone {
+    font-size: 1.2em;
+    color: gray; }
+    .user_rating .info .phone span {
+      color: white; }
+
+.user_rating span.text {
+  color: white;
+  font-size: 1.2em;
+  margin: 20px 10px 15px 10px; }
+
+.user_rating .item {
+  margin: 5px 0; }
+  .user_rating .item .avatar {
+    width: 15%;
+    display: inline-block;
+    margin-right: 10px; }
+    .user_rating .item .avatar img {
+      width: 100%;
+      border-radius: 50%; }
+  .user_rating .item h2 {
+    font-size: 1.05em;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 5px;
+    float: left; }
+  .user_rating .item .info {
+    float: right;
+    padding: 0;
+    margin: 0;
+    width: 80%; }
+    .user_rating .item .info .stars {
+      float: right; }
+    .user_rating .item .info .text {
+      display: block; }
+    .user_rating .item .info .clearfix:before {
+      clear: both;
+      content: "";
+      display: table; }
+    .user_rating .item .info .text {
+      white-space: normal;
+      text-align: justify;
+      color: white;
+      line-height: 1.1em;
+      font-size: 1em; }
+
+.user_rating .add {
+  position: absolute;
+  right: 5px;
+  bottom: 9px; }
+
+.user_rating .row {
+  margin-bottom: 70px; }
 
 .recommend .item .avatar {
   width: 50px;
