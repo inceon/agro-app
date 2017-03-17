@@ -96,6 +96,16 @@
                     }
                 }
             })
+            .state('app.user_rating', {
+                url: '/user_rating',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'views/user_rating/user_rating.html',
+                        controller: 'UserRating',
+                        controllerAs: 'vm'
+                    }
+                }
+            })
             .state('app.recommend', {
                 url: '/recommend',
                 views: {
