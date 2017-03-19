@@ -9874,6 +9874,15 @@ md-input-container:not(.md-input-invalid).md-input-has-value {
     color: white;
     font-size: 1.2em; }
 
+.login .pass-form md-input-container.md-icon-float > md-icon {
+  left: -2px; }
+
+.login .message {
+  margin: 40px 20px 30px;
+  text-align: center;
+  font-size: large;
+  color: white; }
+
 .signup p.title {
   color: #ccc;
   padding: 15%;
@@ -9984,7 +9993,7 @@ md-input-container:not(.md-input-invalid).md-input-has-value {
     .order_list .item .info .footer-info .action {
       float: right; }
       .order_list .item .info .footer-info .action i {
-        padding: 4px; }
+        padding: 4px 7px; }
 
 .order_list .row:last-of-type {
   margin-bottom: 70px; }
@@ -10032,7 +10041,8 @@ md-input-container:not(.md-input-invalid).md-input-has-value {
   margin-top: -1px; }
 
 .call-popup .user {
-  background-color: #424242; }
+  background-color: #424242;
+  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.75); }
   .call-popup .user img {
     width: 48px;
     height: 48px;
@@ -10043,18 +10053,16 @@ md-input-container:not(.md-input-invalid).md-input-has-value {
 
 .call-popup .programs {
   background-color: #757575;
-  border-bottom: 1px solid #424242; }
+  border-bottom: 1px solid #424242;
+  height: 100%;
+  vertical-align: middle; }
   .call-popup .programs .fa {
-    padding: 0 10px;
+    padding: 15px;
     color: white;
-    line-height: 100%; }
-  .call-popup .programs img {
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    margin: 5px 10px; }
+    width: 42px;
+    height: 30px; }
   .call-popup .programs .label {
-    padding: 20px 0 0 5px;
+    padding: 15px;
     color: white; }
 
 .call-popup .programs.row {

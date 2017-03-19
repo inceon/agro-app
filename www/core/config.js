@@ -39,6 +39,12 @@
                 controller: 'Signup',
                 controllerAs: 'vm'
             })
+            .state('password', {
+                url: '/password',
+                templateUrl: 'views/reset_password/reset_password.html',
+                controller: 'Password',
+                controllerAs: 'vm'
+            })
             .state('app', {
                 url: '/app',
                 abstract: true,
@@ -62,6 +68,28 @@
                     'menuContent': {
                         templateUrl: 'views/buy/buy.html',
                         controller: 'Buy',
+                        controllerAs: 'vm'
+                    }
+                }
+            })
+            .state('app.news', {
+                url: '/news',
+                cache: false,
+                views: {
+                    'menuContent': {
+                        templateUrl: 'views/news/news.html',
+                        controller: 'News',
+                        controllerAs: 'vm'
+                    }
+                }
+            })
+            .state('app.news_details', {
+                url: '/news_details',
+                cache: false,
+                views: {
+                    'menuContent': {
+                        templateUrl: 'views/news_details/news_details.html',
+                        controller: 'NewsDetails',
                         controllerAs: 'vm'
                     }
                 }
