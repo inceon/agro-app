@@ -13,8 +13,37 @@
 
         vm.search = search;
         vm.changeCity = changeCity;
+        vm.upload = upload;
+        vm.remove = remove;
 
         vm.gmapsService = new google.maps.places.AutocompleteService();
+        vm.data = {
+            attach: []
+        };
+
+        /**
+         * Function for uploading files, file save in RAM
+         * @param $files
+         */
+        function upload($files) {
+            console.log($files);
+            vm.data.attach = vm.data.attach.concat($files);
+            if(vm.data.attach.length > 3)
+                vm.data.attach = vm.data.attach.slice(-3)[0];
+
+            // angular.forEach($files, function (file) {
+            //     vm.data[file.lastModified] = file;
+            // });
+
+            console.log(vm.data);
+        }
+
+        /**
+         * Function for removing attach file
+         */
+        function remove(index) {
+            vm.data.attach.splice(index, 1);
+        }
 
         function search(address) {
             var deferred = $q.defer();

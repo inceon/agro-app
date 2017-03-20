@@ -8,6 +8,9 @@
             display: inline;
             width: 15%;
             float: left;
+            &.no-active {
+                color: gray;
+            }
         }
 
         input, md-autocomplete {
@@ -65,6 +68,38 @@
                 clear: both;
                 content: "";
                 display: table;
+            }
+            .photo-label {
+                float: right;
+                width: 80%;
+                font-size: 1em;
+                .attach {
+                    display: inline-block;
+                    position: relative;
+                    margin: 0 5px;
+                    width: 30%;
+                    &:first-of-type {
+                        margin-left: 0;
+                    }
+                    img {
+                        width: 100%;
+                    }
+                    .remove {
+                        position: absolute;
+                        top: -6px;
+                        right: -6px;
+                        z-index: 50;
+                        text-align: center;
+                        border-radius: 50%;
+                        box-sizing: content-box;
+                        line-height: 25px;
+                        width: 25px;
+                        height: 25px;
+                        font-weight: 500;
+                        color: white;
+                        background: #424242;
+                    }
+                }
             }
             .description {
                 $placeholder-color: gray;

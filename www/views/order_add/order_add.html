@@ -21,7 +21,8 @@
                     </div>
                     <div class="input">
                         <md-input-container class="md-block md-icon-float md-icon-left" md-no-float>
-                            <md-icon md-font-icon="icon text-center fa fa-map-marker" aria-hidden="true" style="color: indianred; display:inline-block;"></md-icon>
+                            <md-icon md-font-icon="icon text-center fa fa-map-marker" aria-hidden="true"
+                                     style="color: indianred; display:inline-block;"></md-icon>
                             <md-autocomplete md-no-cache="true"
                                              md-selected-item="vm.selectedItem"
                                              md-search-text-change="vm.search(vm.searchText)"
@@ -34,7 +35,8 @@
                                              name="city"
                                              placeholder="Додати розташування">
                                 <md-item-template>
-                                    <span md-highlight-text="vm.searchText" md-highlight-flags="^i">{{item.description}}</span>
+                                    <span md-highlight-text="vm.searchText"
+                                          md-highlight-flags="^i">{{item.description}}</span>
                                 </md-item-template>
                                 <md-not-found>
                                     Не знайдено "{{vm.searchText}}".
@@ -43,10 +45,30 @@
                         </md-input-container>
                     </div>
                     <div class="input">
-                        <div class="icon text-center">
+                        <div class="icon text-center"
+                             ng-class="{'no-active': vm.data.attach.length >= 3}"
+                             ngf-multiple="true"
+                             ngf-max-files="{{3 - vm.data.attach.length}}"
+                             ngf-select="vm.upload($files)"
+                             accept="image/*">
                             <i class="fa fa-camera"></i>
                         </div>
-                        <input ng-model="vm.data.photo" type="text" placeholder="Завантажити фото">
+
+                        <div ngf-multiple="true"
+                             ngf-max-files="{{3 - vm.data.attach.length}}"
+                             ngf-select="vm.upload($files)"
+                             accept="image/*"
+                             class="photo-label"
+                             ng-if="!vm.data.attach.length">
+                            Завантажити фото
+                        </div>
+                        <div class="photo-label">
+                            <div class="attach" ng-repeat="file in vm.data.attach">
+                                <img ngf-thumbnail="file" />
+                                <div class="remove" ng-click="vm.remove($index)">x</div>
+                            </div>
+                        </div>
+
                     </div>
                     <br>
                     <div layout="row" layout-margin>

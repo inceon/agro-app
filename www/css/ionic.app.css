@@ -9858,26 +9858,26 @@ md-input-container:not(.md-input-invalid).md-input-has-value {
   border: 1px solid #333;
   color: white; }
 
-.login p.title {
+.login p.title, .reset-password p.title {
   color: #ccc;
   padding: 15%;
   text-align: center;
   font-size: 1.8em; }
 
-.login form {
+.login form, .reset-password form {
   padding: 0 20px; }
 
-.login .link {
+.login .link, .reset-password .link {
   text-align: center; }
-  .login .link a {
+  .login .link a, .reset-password .link a {
     padding: 0 5px;
     color: white;
     font-size: 1.2em; }
 
-.login .pass-form md-input-container.md-icon-float > md-icon {
+.login .pass-form md-input-container.md-icon-float > md-icon, .reset-password .pass-form md-input-container.md-icon-float > md-icon {
   left: -2px; }
 
-.login .message {
+.login .message, .reset-password .message {
   margin: 40px 20px 30px;
   text-align: center;
   font-size: large;
@@ -10077,6 +10077,8 @@ md-input-container:not(.md-input-invalid).md-input-has-value {
       display: inline;
       width: 15%;
       float: left; }
+      .order_add .item .icon.no-active {
+        color: gray; }
     .order_add .item input, .order_add .item md-autocomplete {
       float: right;
       width: 80%;
@@ -10121,6 +10123,33 @@ md-input-container:not(.md-input-invalid).md-input-has-value {
         clear: both;
         content: "";
         display: table; }
+      .order_add .item .input .photo-label {
+        float: right;
+        width: 80%;
+        font-size: 1em; }
+        .order_add .item .input .photo-label .attach {
+          display: inline-block;
+          position: relative;
+          margin: 0 5px;
+          width: 30%; }
+          .order_add .item .input .photo-label .attach:first-of-type {
+            margin-left: 0; }
+          .order_add .item .input .photo-label .attach img {
+            width: 100%; }
+          .order_add .item .input .photo-label .attach .remove {
+            position: absolute;
+            top: -6px;
+            right: -7px;
+            z-index: 50;
+            text-align: center;
+            border-radius: 50%;
+            box-sizing: content-box;
+            line-height: 25px;
+            width: 25px;
+            height: 25px;
+            font-weight: 500;
+            color: white;
+            background: #424242; }
       .order_add .item .input .description {
         font-size: 1em; }
         .order_add .item .input .description::-webkit-input-placeholder {
