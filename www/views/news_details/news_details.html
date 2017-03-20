@@ -1,14 +1,12 @@
 <ion-view class="news-details">
     <ion-content>
-        <h1>
-            {{vm.data.header}}
-        </h1>
-        <span>
-            {{vm.data.date}}
-        </span>
-        <img ng-src="vm.data.img" alt="image">
-        <div class="text">
-            {{vm.data.text}}
+        <div class="details-content">
+            <div class="header">{{vm.data.header}}</div>
+            <p>{{vm.data.date | date: 'dd.mm.yyyy'}}</p>
+            <img src="{{vm.data.img}}" alt="image">
+            <div class="text">
+                {{vm.data.text}}
+            </div>
         </div>
     </ion-content>
 </ion-view>

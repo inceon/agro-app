@@ -1,14 +1,19 @@
 .news-details {
-  h1 {
-
-  }
-  span {
-
-  }
-  img {
-
-  }
-  .text {
-
+  color: rgb(255, 255, 255);
+  .details-content {
+    padding: 15px;
+    .header {
+      font-size: 22px;
+      line-height: 1.2em;
+      margin-bottom: 8px;
+    }
+    img {
+      width: 100%;
+      height: auto;
+    }
+    .text {
+      color: #b9b9b9;
+      padding: 10px 0;
+    }
   }
 }
