@@ -16,6 +16,8 @@
 
         var vm = this;
         vm.login = login;
+        vm.signup = signup;
+        vm.reset = reset;
         vm.data = {};
 
         /**
@@ -24,6 +26,13 @@
          */
         function login() {
             $state.go('app.main');
+        }
+
+        function signup(){
+            $state.go('signup');
+        }
+        function reset(){
+            $state.go('password');
         }
     }
 })();
