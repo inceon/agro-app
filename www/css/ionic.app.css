@@ -9874,6 +9874,15 @@ md-input-container:not(.md-input-invalid).md-input-has-value {
     color: white;
     font-size: 1.2em; }
 
+.login .pass-form md-input-container.md-icon-float > md-icon {
+  left: -2px; }
+
+.login .message {
+  margin: 40px 20px 30px;
+  text-align: center;
+  font-size: large;
+  color: white; }
+
 .signup p.title {
   color: #ccc;
   padding: 15%;
@@ -9925,7 +9934,9 @@ md-input-container:not(.md-input-invalid).md-input-has-value {
       .buy .item p.trunc {
         white-space: nowrap;
         overflow: hidden;
-        text-overflow: ellipsis; }
+        text-overflow: clip; }
+    .buy .item .overflow {
+      padding: 0 5px; }
 
 .order_list ion-content {
   padding-bottom: 15px; }
@@ -9982,7 +9993,7 @@ md-input-container:not(.md-input-invalid).md-input-has-value {
     .order_list .item .info .footer-info .action {
       float: right; }
       .order_list .item .info .footer-info .action i {
-        padding: 4px; }
+        padding: 4px 7px; }
 
 .order_list .row:last-of-type {
   margin-bottom: 70px; }
@@ -10022,6 +10033,40 @@ md-input-container:not(.md-input-invalid).md-input-has-value {
     padding: 7px 1% 7px 3%;
     display: inline-block;
     font-size: 1.15em; }
+
+.call-popup .popup-head, .call-popup .popup-body {
+  padding: 0; }
+
+.call-popup .popup-body {
+  margin-top: -1px; }
+
+.call-popup .user {
+  background-color: #424242;
+  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.75); }
+  .call-popup .user img {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%; }
+  .call-popup .user .name {
+    padding: 12px;
+    color: white; }
+
+.call-popup .programs {
+  background-color: #757575;
+  border-bottom: 1px solid #424242;
+  height: 100%;
+  vertical-align: middle; }
+  .call-popup .programs .fa {
+    padding: 15px;
+    color: white;
+    width: 42px;
+    height: 30px; }
+  .call-popup .programs .label {
+    padding: 15px;
+    color: white; }
+
+.call-popup .programs.row {
+  margin-top: 0; }
 
 .order_add {
   color: white; }
@@ -10133,6 +10178,79 @@ md-input-container:not(.md-input-invalid).md-input-has-value {
         content: "";
         display: table; }
 
+.fill {
+  color: #b25b57; }
+
+.user_rating .info {
+  text-align: center;
+  margin: 10px 0;
+  color: white; }
+  .user_rating .info .avatar {
+    border-radius: 50%;
+    width: 25%; }
+  .user_rating .info .name {
+    padding: 10px;
+    font-size: 1.2em; }
+  .user_rating .info .stars {
+    color: gray; }
+    .user_rating .info .stars .count {
+      color: white;
+      padding: 5px;
+      font-size: 1.2em; }
+  .user_rating .info .phone {
+    font-size: 1.2em;
+    color: gray; }
+    .user_rating .info .phone span {
+      color: white; }
+
+.user_rating span.text {
+  color: white;
+  font-size: 1.2em;
+  margin: 20px 10px 15px 10px; }
+
+.user_rating .item {
+  margin: 5px 0; }
+  .user_rating .item .avatar {
+    width: 15%;
+    display: inline-block;
+    margin-right: 10px; }
+    .user_rating .item .avatar img {
+      width: 100%;
+      border-radius: 50%; }
+  .user_rating .item h2 {
+    font-size: 1.05em;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 5px;
+    float: left; }
+  .user_rating .item .info {
+    float: right;
+    padding: 0;
+    margin: 0;
+    width: 80%; }
+    .user_rating .item .info .stars {
+      float: right; }
+    .user_rating .item .info .text {
+      display: block; }
+    .user_rating .item .info .clearfix:before {
+      clear: both;
+      content: "";
+      display: table; }
+    .user_rating .item .info .text {
+      white-space: normal;
+      text-align: justify;
+      color: white;
+      line-height: 1.1em;
+      font-size: 1em; }
+
+.user_rating .add {
+  position: absolute;
+  right: 5px;
+  bottom: 9px; }
+
+.user_rating .row {
+  margin-bottom: 70px; }
+
 .recommend .item .avatar {
   width: 50px;
   border-radius: 50%;
@@ -10180,3 +10298,6 @@ md-input-container:not(.md-input-invalid).md-input-has-value {
     .menu ion-item.activated .icon {
       font-size: 1em;
       color: #ccc; }
+
+.text-overflow {
+  padding: 5px; }
