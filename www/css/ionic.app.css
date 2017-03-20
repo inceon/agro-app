@@ -10139,7 +10139,7 @@ md-input-container:not(.md-input-invalid).md-input-has-value {
           .order_add .item .input .photo-label .attach .remove {
             position: absolute;
             top: -6px;
-            right: -7px;
+            right: -6px;
             z-index: 50;
             text-align: center;
             border-radius: 50%;
