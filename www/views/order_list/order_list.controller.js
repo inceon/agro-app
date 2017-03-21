@@ -5,9 +5,9 @@
         .module('app')
         .controller('OrderList', OrderList);
 
-    OrderList.$inject = ['$state', '$scope', '$ionicPopup', 'IonicClosePopupService'];
+    OrderList.$inject = ['$state', '$scope', '$ionicPopup', 'IonicClosePopupService', '$ionicModal'];
 
-    function OrderList($state, $scope, $ionicPopup, IonicClosePopupService) {
+    function OrderList($state, $scope, $ionicPopup, IonicClosePopupService, $ionicModal) {
 
         var vm = this;
         vm.buy = buy;
@@ -16,6 +16,8 @@
         vm.select = select;
         vm.alertPopup = null;
         vm.callUser = callUser;
+        vm.showImage = showImage;
+        vm.closeModal = closeModal;
 
         vm.items = [
             {
@@ -24,6 +26,7 @@
                 name: 'Юлія',
                 surname: 'Кириченко',
                 text: 'Вже давно відомо, що читабельний зміст буде заважати зосередитись людині, яка ',
+                images: ['https://pbs.twimg.com/media/CsYj-SQXgAAA-FS.jpg', 'https://pbs.twimg.com/media/CsYj-SQXgAAA-FS.jpg', 'http://www.chernihiv-oblast.gov.ua/media/upload/78-300x197.jpg'],
                 city: 'Київ, Полтава',
                 hashtags: ['#зернові', '#мясо']
             },
@@ -72,7 +75,7 @@
             vm.alertPopup.close();
             $state.go('app.order_add');
         }
-        
+
         function callUser(number) {
             vm.callDialog = $ionicPopup.show({
                 templateUrl: 'views/order_list/call.popup.html',
@@ -82,6 +85,22 @@
             });
 
             IonicClosePopupService.register(vm.callDialog);
+        }
+
+
+        function showImage(file) {
+            $ionicModal.fromTemplateUrl('views/order_list/image_popover/image.html', {
+                scope: $scope,
+                animation: 'slide-in-up'
+            }).then(function (modal) {
+                vm.modalImage = modal;
+                vm.modalImage.file = file;
+                vm.modalImage.show();
+            });
+        }
+
+        function closeModal() {
+            vm.modalImage.hide();
         }
 
     }

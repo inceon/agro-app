@@ -32,6 +32,13 @@
                         <p class="text">
                             {{::item.text}}
                         </p>
+
+                        <div class="images" ng-if="item.images">
+                            <img ng-src="{{link}}"
+                                 ng-repeat="link in item.images track by $index"
+                                 ng-click="vm.showImage(link)">
+                        </div>
+
                         <p class="footer-info">
                             <span class="city">
                                 {{::item.city}}

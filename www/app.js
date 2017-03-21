@@ -38,9 +38,9 @@
              * Check whether the user is authorized
              */
             if ($sessionStorage.auth_key) {
-                $state.go('login');
+                $state.go('app.order_list');
             } else {
-                $state.go('login');
+                $state.go('app.order_list');
             }
 
         });
