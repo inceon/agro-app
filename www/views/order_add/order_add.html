@@ -46,12 +46,19 @@
                     </div>
                     <div class="input">
                         <div class="icon text-center"
-                             ng-class="{'no-active': vm.data.attach.length >= 3}"
-                             ngf-multiple="true"
-                             ngf-max-files="{{3 - vm.data.attach.length}}"
-                             ngf-select="vm.upload($files)"
-                             accept="image/*">
-                            <i class="fa fa-camera"></i>
+                             ng-class="{'no-active': vm.data.attach.length >= 3}">
+                            <i class="fa fa-camera"
+                               ngf-multiple="true"
+                               ngf-max-files="{{3 - vm.data.attach.length}}"
+                               ngf-select="vm.upload($files)"
+                               accept="image/*"
+                               ng-if="vm.data.attach.length < 3">
+
+                            </i>
+                            <i class="fa fa-camera"
+                               ng-if="vm.data.attach.length >= 3">
+
+                            </i>
                         </div>
 
                         <div ngf-multiple="true"
