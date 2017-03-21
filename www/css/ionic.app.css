@@ -10327,67 +10327,34 @@ md-input-container:not(.md-input-invalid).md-input-has-value {
 .user_rating .row {
   margin-bottom: 70px; }
 
-.recommend ion-content {
-  margin-bottom: 69px;
-  background-color: #312f31; }
-
-.recommend .item .avatar {
+.recommend .item .avatar, .comments .item .avatar {
   width: 50px;
   border-radius: 50%;
   float: left;
   margin-right: 10px; }
 
-.recommend .item h2 {
+.recommend .item h2, .comments .item h2 {
   font-size: 1.05em;
   font-weight: bold;
   color: white;
   margin-bottom: 5px; }
 
-.recommend .item p {
+.recommend .item p, .comments .item p {
   white-space: normal;
   color: white;
   font-size: 0.9em;
   text-align: justify;
   line-height: 1.3em; }
 
-.recommend .item .date {
+.recommend .item .date, .comments .item .date {
   display: block;
   color: #ccc;
   margin-top: 6px; }
 
-.recommend .add {
+.recommend .add, .comments .add {
   position: absolute;
   right: 5px;
   bottom: 9px; }
-
-.recommend .comment-field {
-  position: fixed;
-  bottom: 0;
-  z-index: 999;
-  width: 100%;
-  border-top: 1px solid #515151;
-  background-color: #312f31; }
-  .recommend .comment-field .row {
-    padding: 0; }
-    .recommend .comment-field .row .avatar {
-      width: 50px;
-      height: 50px;
-      float: left;
-      margin: 5px 15px 3px 10px;
-      border-radius: 50%; }
-    .recommend .comment-field .row .md-button.md-fab.md-mini {
-      margin: 0;
-      width: 100px;
-      height: 68px;
-      border-radius: 0;
-      background-color: #515151; }
-    .recommend .comment-field .row input {
-      height: inherit;
-      width: 100%;
-      padding-right: 3px;
-      background-color: #312f31; }
-    .recommend .comment-field .row input[placeholder] {
-      color: #d2d0d2; }
 
 .add_recommend .item {
   padding-top: 22px; }
@@ -10454,6 +10421,40 @@ md-input-container:not(.md-input-invalid).md-input-has-value {
     .news-details .details-content .text {
       color: #b9b9b9;
       padding: 10px 0; }
+
+.comments ion-content {
+  margin-bottom: 69px;
+  background-color: #312f31; }
+
+.comments .comment-field {
+  position: fixed;
+  bottom: 0;
+  z-index: 999;
+  width: 100%;
+  border-top: 1px solid #515151;
+  background-color: #312f31; }
+  .comments .comment-field .row {
+    padding: 0; }
+    .comments .comment-field .row .avatar {
+      width: 17%;
+      display: inline-block;
+      margin: 10px 5px 3px 10px; }
+      .comments .comment-field .row .avatar img {
+        width: 100%;
+        border-radius: 50%; }
+    .comments .comment-field .row .md-button.md-fab.md-mini {
+      margin: 0;
+      width: 100px;
+      height: 68px;
+      border-radius: 0;
+      background-color: #515151; }
+    .comments .comment-field .row input {
+      height: inherit;
+      width: 83%;
+      padding-right: 3px;
+      background-color: #312f31; }
+    .comments .comment-field .row input[placeholder] {
+      color: #d2d0d2; }
 
 .text-overflow {
   padding: 5px; }

@@ -1,4 +1,4 @@
-<ion-view class="recommend" view-title="Коментарі">
+<ion-view class="comments" view-title="Коментарі">
     <ion-content>
         <div class="row" ng-repeat="item in vm.comments">
             <div class="col">
@@ -17,7 +17,9 @@
     </ion-content>
     <div class="comment-field">
         <div class="row">
-            <img class="avatar" src="{{vm.user.avatar}}" alt="user">
+            <div class="avatar">
+                <img ng-src="{{vm.user.avatar}}" alt="user">
+            </div>
             <input ng-model="vm.user.comment" type="text" placeholder="Додати коментар">
             <md-button class="md-fab md-mini" ng-disabled="vm.user.comment == ''" ng-click="vm.addComment()">
                 <md-icon md-font-icon="fa fa-check fa-lg" aria-hidden="true"></md-icon>
