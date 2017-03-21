@@ -12,7 +12,7 @@
     function mainConfig($stateProvider, $urlRouterProvider, $ionicLoadingConfig, $ionicConfigProvider, $mdGestureProvider) {
 
         // $ionicConfigProvider.views.maxCache(0);
-        $ionicConfigProvider.backButton.text('Back');
+        $ionicConfigProvider.backButton.text('');
         $ionicConfigProvider.views.swipeBackEnabled(false);
         $mdGestureProvider.skipClickHijack();
 

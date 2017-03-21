@@ -36,6 +36,7 @@
             $rootScope.$on('$stateChangeStart',
                 function (event, toState, toParams, fromState, fromParams) {
                     $rootScope.toState = toState.name;
+                    console.log(toState.name);
                 });
 
             /**
