@@ -8,7 +8,6 @@
     OrderAdd.$inject = ['$rootScope', '$scope', '$q'];
 
     function OrderAdd($rootScope, $scope, $q) {
-
         var vm = this;
 
         vm.search = search;
