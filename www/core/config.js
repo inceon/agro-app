@@ -104,6 +104,16 @@
                     }
                 }
             })
+            .state('app.comments', {
+                url: '/comments',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'views/comments/comments.html',
+                        controller: 'Comments',
+                        controllerAs: 'vm'
+                    }
+                }
+            })
             .state('app.order_add', {
                 url: '/order_add',
                 views: {

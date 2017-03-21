@@ -45,7 +45,7 @@
                         mapTypeId: google.maps.MapTypeId.ROADMAP
                     };
 
-                    // vm.map = new google.maps.Map(document.getElementById("map"), mapOptions);
+                    vm.map = new google.maps.Map(document.getElementById("map"), mapOptions);
                     vm.gmapsService = new google.maps.places.AutocompleteService();
                 });
             }

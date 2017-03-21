@@ -33,6 +33,10 @@
                 $sessionStorage.auth_key = $localStorage.auth_key;
             }
 
+            $rootScope.$on('$stateChangeStart',
+                function (event, toState, toParams, fromState, fromParams) {
+                    $rootScope.toState = toState.name;
+                });
 
             /**
              * Check whether the user is authorized

@@ -1,0 +1,27 @@
+<ion-view class="recommend" view-title="Коментарі">
+    <ion-content>
+        <div class="row" ng-repeat="item in vm.comments">
+            <div class="col">
+                <div class="item">
+                    <img src="{{item.img}}"
+                         alt="avatar"
+                         class="avatar"/>
+                    <h2>{{item.user}}</h2>
+                    <p>
+                        {{item.text}}
+                        <span class="date">{{item.date | date: 'dd.mm.yyyy'}}</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+    <div class="comment-field">
+        <div class="row">
+            <img class="avatar" src="{{vm.user.avatar}}" alt="user">
+            <input ng-model="vm.user.comment" type="text" placeholder="Додати коментар">
+            <md-button class="md-fab md-mini" ng-disabled="vm.user.comment == ''" ng-click="vm.addComment()">
+                <md-icon md-font-icon="fa fa-check fa-lg" aria-hidden="true"></md-icon>
+            </md-button>
+        </div>
+    </div>
+</ion-view>
