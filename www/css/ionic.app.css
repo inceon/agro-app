@@ -10112,7 +10112,7 @@ md-input-container:not(.md-input-invalid).md-input-has-value {
       .order_add .item md-autocomplete .md-whiteframe-z1 {
         box-shadow: none; }
       .order_add .item md-autocomplete input {
-        padding: 5px; }
+        padding: 5px 0; }
     .order_add .item md-input-container:not(.md-input-invalid).md-input-has-value .md-input {
       border-bottom: none;
       color: #eee; }
