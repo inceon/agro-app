@@ -18,6 +18,7 @@
         vm.changeCity = changeCity;
         vm.selectedItem = '';
         vm.data = {};
+        vm.callbackMethod = callbackMethod;
 
         function logout() {
             $state.go('login');
@@ -28,7 +29,7 @@
         }
 
         function showMap() {
-            if(vm.modal) {
+            if (vm.modal) {
                 vm.modal.show();
             } else {
                 $ionicModal.fromTemplateUrl('views/order_list/map.modal.html', {
@@ -37,24 +38,24 @@
                 }).then(function (modal) {
                     vm.modal = modal;
                     vm.modal.show();
-                    var latLng = new google.maps.LatLng(50, 50);
+                    var latLng = new google.maps.LatLng(0, 0);
 
                     var mapOptions = {
                         center: latLng,
-                        zoom: 5,
+                        zoom: 8,
                         mapTypeId: google.maps.MapTypeId.ROADMAP
                     };
-
+                    vm.geocoder = new google.maps.Geocoder();
                     vm.map = new google.maps.Map(document.getElementById("map"), mapOptions);
                     vm.gmapsService = new google.maps.places.AutocompleteService();
                 });
             }
 
-            vm.closeModal = function() {
+            vm.closeModal = function () {
                 vm.modal.hide();
             };
             // Cleanup the modal when we're done with it!
-            $scope.$on('$destroy', function() {
+            $scope.$on('$destroy', function () {
                 vm.modal.remove();
             });
         }
@@ -63,13 +64,29 @@
             $scope.coord = [0, 0];
         }
 
+        function callbackMethod(query, isInitializing) {
+            var deferred = $q.defer();
+            getResults(query).then(
+                function (predictions) {
+                    var results = [];
+                    for (var i = 0, prediction; prediction = predictions[i]; i++) {
+                        results.push(prediction);
+                    }
+                    deferred.resolve(results);
+                }
+            );
+            return deferred.promise;
+        }
+
         function search(address) {
             var deferred = $q.defer();
             getResults(address).then(
                 function (predictions) {
                     var results = [];
-                    for (var i = 0, prediction; prediction = predictions[i]; i++) {
-                        results.push(prediction);
+                    if (predictions) {
+                        for (var i = 0, prediction; prediction = predictions[i]; i++) {
+                            results.push(prediction);
+                        }
                     }
                     deferred.resolve(results);
                 }
@@ -82,18 +99,30 @@
             try {
                 vm.gmapsService.getPlacePredictions({
                     input: address,
-                    types: ['(cities)'],
                     componentRestrictions: {country: 'ua'}
                 }, function (data) {
-                    console.log(data);
                     deferred.resolve(data);
                 });
-            } catch (e) {}
+            } catch (e) {
+                console.log(e);
+            }
             return deferred.promise;
         }
 
-        function changeCity(){
-            console.log('click');
+        function changeCity() {
+            if (vm.selectedItem) {
+                vm.geocoder.geocode({'address': vm.selectedItem.description}, function (results, status) {
+                    if (status == google.maps.GeocoderStatus.OK) {
+                        vm.map.setCenter(results[0].geometry.location);
+                        var marker = new google.maps.Marker({
+                            map: vm.map,
+                            position: results[0].geometry.location
+                        });
+                    } else {
+                        alert("Geocode was not successful for the following reason: " + status);
+                    }
+                });
+            }
             console.log(vm.selectedItem);
         }
     }

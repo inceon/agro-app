@@ -9,8 +9,9 @@
                 </button>
             </ion-nav-buttons>
 
-            <ion-nav-buttons side="right" ng-if="$root.toState == 'app.order_list'">
+            <ion-nav-buttons side="right">
                 <div class="button button-icon button-clear fa fa-map-marker"
+                     ng-if="$root.toState == 'app.order_list'"
                      style="color: indianred"
                      ng-click="vm.showMap()">
                 </div>

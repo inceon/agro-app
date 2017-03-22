@@ -10444,7 +10444,7 @@ md-input-container:not(.md-input-invalid).md-input-has-value {
         border-radius: 50%; }
     .comments .comment-field .row .md-button.md-fab.md-mini {
       margin: 0;
-      width: 100px;
+      width: 80px;
       height: 68px;
       border-radius: 0;
       background-color: #515151; }

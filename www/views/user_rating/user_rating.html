@@ -22,7 +22,8 @@
         <span class="text">Відгуки про роботу</span>
         <div class="row">
             <div class="col">
-                <div class="item waves-effect waves-light" ng-repeat="item in vm.items" ng-init="limit = 100" ng-click="(limit == 100?limit = 100000:limit = 100); item.trunced = !item.trunced">
+                <div class="item waves-effect waves-light" ng-repeat="item in vm.items" ng-init="limit = 100"
+                     ng-click="(limit == 100?limit = 100000:limit = 100); item.trunced = !item.trunced">
                     <div class="avatar">
                         <img ng-src="{{item.avatar}}"
                              alt="avatar"/>
