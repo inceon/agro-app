@@ -36,7 +36,7 @@
                         <div class="images" ng-if="item.images">
                             <img ng-src="{{link}}"
                                  ng-repeat="link in item.images track by $index"
-                                 ng-click="vm.showImage(link)">
+                                 ng-click="vm.showImage(item.images)">
                         </div>
 
                         <p class="footer-info">

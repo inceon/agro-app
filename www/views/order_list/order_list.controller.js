@@ -88,13 +88,13 @@
         }
 
 
-        function showImage(file) {
+        function showImage(images) {
             $ionicModal.fromTemplateUrl('views/order_list/image_popover/image.html', {
                 scope: $scope,
                 animation: 'slide-in-up'
             }).then(function (modal) {
                 vm.modalImage = modal;
-                vm.modalImage.file = file;
+                vm.modalImage.images = images;
                 vm.modalImage.show();
             });
         }
