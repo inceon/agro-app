@@ -11,6 +11,7 @@
 
             <ion-nav-buttons side="right">
                 <div class="button button-icon button-clear fa fa-map-marker"
+                     ng-if="$root.toState == 'app.order_list'"
                      style="color: indianred"
                      ng-click="vm.showMap()"
                      ng-if="$root.toState == 'app.order_list'">

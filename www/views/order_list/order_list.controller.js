@@ -18,6 +18,9 @@
         vm.callUser = callUser;
         vm.showImage = showImage;
         vm.closeModal = closeModal;
+        vm.changeCity = function () {
+            console.log(vm.selectedItem);
+        };
 
         vm.items = [
             {
