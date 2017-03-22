@@ -4,6 +4,9 @@
 (function() {
     'use strict';
     angular
-        .module('directives.module', []);
+        .module('directives.module', [
+            'directive.truncText',
+            'directive.textOverflow'
+        ]);
 })();
 

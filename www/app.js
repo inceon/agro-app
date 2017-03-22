@@ -36,16 +36,15 @@
             $rootScope.$on('$stateChangeStart',
                 function (event, toState, toParams, fromState, fromParams) {
                     $rootScope.toState = toState.name;
-                    console.log(toState.name);
                 });
 
             /**
              * Check whether the user is authorized
              */
             if ($sessionStorage.auth_key) {
-                $state.go('app.order_list');
+                $state.go('app.comments');
             } else {
-                $state.go('app.order_list');
+                $state.go('app.comments');
             }
 
         });

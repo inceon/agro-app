@@ -20,6 +20,9 @@
             font-size: 0.9em;
             text-align: justify;
             line-height: 1.3em;
+            &.text {
+                font-size: 1em;
+            }
         }
 
         .date {

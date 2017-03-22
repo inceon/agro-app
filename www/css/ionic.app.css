@@ -10345,6 +10345,8 @@ md-input-container:not(.md-input-invalid).md-input-has-value {
   font-size: 0.9em;
   text-align: justify;
   line-height: 1.3em; }
+  .recommend .item p.text, .comments .item p.text {
+    font-size: 1em; }
 
 .recommend .item .date, .comments .item .date {
   display: block;
