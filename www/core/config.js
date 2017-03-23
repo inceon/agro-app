@@ -70,11 +70,13 @@
                         controller: 'SectionList',
                         controllerAs: 'vm'
                     }
+                },
+                params: {
+                    type: null
                 }
             })
             .state('app.news', {
                 url: '/news',
-                cache: false,
                 views: {
                     'menuContent': {
                         templateUrl: 'views/news/news.html',
@@ -85,7 +87,6 @@
             })
             .state('app.news_details', {
                 url: '/news_details',
-                cache: false,
                 views: {
                     'menuContent': {
                         templateUrl: 'views/news_details/news_details.html',
@@ -104,7 +105,10 @@
                     }
                 },
                 params: {
-                    section: null
+                    type: null,
+                    section: null,
+                    tag: null,
+                    city: null
                 }
             })
             .state('app.google_map', {
@@ -115,6 +119,11 @@
                         controller: 'GoogleMap',
                         controllerAs: 'vm'
                     }
+                },
+                params: {
+                    type: null,
+                    section: null,
+                    tag: null
                 }
             })
             .state('app.comments', {

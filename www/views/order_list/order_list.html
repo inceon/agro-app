@@ -1,4 +1,4 @@
-<ion-view class="order_list" view-title="Купити">
+<ion-view class="order_list" view-title="{{vm.type}}">
     <ion-content>
         <div class="row">
             <div class="col">
@@ -7,9 +7,27 @@
                         <span>
                             #{{vm.section | lowercase}}
                         </span>
+                        <span>
+                            {{vm.tag}}
+                        </span>
                     </div>
-                    <div class="more">
-                        ...
+                    <div class="more"
+                         ng-init="hideAllTags = true"
+                         ng-click="hideAllTags = !hideAllTags">
+                        <i ng-show="hideAllTags">...</i>
+                        <i ng-hide="hideAllTags" class="fa fa-caret-down" aria-hidden="true"></i>
+                    </div>
+
+                    <div ng-hide="hideAllTags" class="all-tags">
+                        <span ng-repeat="hashtag in ['#просо', '#жито', '#пшениця', '#сіно', '#юра']"
+                              ng-click="(vm.tag == hashtag?vm.tag = null:vm.tag = hashtag)"
+                              ng-class="{'no-active':vm.tag != hashtag}">
+                            {{hashtag}}
+                        </span>
+                    </div>
+
+                    <div ng-show="vm.city" class="all-tags">
+                        {{vm.city}}
                     </div>
                 </div>
             </div>

@@ -17,7 +17,10 @@
         vm.callUser = callUser;
         vm.showImage = showImage;
         vm.closeModal = closeModal;
+        vm.type = $stateParams.type;
+        vm.tag = $stateParams.tag;
         vm.section = $stateParams.section;
+        vm.city = $stateParams.city;
 
         vm.items = [
             {

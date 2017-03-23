@@ -5,11 +5,12 @@
         .module('app')
         .controller('SectionList', SectionList);
 
-    SectionList.$inject = ['$rootScope', '$state'];
+    SectionList.$inject = ['$rootScope', '$state', '$stateParams'];
 
-    function SectionList($rootScope, $state) {
+    function SectionList($rootScope, $state, $stateParams) {
 
         var vm = this;
+        vm.type = $stateParams.type;
 
         vm.items = [
             {

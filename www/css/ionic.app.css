@@ -9931,6 +9931,8 @@ md-input-container:not(.md-input-invalid).md-input-has-value {
       color: white;
       width: 100%;
       white-space: normal; }
+      .buy .item p span {
+        margin-right: 7px; }
       .buy .item p.trunc {
         white-space: nowrap;
         overflow: hidden;
@@ -9947,11 +9949,24 @@ md-input-container:not(.md-input-invalid).md-input-has-value {
   padding: 8px 8px 8px 15px; }
   .order_list .header .hashtags {
     float: left;
-    font-size: 1.2em; }
+    font-size: 1.3em; }
   .order_list .header .more {
     float: right;
     font-size: 1.5em;
     font-weight: bold; }
+  .order_list .header .all-tags {
+    color: white;
+    margin-top: 5px;
+    font-size: 1.1em; }
+    .order_list .header .all-tags .no-active {
+      color: #999; }
+    .order_list .header .all-tags span {
+      padding: 1px 9px 1px 0; }
+    .order_list .header .all-tags:before {
+      clear: both;
+      content: "";
+      display: table;
+      margin: 5px; }
   .order_list .header:after {
     clear: both;
     content: "";

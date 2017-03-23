@@ -8,12 +8,29 @@
         padding: 8px 8px 8px 15px;
         .hashtags {
             float: left;
-            font-size: 1.2em;
+            font-size: 1.3em;
         }
         .more {
             float: right;
             font-size: 1.5em;
             font-weight: bold;
+        }
+        .all-tags {
+            color: white;
+            margin-top: 5px;
+            font-size: 1.1em;
+            .no-active {
+                color: #999;
+            }
+            span {
+                padding: 1px 9px 1px 0;
+            }
+            &:before {
+                clear: both;
+                content: "";
+                display: table;
+                margin: 5px;
+            }
         }
         &:after {
             clear: both;
@@ -21,6 +38,7 @@
             display: table;
         }
     }
+
     .item {
         .avatar {
             width: 15%;
