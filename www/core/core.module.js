@@ -22,6 +22,5 @@
              */
             'ionic.closePopup',
             'ionic',
-            'ion-autocomplete'
         ])
 })();
