@@ -3,11 +3,11 @@
 
     angular
         .module('app')
-        .controller('Buy', Buy);
+        .controller('SectionList', SectionList);
 
-    Buy.$inject = ['$rootScope', '$state'];
+    SectionList.$inject = ['$rootScope', '$state'];
 
-    function Buy($rootScope, $state) {
+    function SectionList($rootScope, $state) {
 
         var vm = this;
 

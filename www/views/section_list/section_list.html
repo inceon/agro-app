@@ -3,7 +3,7 @@
         <div class="row" ng-repeat="item in vm.items">
             <div class="col">
                 <div class="item" ng-init="item.trunced = true">
-                    <div ui-sref="app.order_list">
+                    <div ui-sref="app.order_list({section:item.name})">
                         <i class="icon fa" ng-class="item.icon" aria-hidden="true"></i>
                         <h2>{{::item.name}}</h2>
                     </div>

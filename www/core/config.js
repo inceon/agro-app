@@ -62,12 +62,12 @@
                     }
                 }
             })
-            .state('app.buy', {
-                url: '/buy',
+            .state('app.section_list', {
+                url: '/section_list',
                 views: {
                     'menuContent': {
-                        templateUrl: 'views/buy/buy.html',
-                        controller: 'Buy',
+                        templateUrl: 'views/section_list/section_list.html',
+                        controller: 'SectionList',
                         controllerAs: 'vm'
                     }
                 }
@@ -102,16 +102,9 @@
                         controller: 'OrderList',
                         controllerAs: 'vm'
                     }
-                }
-            })
-            .state('app.comments', {
-                url: '/comments',
-                views: {
-                    'menuContent': {
-                        templateUrl: 'views/comments/comments.html',
-                        controller: 'Comments',
-                        controllerAs: 'vm'
-                    }
+                },
+                params: {
+                    section: null
                 }
             })
             .state('app.order_add', {
@@ -120,6 +113,21 @@
                     'menuContent': {
                         templateUrl: 'views/order_add/order_add.html',
                         controller: 'OrderAdd',
+                        controllerAs: 'vm'
+                    }
+                },
+                params: {
+                    type: null,
+                    section: null,
+                    tag: null
+                }
+            })
+            .state('app.comments', {
+                url: '/comments',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'views/comments/comments.html',
+                        controller: 'Comments',
                         controllerAs: 'vm'
                     }
                 }
