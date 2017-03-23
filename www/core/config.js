@@ -107,6 +107,26 @@
                     section: null
                 }
             })
+            .state('app.google_map', {
+                url: '/google_map',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'views/google_map/google_map.html',
+                        controller: 'GoogleMap',
+                        controllerAs: 'vm'
+                    }
+                }
+            })
+            .state('app.comments', {
+                url: '/comments',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'views/comments/comments.html',
+                        controller: 'Comments',
+                        controllerAs: 'vm'
+                    }
+                }
+            })
             .state('app.order_add', {
                 url: '/order_add',
                 views: {

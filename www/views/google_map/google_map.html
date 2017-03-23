@@ -1,0 +1,30 @@
+<ion-view class="map-modal" view-title="Google Map">
+    <ion-content>
+        <form name="mapForm" class="list">
+            <md-input-container class="md-block" flex>
+                <label>Введіть адресу</label>
+                <md-autocomplete md-no-cache="true"
+                                 md-selected-item="vm.selectedItem"
+                                 md-search-text-change="vm.search(vm.searchText)"
+                                 md-search-text="vm.searchText"
+                                 md-items="item in vm.search(vm.searchText)"
+                                 md-item-text="item.description"
+                                 md-min-length="0"
+                                 md-selected-item-change="vm.changeCity()"
+                                 name="city">
+                    <md-item-template>
+                        <span md-highlight-text="vm.searchText" md-highlight-flags="^i">{{item.description}}</span>
+                    </md-item-template>
+                    <md-not-found>
+                        Не знайдено "{{vm.searchText}}".
+                    </md-not-found>
+                </md-autocomplete>
+            </md-input-container>
+        </form>
+
+        <div id="map" data-tap-disabled="true"></div>
+    </ion-content>
+    <ion-footer-bar class="bar-dark" align-title="center" ng-click="vm.mapSearch()">
+        <h1 class="title">Пошук</h1>
+    </ion-footer-bar>
+</ion-view>

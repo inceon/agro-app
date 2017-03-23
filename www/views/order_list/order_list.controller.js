@@ -107,6 +107,5 @@
         function closeModal() {
             vm.modalImage.hide();
         }
-
     }
 })();
