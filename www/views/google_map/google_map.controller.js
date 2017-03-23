@@ -3,61 +3,29 @@
 
     angular
         .module('app')
-        .controller('AppCtrl', AppCtrl);
+        .controller('GoogleMap', GoogleMap);
 
-    AppCtrl.$inject = ['$scope', '$state', '$ionicModal', '$q'];
+    GoogleMap.$inject = ['$scope', '$q'];
 
-    function AppCtrl($scope, $state, $ionicModal, $q) {
-
+    function GoogleMap($scope, $q) {
         var vm = this;
-        vm.logout = logout;
-        vm.profile = profile;
-        vm.showMap = showMap;
+
         vm.mapSearch = mapSearch;
         vm.search = search;
         vm.changeCity = changeCity;
         vm.selectedItem = '';
         vm.data = {};
 
-        function logout() {
-            $state.go('login');
-        }
+        var latLng = new google.maps.LatLng(0, 0);
 
-        function profile() {
-            $state.go('app.profile');
-        }
-
-        function showMap() {
-            if (vm.modal) {
-                vm.modal.show();
-            } else {
-                $ionicModal.fromTemplateUrl('views/order_list/map.modal.html', {
-                    scope: $scope,
-                    animation: 'slide-in-up'
-                }).then(function (modal) {
-                    vm.modal = modal;
-                    vm.modal.show();
-                    var latLng = new google.maps.LatLng(0, 0);
-
-                    var mapOptions = {
-                        center: latLng,
-                        zoom: 8,
-                        mapTypeId: google.maps.MapTypeId.ROADMAP
-                    };
-                    vm.geocoder = new google.maps.Geocoder();
-                    vm.map = new google.maps.Map(document.getElementById("map"), mapOptions);
-                    vm.gmapsService = new google.maps.places.AutocompleteService();
-                });
-            }
-
-            vm.closeModal = function () {
-                vm.modal.hide();
-            };
-            // Cleanup the modal when we're done with it!
-            $scope.$on('$destroy', function () {
-                vm.modal.remove();
-            });
-        }
+        var mapOptions = {
+            center: latLng,
+            zoom: 8,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        vm.geocoder = new google.maps.Geocoder();
+        vm.map = new google.maps.Map(document.getElementById("map"), mapOptions);
+        vm.gmapsService = new google.maps.places.AutocompleteService();
 
         function mapSearch() {
             $scope.coord = [0, 0];

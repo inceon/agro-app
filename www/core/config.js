@@ -104,6 +104,16 @@
                     }
                 }
             })
+            .state('app.google_map', {
+                url: '/google_map',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'views/google_map/google_map.html',
+                        controller: 'GoogleMap',
+                        controllerAs: 'vm'
+                    }
+                }
+            })
             .state('app.comments', {
                 url: '/comments',
                 views: {
