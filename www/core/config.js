@@ -142,16 +142,6 @@
                     tag: null
                 }
             })
-            .state('app.comments', {
-                url: '/comments',
-                views: {
-                    'menuContent': {
-                        templateUrl: 'views/comments/comments.html',
-                        controller: 'Comments',
-                        controllerAs: 'vm'
-                    }
-                }
-            })
             .state('app.profile', {
                 url: '/profile',
                 views: {
