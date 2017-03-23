@@ -4,8 +4,8 @@
             <div class="col">
                 <div class="header">
                     <div class="hashtags">
-                        <span ng-repeat="hashtag in ['#зернові', '#мясо'] track by $index">
-                            {{hashtag}}
+                        <span>
+                            #{{vm.section | lowercase}}
                         </span>
                     </div>
                     <div class="more">

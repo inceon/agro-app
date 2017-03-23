@@ -4,7 +4,7 @@
             <div class="col">
                 <div class="item">
                     <div class="input">
-                        #text #text #text
+                        {{vm.type}} #{{vm.section | lowercase}} {{vm.tag}}
                     </div>
                     <div class="input">
                         <md-input-container class="md-block" flex md-no-float>
@@ -81,6 +81,7 @@
                     <div layout="row" layout-margin>
                         <md-button class="md-primary md-raised waves-effect waves-light"
                                    md-colors="{background: 'grey-200'}"
+                                   ng-click="vm.back()"
                                    flex>
                             Відмінити
                         </md-button>

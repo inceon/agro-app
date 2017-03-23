@@ -5,20 +5,23 @@
         .module('app')
         .controller('OrderAdd', OrderAdd);
 
-    OrderAdd.$inject = ['$rootScope', '$scope', '$q'];
+    OrderAdd.$inject = ['$rootScope', '$scope', '$q', '$stateParams', '$ionicHistory'];
 
-    function OrderAdd($rootScope, $scope, $q) {
+    function OrderAdd($rootScope, $scope, $q, $stateParams, $ionicHistory) {
         var vm = this;
 
         vm.search = search;
         vm.changeCity = changeCity;
         vm.upload = upload;
         vm.remove = remove;
+        vm.back = back;
 
         vm.gmapsService = new google.maps.places.AutocompleteService();
         vm.data = {
             attach: []
         };
+
+        angular.extend(vm, $stateParams);
 
         /**
          * Function for uploading files, file save in RAM
@@ -76,6 +79,13 @@
         function changeCity(){
             console.log('click');
             console.log(vm.selectedItem);
+        }
+
+        /**
+         * Function for back button
+         */
+        function back() {
+            $ionicHistory.goBack();
         }
     }
 })();

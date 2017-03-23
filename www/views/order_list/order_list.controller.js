@@ -5,22 +5,19 @@
         .module('app')
         .controller('OrderList', OrderList);
 
-    OrderList.$inject = ['$state', '$scope', '$ionicPopup', 'IonicClosePopupService', '$ionicModal'];
+    OrderList.$inject = ['$state', '$scope', '$ionicPopup', 'IonicClosePopupService', '$ionicModal', '$stateParams'];
 
-    function OrderList($state, $scope, $ionicPopup, IonicClosePopupService, $ionicModal) {
+    function OrderList($state, $scope, $ionicPopup, IonicClosePopupService, $ionicModal, $stateParams) {
 
         var vm = this;
         vm.buy = buy;
         vm.sell = sell;
         vm.showModal = showModal;
         vm.select = select;
-        vm.alertPopup = null;
         vm.callUser = callUser;
         vm.showImage = showImage;
         vm.closeModal = closeModal;
-        vm.changeCity = function () {
-            console.log(vm.selectedItem);
-        };
+        vm.section = $stateParams.section;
 
         vm.items = [
             {
@@ -54,21 +51,22 @@
         ];
 
         function sell() {
-            vm.showModal('Продать сіно');
+            vm.showModal('#продам');
         }
 
         function buy() {
-            vm.showModal('Купить сіно');
+            vm.showModal('#куплю');
         }
 
         function showModal(title) {
-            vm.alertPopup =  $ionicPopup.show({
+            vm.alertPopup = $ionicPopup.show({
                 templateUrl: 'views/order_list/tags.popup.html',
                 title: title,
                 cssClass: 'order-tags-popup',
                 scope: $scope,
                 buttons: []
             });
+            vm.orderType = title;
 
             IonicClosePopupService.register(vm.alertPopup);
         }
@@ -76,7 +74,11 @@
         function select(name) {
             console.log(name);
             vm.alertPopup.close();
-            $state.go('app.order_add');
+            $state.go('app.order_add', {
+                section: vm.section,
+                type: vm.orderType,
+                tag: name
+            });
         }
 
         function callUser(number) {
