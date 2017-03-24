@@ -21,6 +21,6 @@
              * 3rd Party modules
              */
             'ionic.closePopup',
-            'ionic',
+            'ionic'
         ])
 })();
