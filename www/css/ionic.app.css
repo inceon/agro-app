@@ -9945,23 +9945,25 @@ md-input-container:not(.md-input-invalid).md-input-has-value {
 
 .order_list .header {
   color: white;
-  border-bottom: 1px solid gray;
-  padding: 8px 8px 8px 15px; }
+  border-bottom: 1px solid gray; }
   .order_list .header .hashtags {
     float: left;
-    font-size: 1.3em; }
+    font-size: 1.3em;
+    padding: 6px 15px; }
   .order_list .header .more {
     float: right;
     font-size: 1.5em;
-    font-weight: bold; }
+    font-weight: bold;
+    padding: 6px 15px; }
   .order_list .header .all-tags {
     color: white;
-    margin-top: 5px;
+    margin-left: 15px;
+    margin-bottom: 5px;
     font-size: 1.1em; }
     .order_list .header .all-tags .no-active {
       color: #999; }
     .order_list .header .all-tags span {
-      padding: 1px 9px 1px 0; }
+      padding: 6px 9px 6px 0; }
     .order_list .header .all-tags:before {
       clear: both;
       content: "";

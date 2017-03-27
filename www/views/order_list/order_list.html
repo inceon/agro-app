@@ -7,7 +7,7 @@
                         <span>
                             #{{vm.section | lowercase}}
                         </span>
-                        <span>
+                        <span ng-click="vm.tag = null">
                             {{vm.tag}}
                         </span>
                     </div>
@@ -22,7 +22,7 @@
                         <span ng-repeat="hashtag in ['#просо', '#жито', '#пшениця', '#сіно', '#юра']"
                               ng-click="(vm.tag == hashtag?vm.tag = null:vm.tag = hashtag)"
                               ng-class="{'no-active':vm.tag != hashtag}">
-                            {{hashtag}}
+                            {{::hashtag}}
                         </span>
                     </div>
 
@@ -44,7 +44,7 @@
                         <h2 ui-sref="app.user_rating">{{::item.name}} {{::item.surname}}</h2>
                         <p class="hashtag">
                             <span ng-repeat="hashtag in item.hashtags track by $index">
-                                {{hashtag}}
+                                {{::hashtag}}
                             </span>
                         </p>
                         <p class="text">
