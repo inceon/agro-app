@@ -95,12 +95,12 @@
                     }
                 }
             })
-            .state('app.order_list', {
-                url: '/order_list',
+            .state('app.offer_list', {
+                url: '/offer_list',
                 views: {
                     'menuContent': {
-                        templateUrl: 'views/order_list/order_list.html',
-                        controller: 'OrderList',
+                        templateUrl: 'views/offer_list/offer_list.html',
+                        controller: 'offerList',
                         controllerAs: 'vm'
                     }
                 },
@@ -136,12 +136,12 @@
                     }
                 }
             })
-            .state('app.order_add', {
-                url: '/order_add',
+            .state('app.offer_add', {
+                url: '/offer_add',
                 views: {
                     'menuContent': {
-                        templateUrl: 'views/order_add/order_add.html',
-                        controller: 'OrderAdd',
+                        templateUrl: 'views/offer_add/offer_add.html',
+                        controller: 'offerAdd',
                         controllerAs: 'vm'
                     }
                 },

@@ -1,4 +1,4 @@
-<ion-view class="order_list" view-title="{{vm.type}}">
+<ion-view class="offer_list" view-title="{{vm.type}}">
     <ion-content>
         <div class="row">
             <div class="col">
@@ -35,12 +35,12 @@
         <div class="row" ng-repeat="item in vm.items">
             <div class="col">
                 <div class="item">
-                    <div class="avatar">
+                    <div class="avatar" ui-sref="app.user_rating">
                         <img src="img/cm_5Wvf1VuE.jpg"
                              alt="avatar"/>
-                        <h2 ui-sref="app.user_rating">{{::item.name}} {{::item.surname}}</h2>
+                        <h2>{{::item.name}} {{::item.surname}}</h2>
                         <p class="hashtag">
-                            <span ng-repeat="hashtag in item.hashtags track by $index">
+                            <span ng-repeat="hashtag in item.hashtags track by $index" ng-click="$event.stopPropagation();">
                                 {{::hashtag}}
                             </span>
                         </p>

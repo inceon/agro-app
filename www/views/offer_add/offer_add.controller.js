@@ -3,11 +3,11 @@
 
     angular
         .module('app')
-        .controller('OrderAdd', OrderAdd);
+        .controller('offerAdd', offerAdd);
 
-    OrderAdd.$inject = ['$rootScope', '$scope', '$q', '$stateParams', '$ionicHistory'];
+    offerAdd.$inject = ['$rootScope', '$scope', '$q', '$stateParams', '$ionicHistory'];
 
-    function OrderAdd($rootScope, $scope, $q, $stateParams, $ionicHistory) {
+    function offerAdd($rootScope, $scope, $q, $stateParams, $ionicHistory) {
         var vm = this;
 
         vm.search = search;

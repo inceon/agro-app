@@ -3,14 +3,14 @@
         <div class="row" ng-repeat="item in vm.items">
             <div class="col">
                 <div class="item" ng-init="item.trunced = true">
-                    <div ui-sref="app.order_list({type:vm.type, section:item.name})">
+                    <div ui-sref="app.offer_list({type:vm.type, section:item.name})">
                         <i class="icon fa" ng-class="item.icon" aria-hidden="true"></i>
                         <h2>{{::item.name}}</h2>
                     </div>
                     <div class="row">
                         <p ng-class="{'trunc':item.trunced}">
                             <span ng-repeat="hashtag in item.hashtags track by $index"
-                                  ui-sref="app.order_list({type:vm.type, section:item.name, tag: hashtag})">
+                                  ui-sref="app.offer_list({type:vm.type, section:item.name, tag: hashtag})">
                                 {{hashtag}}
                             </span>
                         </p>

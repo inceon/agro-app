@@ -3,11 +3,11 @@
 
     angular
         .module('app')
-        .controller('OrderList', OrderList);
+        .controller('offerList', offerList);
 
-    OrderList.$inject = ['$state', '$scope', '$ionicPopup', 'IonicClosePopupService', '$ionicModal', '$stateParams'];
+    offerList.$inject = ['$state', '$scope', '$ionicPopup', 'IonicClosePopupService', '$ionicModal', '$stateParams'];
 
-    function OrderList($state, $scope, $ionicPopup, IonicClosePopupService, $ionicModal, $stateParams) {
+    function offerList($state, $scope, $ionicPopup, IonicClosePopupService, $ionicModal, $stateParams) {
 
         var vm = this;
         vm.buy = buy;
@@ -63,13 +63,13 @@
 
         function showModal(title) {
             vm.alertPopup = $ionicPopup.show({
-                templateUrl: 'views/order_list/tags.popup.html',
+                templateUrl: 'views/offer_list/tags.popup.html',
                 title: title,
-                cssClass: 'order-tags-popup',
+                cssClass: 'offer-tags-popup',
                 scope: $scope,
                 buttons: []
             });
-            vm.orderType = title;
+            vm.offerType = title;
 
             IonicClosePopupService.register(vm.alertPopup);
         }
@@ -77,16 +77,16 @@
         function select(name) {
             console.log(name);
             vm.alertPopup.close();
-            $state.go('app.order_add', {
+            $state.go('app.offer_add', {
                 section: vm.section,
-                type: vm.orderType,
+                type: vm.offerType,
                 tag: name
             });
         }
 
         function callUser(number) {
             vm.callDialog = $ionicPopup.show({
-                templateUrl: 'views/order_list/call.popup.html',
+                templateUrl: 'views/offer_list/call.popup.html',
                 scope: $scope,
                 cssClass: 'call-popup',
                 buttons: []
@@ -97,7 +97,7 @@
 
 
         function showImage(images) {
-            $ionicModal.fromTemplateUrl('views/order_list/image_popover/image.html', {
+            $ionicModal.fromTemplateUrl('views/offer_list/image_popover/image.html', {
                 scope: $scope,
                 animation: 'slide-in-up'
             }).then(function (modal) {
