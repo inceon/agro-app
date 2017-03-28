@@ -9932,13 +9932,14 @@ md-input-container:not(.md-input-invalid).md-input-has-value {
       width: 100%;
       white-space: normal; }
       .buy .item p span {
-        margin-right: 7px; }
+        padding: 7px 7px 7px 0; }
       .buy .item p.trunc {
         white-space: nowrap;
         overflow: hidden;
         text-overflow: clip; }
     .buy .item .overflow {
-      padding: 0 5px; }
+      padding: 0 5px;
+      float: right; }
 
 .offer_list ion-content {
   padding-bottom: 15px; }
