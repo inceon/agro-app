@@ -9989,6 +9989,9 @@ md-input-container:not(.md-input-invalid).md-input-has-value {
   .offer_list .item .avatar .hashtag {
     font-size: 1em;
     color: #aaa; }
+    .offer_list .item .avatar .hashtag span {
+      padding: 8px 5px;
+      padding-left: 0; }
 
 .offer_list .item .info {
   width: 100%;
@@ -10012,11 +10015,12 @@ md-input-container:not(.md-input-invalid).md-input-has-value {
     color: #ccc;
     margin-top: 6px; }
     .offer_list .item .info .footer-info .city {
-      float: left; }
+      float: left;
+      padding-top: 5px; }
     .offer_list .item .info .footer-info .action {
       float: right; }
       .offer_list .item .info .footer-info .action i {
-        padding: 4px 7px; }
+        padding: 7px; }
 
 .offer_list .row:last-of-type {
   margin-bottom: 70px; }

@@ -60,6 +60,10 @@
             .hashtag {
                 font-size: 1em;
                 color: #aaa;
+                span {
+                    padding: 8px 5px;
+                    padding-left: 0;
+                }
             }
         }
         .info {
@@ -92,12 +96,13 @@
                 margin-top: 6px;
                 .city {
                     float: left;
+                    padding-top: 5px;
                 }
 
                 .action {
                     float: right;
                     i {
-                        padding: 4px 7px;
+                        padding: 7px;
                     }
                 }
             }
