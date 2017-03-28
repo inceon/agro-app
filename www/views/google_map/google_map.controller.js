@@ -5,16 +5,18 @@
         .module('app')
         .controller('GoogleMap', GoogleMap);
 
-    GoogleMap.$inject = ['$scope', '$stateParams', '$q'];
+    GoogleMap.$inject = ['$scope', '$stateParams', '$q', '$rootScope', '$ionicHistory'];
 
-    function GoogleMap($scope, $stateParams, $q) {
+    function GoogleMap($scope, $stateParams, $q, $rootScope, $ionicHistory) {
         var vm = this;
 
         vm.mapSearch = mapSearch;
         vm.search = search;
         vm.changeCity = changeCity;
+        vm.back = back;
+        $rootScope.filter = {};
         vm.selectedItem = '';
-        vm.data = {};
+
 
         var latLng = new google.maps.LatLng(0, 0);
 
@@ -70,11 +72,12 @@
 
         function changeCity() {
             if (vm.selectedItem) {
+                console.log(vm.selectedItem);
+                $rootScope.filter.city = vm.selectedItem.terms[0].value + ', ' + vm.selectedItem.terms[1].value;
                 vm.geocoder.geocode({'address': vm.selectedItem.description}, function (results, status) {
                     if (status == google.maps.GeocoderStatus.OK) {
                         vm.map.setCenter(results[0].geometry.location);
-                        $stateParams.city = results[0].geometry.location;
-                        console.log($stateParams.city);
+                        
                         vm.searchText = vm.selectedItem.description;
                         marker.setMap(null);
                         marker = new google.maps.Marker({
@@ -86,6 +89,13 @@
                     }
                 });
             }
+        }
+
+        /**
+         * Function for back button
+         */
+        function back() {
+            $ionicHistory.goBack();
         }
     }
 })();

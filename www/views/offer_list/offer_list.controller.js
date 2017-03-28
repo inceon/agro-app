@@ -5,9 +5,9 @@
         .module('app')
         .controller('offerList', offerList);
 
-    offerList.$inject = ['$state', '$scope', '$ionicPopup', 'IonicClosePopupService', '$ionicModal', '$stateParams'];
+    offerList.$inject = ['$state', '$scope', '$ionicPopup', 'IonicClosePopupService', '$ionicModal', '$stateParams', '$rootScope'];
 
-    function offerList($state, $scope, $ionicPopup, IonicClosePopupService, $ionicModal, $stateParams) {
+    function offerList($state, $scope, $ionicPopup, IonicClosePopupService, $ionicModal, $stateParams, $rootScope) {
 
         console.log($stateParams.city);
 
@@ -22,7 +22,8 @@
         vm.type = $stateParams.type;
         vm.tag = $stateParams.tag;
         vm.section = $stateParams.section;
-        vm.city = $stateParams.city;
+        vm.city = $rootScope.filter?$rootScope.filter.city:0;
+
 
         vm.items = [
             {
