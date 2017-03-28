@@ -38,15 +38,15 @@
                     <div class="avatar">
                         <img src="img/cm_5Wvf1VuE.jpg"
                              alt="avatar"/>
-                    </div>
-
-                    <div class="info">
                         <h2 ui-sref="app.user_rating">{{::item.name}} {{::item.surname}}</h2>
                         <p class="hashtag">
                             <span ng-repeat="hashtag in item.hashtags track by $index">
                                 {{::hashtag}}
                             </span>
                         </p>
+                    </div>
+
+                    <div class="info">
                         <p class="text">
                             {{::item.text}}
                         </p>

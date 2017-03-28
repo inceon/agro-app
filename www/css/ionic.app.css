@@ -9975,25 +9975,24 @@ md-input-container:not(.md-input-invalid).md-input-has-value {
     display: table; }
 
 .order_list .item .avatar {
-  width: 15%;
-  display: inline-block;
-  margin-right: 10px; }
+  width: 100%; }
   .order_list .item .avatar img {
-    width: 100%;
-    border-radius: 50%; }
-
-.order_list .item .info {
-  float: right;
-  width: 80%;
-  padding-top: 5px; }
-  .order_list .item .info h2 {
+    width: 15%;
+    border-radius: 50%;
+    margin-right: 15px;
+    float: left; }
+  .order_list .item .avatar h2 {
     font-size: 1.05em;
     font-weight: bold;
     color: white;
     margin-bottom: 5px; }
-  .order_list .item .info .hashtag {
+  .order_list .item .avatar .hashtag {
     font-size: 1em;
     color: #aaa; }
+
+.order_list .item .info {
+  width: 100%;
+  padding-top: 5px; }
   .order_list .item .info .text {
     white-space: normal;
     color: white;
