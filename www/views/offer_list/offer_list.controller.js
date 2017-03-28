@@ -9,6 +9,8 @@
 
     function offerList($state, $scope, $ionicPopup, IonicClosePopupService, $ionicModal, $stateParams) {
 
+        console.log($stateParams.city);
+
         var vm = this;
         vm.buy = buy;
         vm.sell = sell;

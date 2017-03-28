@@ -10,7 +10,7 @@
     </ion-header-bar>
     <ion-content>
         <form name="mapForm" class="list">
-            <md-input-container class="md-block" flex style="z-index: 99999999999">
+            <md-input-container class="md-block" flex>
                 <label>Введіть адресу</label>
                 <md-autocomplete md-no-cache="true"
                                  md-selected-item="vm.selectedItem"
@@ -20,8 +20,7 @@
                                  md-item-text="item.description"
                                  md-min-length="0"
                                  md-selected-item-change="vm.changeCity()"
-                                 name="city"
-                                 style="z-index: 99999999999">
+                                 name="city">
                     <md-item-template>
                         <span md-highlight-text="vm.searchText" md-highlight-flags="^i">{{item.description}}</span>
                     </md-item-template>

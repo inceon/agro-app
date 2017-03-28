@@ -123,7 +123,8 @@
                 params: {
                     type: null,
                     section: null,
-                    tag: null
+                    tag: null,
+                    city: null
                 }
             })
             .state('app.comments', {
