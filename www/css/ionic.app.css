@@ -10095,6 +10095,7 @@ md-input-container:not(.md-input-invalid).md-input-has-value {
     border-radius: 50%; }
   .call-popup .user .name {
     padding: 12px;
+    font-size: 1.2em;
     color: white; }
 
 .call-popup .programs {
@@ -10109,6 +10110,7 @@ md-input-container:not(.md-input-invalid).md-input-has-value {
     height: 30px; }
   .call-popup .programs .label {
     padding: 15px;
+    font-size: 1.2em;
     color: white; }
 
 .call-popup .programs.row {
