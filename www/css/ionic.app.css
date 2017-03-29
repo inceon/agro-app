@@ -9858,6 +9858,24 @@ md-input-container:not(.md-input-invalid).md-input-has-value {
   border: 1px solid #333;
   color: white; }
 
+.checkProfileComplete .popup {
+  background-color: #424242;
+  color: white; }
+  .checkProfileComplete .popup .popup-head {
+    border-bottom: 1px solid black; }
+    .checkProfileComplete .popup .popup-head .popup-title {
+      color: white;
+      font-weight: bold;
+      font-size: 1.2em; }
+  .checkProfileComplete .popup .popup-buttons {
+    min-height: 55px; }
+    .checkProfileComplete .popup .popup-buttons .button {
+      min-height: 30px; }
+      .checkProfileComplete .popup .popup-buttons .button.button-positive {
+        background-color: #797979; }
+      .checkProfileComplete .popup .popup-buttons .button.button-default {
+        background-color: #E8E8E8; }
+
 .login p.title, .reset-password p.title {
   color: #ccc;
   padding: 15%;

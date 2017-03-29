@@ -42,9 +42,9 @@
              * Check whether the user is authorized
              */
             if ($sessionStorage.auth_key) {
-                $state.go('app.section_list');
+                $state.go('app.comments');
             } else {
-                $state.go('app.section_list');
+                $state.go('app.comments');
             }
 
         });

@@ -8,9 +8,9 @@
         .module('app')
         .controller('Comments', Comments);
 
-    Comments.$inject = ['$rootScope', '$state'];
+    Comments.$inject = ['$rootScope', '$state', 'user'];
 
-    function Comments($rootScope, $state) {
+    function Comments($rootScope, $state, user) {
         var vm = this;
         vm.user = {
             avatar: 'img/cm_5Wvf1VuE.jpg',
@@ -34,13 +34,15 @@
         ];
 
         function addComment() {
-            vm.comments.push({
-                img: vm.user.avatar,
-                user: 'Юля Кириченко',
-                text: vm.user.comment,
-                date: new Date()
-            });
-            vm.user.comment = '';
+            if(user.checkProfileComplete()) {
+                vm.comments.push({
+                    img: vm.user.avatar,
+                    user: 'Юля Кириченко',
+                    text: vm.user.comment,
+                    date: new Date()
+                });
+                vm.user.comment = '';
+            }
         }
     }
 })();

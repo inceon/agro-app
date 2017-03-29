@@ -52,6 +52,33 @@ md-input-container:not(.md-input-invalid).md-input-has-value{
     color: white;
 }
 
+.checkProfileComplete {
+    .popup {
+        background-color: #424242;
+        color: white;
+        .popup-head {
+            border-bottom: 1px solid black;
+            .popup-title {
+                color: white;
+                font-weight: bold;
+                font-size: 1.2em;
+            }
+        }
+        .popup-buttons {
+            min-height: 55px;
+            .button {
+                min-height: 30px;
+                &.button-positive {
+                    background-color: #797979;
+                }
+                &.button-default {
+                    background-color: #E8E8E8;
+                }
+            }
+        }
+    }
+}
+
 @import "www/views/login/login";
 @import "www/views/signup/signup";
 @import "www/views/reset_password/reset_password";
