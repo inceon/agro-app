@@ -5,9 +5,9 @@
         .module('app')
         .controller('offerList', offerList);
 
-    offerList.$inject = ['$state', '$scope', '$ionicPopup', 'IonicClosePopupService', '$ionicModal', '$stateParams', '$rootScope'];
+    offerList.$inject = ['$state', '$scope', '$ionicPopup', 'IonicClosePopupService', '$ionicModal', '$stateParams', '$rootScope', '$ionicSlideBoxDelegate'];
 
-    function offerList($state, $scope, $ionicPopup, IonicClosePopupService, $ionicModal, $stateParams, $rootScope) {
+    function offerList($state, $scope, $ionicPopup, IonicClosePopupService, $ionicModal, $stateParams, $rootScope, $ionicSlideBoxDelegate) {
 
         console.log($stateParams.city);
 
@@ -23,6 +23,8 @@
         vm.tag = $stateParams.tag;
         vm.section = $stateParams.section;
         vm.city = $rootScope.filter?$rootScope.filter.city:0;
+        vm.next = next;
+        vm.previous = previous;
 
 
         vm.items = [
@@ -113,5 +115,12 @@
         function closeModal() {
             vm.modalImage.hide();
         }
+
+        function next() {
+            $ionicSlideBoxDelegate.next();
+        };
+        function previous() {
+            $ionicSlideBoxDelegate.previous();
+        };
     }
 })();

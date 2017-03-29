@@ -1,6 +1,16 @@
 <div class="modal image-modal transparent" >
     <ion-pane class="transparent" ng-click="vm.closeModal()">
-        <ion-slide-box>
+    	<div class="left">
+            <div class="button button-positive button-clear no-animation icon ion-chevron-left"
+                    ng-click="vm.previous(); $event.stopPropagation();">
+            </div>
+        </div>
+        <div class="right">
+            <div class="button button-positive button-clear no-animation icon ion-chevron-right"
+                    ng-click="vm.next(); $event.stopPropagation();">
+            </div>
+        </div>
+        <ion-slide-box active-slide="vm.slide" does-continue="true">
             <ion-slide ng-repeat="image in vm.modalImage.images track by $index">
                 <img ng-src="{{image}}" class="fullscreen-image" />
             </ion-slide>

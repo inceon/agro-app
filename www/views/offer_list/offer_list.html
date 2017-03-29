@@ -54,7 +54,7 @@
                         <div class="images" ng-if="item.images">
                             <img ng-src="{{link}}"
                                  ng-repeat="link in item.images track by $index"
-                                 ng-click="vm.showImage(item.images)">
+                                 ng-click="vm.slide = $index; vm.showImage(item.images)">
                         </div>
 
                         <p class="footer-info">
