@@ -9996,7 +9996,7 @@ md-input-container:not(.md-input-invalid).md-input-has-value {
 .offer_list .item .avatar {
   width: 100%; }
   .offer_list .item .avatar img {
-    width: 15%;
+    width: 50px;
     border-radius: 50%;
     margin-right: 15px;
     float: left; }
@@ -10425,15 +10425,20 @@ md-input-container:not(.md-input-invalid).md-input-has-value {
   text-align: justify;
   line-height: 1.3em; }
   .recommend .item p.text, .comments .item p.text {
-    font-size: 1em; }
+    font-size: 1em;
+    width: 100%;
+    margin-top: 8px; }
 
 .recommend .item .date, .comments .item .date {
   display: block;
   color: #ccc;
   margin-top: 6px; }
 
+.recommend .row:last-of-type, .comments .row:last-of-type {
+  margin-bottom: 70px; }
+
 .recommend .add, .comments .add {
-  position: absolute;
+  position: fixed;
   right: 5px;
   bottom: 9px; }
 
@@ -10466,20 +10471,21 @@ md-input-container:not(.md-input-invalid).md-input-has-value {
     .news .card-news .card-img {
       border-radius: 2px 2px 0 0;
       width: 100%;
-      max-height: 240px;
+      max-height: 200px;
       overflow: hidden; }
       .news .card-news .card-img img {
         width: 100%;
         height: auto;
         border-radius: inherit; }
     .news .card-news .card-title {
-      padding: 10px 16px;
+      margin: 15px 16px 0px;
       display: flex;
       -webkit-box-flex: 1;
-      font-size: 1rem; }
+      font-size: 1.2rem; }
     .news .card-news .card-text {
       padding: 0 16px 16px; }
       .news .card-news .card-text p {
+        text-align: justify;
         color: #878787;
         height: 80px;
         display: -webkit-box;
@@ -10517,7 +10523,7 @@ md-input-container:not(.md-input-invalid).md-input-has-value {
   .comments .comment-field .row {
     padding: 0; }
     .comments .comment-field .row .avatar {
-      width: 17%;
+      width: 68px;
       display: inline-block;
       margin: 10px 5px 3px 10px; }
       .comments .comment-field .row .avatar img {
