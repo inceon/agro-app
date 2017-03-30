@@ -3,17 +3,17 @@
         <div class="row" ng-repeat="item in vm.comments">
             <div class="col">
                 <div class="item">
-                    <img ng-src="{{item.img}}"
-                         alt="avatar"
-                         class="avatar"/>
-                    <h2>{{item.user}}</h2>
-                    <p>
-                        <trunc-text limit="120"
-                                    more-text="Показати більше"
-                                    text="item.text">
-                        </trunc-text>
-                        <span class="date">{{item.date | date: 'dd.mm.yyyy'}}</span>
-                    </p>
+                    <div>
+                        <img ng-src="{{item.img}}"
+                             alt="avatar"
+                             class="avatar"/>
+                        <h2>{{item.user}}</h2>
+                        <p class="date">{{item.date | date: 'dd.mm.yyyy'}}</p>
+                    </div>
+                    <trunc-text limit="120"
+                                more-text="Показати більше"
+                                text="item.text">
+                    </trunc-text>
                 </div>
             </div>
         </div>

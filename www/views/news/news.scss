@@ -10,7 +10,7 @@
     .card-img {
       border-radius: 2px 2px 0 0;
       width: 100%;
-      max-height: 240px;
+      max-height: 200px;
       overflow: hidden;
       img {
         width: 100%;
@@ -19,14 +19,15 @@
       }
     }
     .card-title {
-      padding: 10px 16px;
+      margin: 15px 16px 0px;
       display: flex;
       -webkit-box-flex: 1;
-      font-size: 1rem;
+      font-size: 1.2rem;
     }
     .card-text {
       padding: 0 16px 16px;
       p {
+        text-align: justify;
         color: #878787;
         height: 80px;
         display: -webkit-box;
