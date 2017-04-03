@@ -10521,7 +10521,8 @@ md-input-container:not(.md-input-invalid).md-input-has-value {
   border-top: 1px solid #515151;
   background-color: #312f31; }
   .comments .comment-field .row {
-    padding: 0; }
+    padding: 0;
+    margin-bottom: -3px; }
     .comments .comment-field .row .avatar {
       width: 68px;
       display: inline-block;
