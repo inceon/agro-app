@@ -1,10 +1,10 @@
 .comments {
-    @extend .recommend;
+  @extend .recommend;
 
-    ion-content {
-        margin-bottom: 69px;
-        background-color: #312f31;
-    }
+  ion-content {
+    margin-bottom: 69px;
+    background-color: #312f31;
+  }
 
     .comment-field {
         position: fixed;
