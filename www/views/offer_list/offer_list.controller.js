@@ -118,9 +118,10 @@
 
         function next() {
             $ionicSlideBoxDelegate.next();
-        };
+        }
+
         function previous() {
             $ionicSlideBoxDelegate.previous();
-        };
+        }
     }
 })();

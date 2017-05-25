@@ -43,6 +43,14 @@
                 });
                 vm.user.comment = '';
             }
+
+            vm.comments.push({
+                    img: vm.user.avatar,
+                    user: 'Юля Кириченко',
+                    text: vm.user.comment,
+                    date: new Date()
+                });
+            vm.user.comment = '';
         }
     }
 })();

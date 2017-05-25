@@ -183,7 +183,7 @@
                 }
             });
 
-        $urlRouterProvider.otherwise('/main');
+        $urlRouterProvider.otherwise('/login');
     }
 
 

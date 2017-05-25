@@ -8,15 +8,20 @@
         .factory('url', [
             function () {
 
-                var baseUrl = 'http://127.0.0.1/api/v1/';
-                return {
+                var baseUrl = 'https://parseapi.back4app.com/classes/';
+                var baseFileUrl = 'https://parseapi.back4app.com/files/';
 
-                    user: {
-                        login:         baseUrl + 'user/login',
-                        signup:        baseUrl + 'user/sign-up',
-                        info:          baseUrl + 'user/info',
-                        update:        baseUrl + 'user/update'
-                    }
+                return {
+                    user:           baseUrl + '',
+                    news:           baseUrl + 'News',
+                    categories:     baseUrl + 'Categories',
+                    subcategories:  baseUrl + 'Subcategories',
+                    suggestion:     baseUrl + 'Suggestion',
+                    services:       baseUrl + 'Services',
+                    comments:       baseUrl + 'Comments',
+                    offers:         baseUrl + 'Offers',
+                    files:          baseUrl + 'Files',
+                    uploadfile:     baseFileUrl
                 };
             }
         ]);
