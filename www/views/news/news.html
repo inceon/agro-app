@@ -1,12 +1,12 @@
 <ion-view class="news" view-title="Новини">
     <ion-content>
-        <div class="card-news" ui-sref="app.news_details"
-             ng-repeat="item in vm.list track by $index">
+        <div class="card-news" ui-sref="app.news_details({id: item.objectId})"
+             ng-repeat="item in vm.list | orderBy:'$index':true track by $index">
             <div class="card-img">
-                <img src="{{item.img}}" alt="img">
+                <img ng-src="{{item.photo}}" alt="img">
             </div>
             <div class="card-title">
-                <p>{{item.header}}</p>
+                <p>{{item.title}}</p>
             </div>
             <div class="card-text">
                 <p>{{item.text}}</p>

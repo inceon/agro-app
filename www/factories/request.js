@@ -2,16 +2,9 @@
     'use strict';
     angular
         .module('factory.request', [])
-        .factory('http', http);
+        .factory('http', ['$http', '$sessionStorage', '$q', 'back4app', 'toastr', 'Upload', http]);
 
-    http.$inject = ['$http', '$sessionStorage', '$ionicLoading', '$q', '$timeout'];
-
-    /**
-     * Wrapper over the standard http function
-     */
-
-    function http($http, $sessionStorage, $ionicLoading, $q, $timeout) {
-        console.log('create request service');
+    function http($http, $sessionStorage, $q, back4app, toastr, Upload) {
 
         return {
             get: function (url, data) {
@@ -22,6 +15,9 @@
             },
             put: function (url, data) {
                 return request('PUT', url, data);
+            },
+            delete: function (url, data) {
+                return request('DELETE', url, data);
             },
             file: function (url, data) {
                 return requestFile(url, data);
@@ -36,7 +32,6 @@
          * @param {object} data - Data to request
          * @returns {promise}
          */
-
         function request(method, url, data) {
 
             var config = {
@@ -44,7 +39,9 @@
                 method: method,
                 headers: {
                     'Accept': 'application/json',
-                    'Content-Type': 'application/json; charset=UTF-8'
+                    'Content-Type': 'application/json; charset=UTF-8',
+                    'X-Parse-Application-Id': back4app.appId,
+                    'X-Parse-REST-API-Key': back4app.token
                 }
             };
 
@@ -53,6 +50,17 @@
                 config.timeout = 20000;
             }
             else {
+                if (method === 'PUT') {
+                    delete data.updatedAt;
+                    delete data.createdAt;
+                    delete data.objectId;
+                }
+                if (method === 'PUT' || method === 'POST') {
+                    if (data.edit) delete data.edit;
+                    if (data.open) delete data.open;
+                    if (data.id) delete data.id;
+                }
+
                 config.data = data;
             }
 
@@ -63,49 +71,10 @@
                 config.url = url;
             }
 
-            $ionicLoading.show({
-                templateUrl: 'views/lazyload/lazyload.html'
-            });
-
             return $http(config)
                 .then(requestComplete)
                 .catch(requestFailed);
         }
-
-        /**
-         * Function for sending files
-         * @param {string} url - Request url
-         * @param {object} data - Data to request
-         * @returns {promise}
-         */
-
-        function requestFile(url, data) {
-
-            if ($sessionStorage.auth_key) {
-                url = url + '?auth_key=' + $sessionStorage.auth_key;
-            }
-
-            var ft = new FileTransfer();
-
-            var promise = $q.defer();
-            ft.upload(data.file.fullPath, encodeURI(url), function (response) {
-                console.info('response complete', JSON.parse(response.response));
-                promise.resolve(JSON.parse(response.response));
-            }, function (error) {
-                console.log('error', error);
-                promise.reject(error.body);
-            }, {
-                fileName: data.file.name,
-                fileKey: 'file',
-                mimeType: 'video/mp4',
-                httpMethod: 'POST',
-                chunkedMode: false,
-                params: data
-            });
-
-            return promise.promise;
-        }
-
 
         /**
          * Callback function for failed request
@@ -117,26 +86,24 @@
 
             if (err.data == null || !err.data.error) {
                 if (err.status === 200) {
-                    window.plugins.toast.show('Server error: ' + err.data, 'long', 'center');
+                    toastr.error('Server error: ' + err.data);
                 }
                 else if (err.status === -1) {
-                    window.plugins.toast.show('Server is not available', 'long', 'center');
+                    toastr.error('Server is not available');
                 }
                 else if (err.status === 0) {
-                    window.plugins.toast.show('There is no Internet connection', 'long', 'center');
+                    toastr.error('There is no Internet connection');
                 }
                 else if (err.status === 500) {
-                    window.plugins.toast.show('Server error: ' + err.status + ' ' + err.data.message, 'long', 'center');
+                    toastr.error('Server error: ' + err.status + ' ' + err.data.message);
                 }
                 else {
-                    window.plugins.toast.show('Server error: ' + err.status + ' ' + err.statusText, 'long', 'center');
+                    toastr.error('Server error: ' + err.status + ' ' + err.statusText);
                 }
                 // console.log('XHR Failed: ' + err.status);
             } else {
-                window.plugins.toast.show(err.data.error, 'long', 'center');
+                toastr.error(err.data.error);
             }
-
-            $ionicLoading.hide();
 
             return $q.reject(err.data.error);
         }
@@ -146,7 +113,6 @@
          * @param response
          * @returns {promise}
          */
-
         function requestComplete(response) {
             var promise = $q.defer();
 
@@ -159,9 +125,25 @@
                 promise.reject(response);
             }
 
-            $ionicLoading.hide();
-
             return promise.promise;
         }
+
+        /**
+         * Function for sending files
+         * @param {string} url - Request url
+         * @param {object} data - Data to request
+         * @returns {promise}
+         */
+        function requestFile(url, file) {
+            return Upload.http({
+                url: url,
+                headers: {
+                    'Content-Type': file.type,
+                    'X-Parse-Application-Id': back4app.appId,
+                    'X-Parse-REST-API-Key': back4app.token
+                },
+                data: file
+            });
+        }
     }
-})();
+}());

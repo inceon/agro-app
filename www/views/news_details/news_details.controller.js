@@ -8,15 +8,17 @@
         .module('app')
         .controller('NewsDetails', NewsDetails);
 
-    NewsDetails.$inject = ['$rootScope', '$state'];
+    NewsDetails.$inject = ['$rootScope', '$state', '$stateParams', 'news'];
 
-    function NewsDetails($rootScope, $state) {
+    function NewsDetails($rootScope, $state, $stateParams, news) {
         var vm = this;
-        vm.data = {
-            header: 'Новітня технологія збору пшениці',
-            date: new Date(),
-            img: 'img/cm_5Wvf1VuE.jpg',
-            text: 'За морфологічними особливостями види пшениці об\'єднують у дві групи: пшениці справжні, або голозерні і полб\'яні, або плівчасті. Плівчасті, на відміну від голозерних, утворюють ламкий колос, який у достиглому стані при легкому надавлюванні ламається на окремі колоски з зерном разом із члениками стрижня. При обмолочуванні голозерних пшениць у бункер комбайна надходить зерно без лусок.'
-        }
+
+        console.log($stateParams);
+
+        news.one($stateParams.id)
+            .then(function (res) {
+                vm.data = res[0];
+            });
+
     }
 })();

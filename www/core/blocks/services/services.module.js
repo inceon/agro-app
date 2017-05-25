@@ -6,6 +6,7 @@
   angular
     .module('services.module', [
       'model.user',
+        'model.news'
     ])
 })();
 

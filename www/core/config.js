@@ -93,6 +93,9 @@
                         controller: 'NewsDetails',
                         controllerAs: 'vm'
                     }
+                },
+                params: {
+                    id: null
                 }
             })
             .state('app.offer_list', {
