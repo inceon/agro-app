@@ -12,7 +12,7 @@
                 var baseFileUrl = 'https://parseapi.back4app.com/files/';
 
                 return {
-                    user:           baseUrl + '',
+                    user:           baseUrl + '_User',
                     news:           baseUrl + 'News',
                     categories:     baseUrl + 'Categories',
                     subcategories:  baseUrl + 'Subcategories',

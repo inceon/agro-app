@@ -13,9 +13,18 @@
     function user(http, url, $rootScope, $sessionStorage, $state, $localStorage, $ionicPopup, IonicClosePopupService) {
 
         return {
+            one: one,
             logout: logout,
             checkProfileComplete: checkProfileComplete
         };
+
+        function one(userId) {
+            return http
+                .get(url.user)
+                .then(function (res) {
+                    return res.results;
+                });
+        }
 
         /**
          * Function for logout user

@@ -2,7 +2,7 @@
     <ion-content>
         <div class="details-content">
             <div class="header">{{vm.data.title}}</div>
-            <p>{{vm.data.updatedAt | date : 'dd.MM.yyyy HH:mm:ss'}}</p>
+            <p>{{vm.data.createdAt | date : 'dd.MM.yyyy HH:mm:ss'}}</p>
             <img src="{{vm.data.photo}}" alt="image">
             <div class="text">
                 {{vm.data.text}}
