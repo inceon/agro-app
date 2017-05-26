@@ -5,36 +5,23 @@
         .module('app')
         .controller('Recommend', Recommend);
 
-    Recommend.$inject = ['$rootScope', '$scope', '$ionicModal'];
+    Recommend.$inject = ['$rootScope', '$scope', '$ionicModal', 'recommend', 'user'];
 
-    function Recommend($rootScope, $scope, $ionicModal) {
+    function Recommend($rootScope, $scope, $ionicModal, recommend, user) {
 
         var vm = this;
         vm.add = add;
 
-        vm.items = [
-            {
-                img: 'fa-shopping-cart',
-                name: 'Юлія',
-                surname: 'Кириченко',
-                text: 'Вже давно відомо, що читабельний зміст буде заважати зосередитись людині, яка ',
-                date: '02.15.1992'
-            },
-            {
-                img: 'fa-arrows',
-                name: 'Юлія',
-                surname: 'Кириченко',
-                text: 'Вже давно відомо, що читабельний зміст буде заважати зосередитись людині, яка оцінює композицію сторінки. Сенс використання Lorem Ipsum полягає в тому, що цей текст має більш-менш нормальне розподілення літер на відміну від, наприклад, "Тут іде текст. Тут іде текст."',
-                date: '02.15.1992'
-            },
-            {
-                img: 'fa-bolt',
-                name: 'Юлія',
-                surname: 'Кириченко',
-                text: 'Вже давно відомо, що читабельний зміст буде заважати зосередитись ',
-                date: '02.15.1992'
-            }
-        ];
+        recommend.all()
+            .then(function (res) {
+                vm.items = res;
+                angular.forEach(vm.items, function (item) {
+                    user.one(item.user)
+                        .then(function (res) {
+                            item.user = res[0];
+                        })
+                });
+            });
 
         $ionicModal.fromTemplateUrl('views/recommend/add_recommend.modal.html', {
             scope: $scope,
@@ -44,14 +31,17 @@
         });
 
         function add() {
-            vm.items.push({
-                name: 'Юлія',
-                surname: 'Кириченко',
-                text: vm.data.text,
-                date: '02.15.1992'
-            });
-            vm.data.text = ' ';
-            vm.modal.hide();
+            vm.data.user = 'm0pnvXvF5y';
+            recommend.add(vm.data)
+                .then(function (res) {
+
+                    // TODO current user data
+
+                    vm.items.push(vm.data);
+
+                    vm.data.text = ' ';
+                    vm.modal.hide();
+                });
         }
     }
 })();

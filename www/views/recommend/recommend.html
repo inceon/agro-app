@@ -1,14 +1,15 @@
 <ion-view class="recommend" view-title="Пропозиції">
     <ion-content>
-        <div class="row" ng-repeat="item in vm.items">
+        <div class="row" ng-repeat="item in vm.items | orderBy:'$index':true" ng-cloak>
             <div class="col">
                 <div class="item">
                     <div>
-                        <img src="img/cm_5Wvf1VuE.jpg"
+                        <img src="img/no-profile-image.png"
+                             ng-src="{{::item.user.photo}}"
                              alt="avatar"
                              class="avatar" />
-                        <h2>{{::item.name}} {{::item.surname}}</h2>
-                        <p class="date">{{::item.date}}</p>
+                        <h2>{{::item.user.username}} {{::item.user.surname}}</h2>
+                        <p class="date">{{::item.createdAt | date : 'dd.MM.yyyy HH:mm:ss'}}</p>
                     </div>
                     <p class="text">
                         {{::item.text}}
