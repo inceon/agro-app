@@ -9,6 +9,7 @@
             'model.news',
             'model.recommend',
             'model.categories',
+            'model.offers'
         ])
 })();
 

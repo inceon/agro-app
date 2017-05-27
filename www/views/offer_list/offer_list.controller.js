@@ -5,9 +5,9 @@
         .module('app')
         .controller('offerList', offerList);
 
-    offerList.$inject = ['$state', '$scope', '$ionicPopup', 'IonicClosePopupService', '$ionicModal', '$stateParams', '$rootScope', '$ionicSlideBoxDelegate'];
+    offerList.$inject = ['$state', '$scope', '$ionicPopup', 'IonicClosePopupService', '$ionicModal', '$stateParams', '$rootScope', '$ionicSlideBoxDelegate', 'offers', 'categories', 'user'];
 
-    function offerList($state, $scope, $ionicPopup, IonicClosePopupService, $ionicModal, $stateParams, $rootScope, $ionicSlideBoxDelegate) {
+    function offerList($state, $scope, $ionicPopup, IonicClosePopupService, $ionicModal, $stateParams, $rootScope, $ionicSlideBoxDelegate, offers, categories, user) {
 
         console.log($stateParams.city);
 
@@ -20,8 +20,8 @@
         vm.showImage = showImage;
         vm.closeModal = closeModal;
         vm.type = $stateParams.type;
-        vm.tag = $stateParams.tag;
         vm.section = $stateParams.section;
+        vm.tag = $stateParams.tag;
         vm.city = $rootScope.filter?$rootScope.filter.city:0;
         vm.next = next;
         vm.previous = previous;
@@ -30,7 +30,6 @@
         vm.items = [
             {
                 number: '+380957542354',
-                img: 'fa-shopping-cart',
                 name: 'Юлія',
                 surname: 'Кириченко',
                 text: 'Вже давно відомо, що читабельний зміст буде заважати зосередитись людині, яка ',
@@ -40,7 +39,6 @@
             },
             {
                 number: '+380957542354',
-                img: 'fa-arrows',
                 name: 'Юлія',
                 surname: 'Кириченко',
                 text: 'Вже давно відомо, що читабельний зміст буде заважати зосередитись людині, яка оцінює композицію сторінки. Сенс використання Lorem Ipsum полягає в тому, що цей текст має більш-менш нормальне розподілення літер на відміну від, наприклад, "Тут іде текст. Тут іде текст."',
@@ -49,7 +47,6 @@
             },
             {
                 number: '+380957542354',
-                img: 'fa-bolt',
                 name: 'Юлія',
                 surname: 'Кириченко',
                 text: 'Вже давно відомо, що читабельний зміст буде заважати зосередитись ',
@@ -57,6 +54,39 @@
                 hashtags: ['#зернові', '#мясо']
             }
         ];
+
+        if(vm.tag) {
+            offers.allInSubCategory(vm.tag.objectId, vm.type)
+                .then(function (res) {
+                    vm.items = res;
+                    getAdditionalInfo();
+                });
+        } else {
+            offers.allInCategory(vm.section.objectId, vm.type)
+                .then(function (res) {
+                    vm.items = res;
+                    getAdditionalInfo();
+                });
+        }
+
+        categories.subcategories(vm.section.objectId)
+            .then(function (res) {
+                vm.hashtags = res;
+            });
+
+        function getAdditionalInfo() {
+            angular.forEach(vm.items, function (item) {
+                user.one(item.user)
+                    .then(function (res) {
+                        item.user = res[0];
+                    });
+
+                offers.images(item.objectId)
+                    .then(function (res) {
+                        item.images = res;
+                    })
+            });
+        }
 
         function sell() {
             vm.showModal('#продам');

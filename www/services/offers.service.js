@@ -13,23 +13,42 @@
     function offers(http, url) {
 
         return {
-            all: all,
-            subcategories: subcategories
+            allInCategory: allInCategory,
+            allInSubCategory: allInSubCategory,
+            images: images
         };
 
-        function all() {
+        function allInCategory(categoryId, type) {
             return http
-                .get(url.categories)
+                .get(url.offers, {
+                    where: {
+                        "category": categoryId,
+                        "type": type
+                    }
+                })
                 .then(function (res) {
                     return res.results;
                 });
         }
 
-        function subcategories(categoryId) {
+        function allInSubCategory(subcategoryId, type) {
             return http
-                .get(url.subcategories, {
+                .get(url.offers, {
                     where: {
-                        "category": categoryId
+                        "subcategory": subcategoryId,
+                        "type": type
+                    }
+                })
+                .then(function (res) {
+                    return res.results;
+                });
+        }
+
+        function images(offerId) {
+            return http
+                .get(url.files, {
+                    where: {
+                        "source": offerId
                     }
                 })
                 .then(function (res) {

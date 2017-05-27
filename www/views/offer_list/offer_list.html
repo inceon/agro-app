@@ -1,14 +1,14 @@
-<ion-view class="offer_list" view-title="{{vm.type}}">
+<ion-view class="offer_list" view-title="{{vm.type=='buy'?'Купити':'Продати'}}">
     <ion-content>
         <div class="row">
             <div class="col">
                 <div class="header">
                     <div class="hashtags">
                         <span>
-                            #{{vm.section | lowercase}}
+                            {{vm.section.name}}
                         </span>
                         <span ng-click="vm.tag = null">
-                            {{vm.tag}}
+                            {{vm.tag.name}}
                         </span>
                     </div>
                     <div class="more"
@@ -19,10 +19,10 @@
                     </div>
 
                     <div ng-hide="hideAllTags" class="all-tags">
-                        <span ng-repeat="hashtag in ['#просо', '#жито', '#пшениця', '#сіно', '#юра']"
+                        <span ng-repeat="hashtag in vm.hashtags"
                               ng-click="(vm.tag == hashtag?vm.tag = null:vm.tag = hashtag)"
                               ng-class="{'no-active':vm.tag != hashtag}">
-                            {{::hashtag}}
+                            #{{::hashtag.name | lowercase}}
                         </span>
                     </div>
 
@@ -32,13 +32,14 @@
                 </div>
             </div>
         </div>
-        <div class="row" ng-repeat="item in vm.items">
+        <div class="row" ng-repeat="item in vm.items" ng-cloak>
             <div class="col">
                 <div class="item">
                     <div class="avatar" ui-sref="app.user_rating">
-                        <img src="img/cm_5Wvf1VuE.jpg"
+                        <img src="img/no-profile-image.png"
+                             ng-src="{{::item.user.photo}}"
                              alt="avatar"/>
-                        <h2>{{::item.name}} {{::item.surname}}</h2>
+                        <h2>{{::item.user.username}} {{::item.user.surname}}</h2>
                         <p class="hashtag">
                             <span ng-repeat="hashtag in item.hashtags track by $index" ng-click="$event.stopPropagation();">
                                 {{::hashtag}}
@@ -52,14 +53,14 @@
                         </p>
 
                         <div class="images" ng-if="item.images">
-                            <img ng-src="{{link}}"
-                                 ng-repeat="link in item.images track by $index"
+                            <img ng-src="{{image.file}}"
+                                 ng-repeat="image in item.images track by $index"
                                  ng-click="vm.slide = $index; vm.showImage(item.images)">
                         </div>
 
                         <p class="footer-info">
                             <span class="city">
-                                {{::item.city}}
+                                {{::item.location}}
                             </span>
                             <span class="action">
                                 <i class="fa fa-phone fa-lg" ng-click="vm.callUser(item.number)"></i>
