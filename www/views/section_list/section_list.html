@@ -4,14 +4,16 @@
             <div class="col">
                 <div class="item" ng-init="item.trunced = true">
                     <div ui-sref="app.offer_list({type:vm.type, section:item.name})">
-                        <i class="icon fa" ng-class="item.icon" aria-hidden="true"></i>
-                        <h2>{{::item.name}}</h2>
+                        <h2>
+                            <i class="fa fa-angle-right" aria-hidden="true"></i>
+                            {{::item.name}}
+                        </h2>
                     </div>
                     <div class="row">
                         <p ng-class="{'trunc':item.trunced}">
-                            <span ng-repeat="hashtag in item.hashtags track by $index"
-                                  ui-sref="app.offer_list({type:vm.type, section:item.name, tag: hashtag})">
-                                {{hashtag}}
+                            <span ng-repeat="subcategory in item.subcategories track by $index"
+                                  ui-sref="app.offer_list({type:vm.type, section:item.name, tag: subcategory.name})">
+                                #{{subcategory.name}}
                             </span>
                         </p>
                         <div class="overflow" ng-show="item.trunced && item.hashtags.length > 4"

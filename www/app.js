@@ -42,9 +42,9 @@
              * Check whether the user is authorized
              */
             if ($sessionStorage.auth_key) {
-                $state.go('app.news');
+                $state.go('app.main');
             } else {
-                $state.go('app.news');
+                $state.go('app.main');
             }
 
         });

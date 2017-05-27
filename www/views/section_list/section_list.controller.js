@@ -5,30 +5,23 @@
         .module('app')
         .controller('SectionList', SectionList);
 
-    SectionList.$inject = ['$rootScope', '$state', '$stateParams'];
+    SectionList.$inject = ['$rootScope', '$state', '$stateParams', 'categories'];
 
-    function SectionList($rootScope, $state, $stateParams) {
+    function SectionList($rootScope, $state, $stateParams, categories) {
 
         var vm = this;
         vm.type = $stateParams.type;
 
-        vm.items = [
-            {
-                icon: 'fa-shopping-cart',
-                name: 'Зернові',
-                hashtags: ['#пшениця', '#просо', '#ячмінь', '#рис', '#пшениця', '#просо', '#ячмінь', '#рис', '#пшениця', '#просо', '#ячмінь', '#рис']
-            },
-            {
-                icon: 'fa-arrows',
-                name: 'Тваринництво',
-                hashtags: ['#пшениця', '#просо', '#ячмінь', '#рис']
-            },
-            {
-                icon: 'fa-bolt',
-                name: 'Корм для тварин',
-                hashtags: ['#пшениця', '#просо', '#ячмінь', '#рис']
-            }
-        ];
+        categories.all()
+            .then(function (res) {
+                vm.items = res;
+                angular.forEach(vm.items, function (category) {
+                    categories.subcategories(category.objectId)
+                        .then(function (res) {
+                            category.subcategories = res;
+                        })
+                })
+            });
 
     }
 })();

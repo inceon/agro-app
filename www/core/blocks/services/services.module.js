@@ -7,7 +7,8 @@
         .module('services.module', [
             'model.user',
             'model.news',
-            'model.recommend'
+            'model.recommend',
+            'model.categories',
         ])
 })();
 
