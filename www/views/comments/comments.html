@@ -4,11 +4,12 @@
             <div class="col">
                 <div class="item">
                     <div>
-                        <img ng-src="{{item.img}}"
+                        <img src="img/no-profile-image.png"
+                             ng-src="{{::item.user.photo}}"
                              alt="avatar"
                              class="avatar"/>
-                        <h2>{{item.user}}</h2>
-                        <p class="date">{{item.date | date: 'dd.mm.yyyy'}}</p>
+                        <h2>{{item.user.username}} {{item.user.surname}}</h2>
+                        <p class="date">{{::item.createdAt | date : 'dd.MM.yyyy HH:mm:ss'}}</p>
                     </div>
                     <trunc-text limit="120"
                                 more-text="Показати більше"

@@ -138,6 +138,9 @@
                         controller: 'Comments',
                         controllerAs: 'vm'
                     }
+                },
+                params: {
+                    id: null
                 }
             })
             .state('app.offer_add', {

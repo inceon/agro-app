@@ -41,8 +41,11 @@
                              alt="avatar"/>
                         <h2>{{::item.user.username}} {{::item.user.surname}}</h2>
                         <p class="hashtag">
-                            <span ng-repeat="hashtag in item.hashtags track by $index" ng-click="$event.stopPropagation();">
-                                {{::hashtag}}
+                            <span ng-if="vm.section" ng-click="$event.stopPropagation();">
+                                #{{::vm.section.name}}
+                            </span>
+                            <span ng-if="vm.tag" ng-click="$event.stopPropagation();">
+                                #{{::vm.tag.name}}
                             </span>
                         </p>
                     </div>
@@ -64,7 +67,7 @@
                             </span>
                             <span class="action">
                                 <i class="fa fa-phone fa-lg" ng-click="vm.callUser(item.number)"></i>
-                                <i class="fa fa-comments fa-lg" ui-sref="app.comments"></i>
+                                <i class="fa fa-comments fa-lg" ui-sref="app.comments({id: item.objectId})"></i>
                                 <i class="fa fa-star fa-lg"></i>
                             </span>
                         </p>

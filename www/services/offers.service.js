@@ -15,7 +15,8 @@
         return {
             allInCategory: allInCategory,
             allInSubCategory: allInSubCategory,
-            images: images
+            images: images,
+            comments: comments
         };
 
         function allInCategory(categoryId, type) {
@@ -47,6 +48,18 @@
         function images(offerId) {
             return http
                 .get(url.files, {
+                    where: {
+                        "source": offerId
+                    }
+                })
+                .then(function (res) {
+                    return res.results;
+                });
+        }
+
+        function comments(offerId) {
+            return http
+                .get(url.comments, {
                     where: {
                         "source": offerId
                     }
