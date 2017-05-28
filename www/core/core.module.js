@@ -18,6 +18,7 @@
              */
 
             'toastr',
+            'ui.mask',
 
             /*
              * 3rd Party modules

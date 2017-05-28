@@ -8,9 +8,9 @@
         .module('app')
         .controller('Signup', Signup);
 
-    Signup.$inject = ['$state', '$ionicHistory', 'user'];
+    Signup.$inject = ['$state', '$ionicHistory', 'toastr', 'user'];
 
-    function Signup($state, $ionicHistory, user) {
+    function Signup($state, $ionicHistory, toastr, user) {
 
         var vm = this;
         vm.signup = signup;
@@ -20,8 +20,17 @@
          * Function for validation signup data
          * and send data to server
          */
-        function signup() {
+        function signup(form) {
+            if (form.$invalid) { return; }
+            if (vm.data.password != vm.data.rpassword) {
+                toastr.error('Паролі не співпадають');
+                return;
+            }
 
+            user.signup(vm.data)
+                .then(function (res) {
+                    $state.go('app.main');
+                });
         }
     }
 })();

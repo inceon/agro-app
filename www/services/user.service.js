@@ -14,15 +14,40 @@
 
         return {
             one: one,
+            signup: signup,
             logout: logout,
             checkProfileComplete: checkProfileComplete
         };
 
         function one(userId) {
             return http
-                .get(url.user)
+                .get(url.user, {
+                    where: {
+                        "objectId": userId
+                    }
+                })
                 .then(function (res) {
                     return res.results;
+                });
+        }
+
+        /**
+         *
+         * @param {object} data
+         * @param {string} data.username - phone number
+         * @param {string} data.password - password
+         */
+        function signup(data) {
+            return http
+                .post(url.user, data)
+                .then(function (res) {
+                    one(res.objectId)
+                        .then(function (res) {
+                            $rootScope.user = res;
+                        });
+                    $sessionStorage.auth_key = res.sessionToken;
+                    $localStorage.auth_key = res.sessionToken;
+                    return res;
                 });
         }
 

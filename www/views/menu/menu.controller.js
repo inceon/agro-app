@@ -5,15 +5,16 @@
         .module('app')
         .controller('AppCtrl', AppCtrl);
 
-    AppCtrl.$inject = ['$state'];
+    AppCtrl.$inject = ['$state', 'user'];
 
-    function AppCtrl($state) {
+    function AppCtrl($state, user) {
 
         var vm = this;
         vm.logout = logout;
         vm.profile = profile;
 
         function logout() {
+            user.logout();
             $state.go('login');
         }
 

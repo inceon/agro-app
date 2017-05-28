@@ -39,7 +39,7 @@
                         <img src="img/no-profile-image.png"
                              ng-src="{{::item.user.photo}}"
                              alt="avatar"/>
-                        <h2>{{::item.user.username}} {{::item.user.surname}}</h2>
+                        <h2>{{::item.user.name}} {{::item.user.surname}}</h2>
                         <p class="hashtag">
                             <span ng-click="$event.stopPropagation();">
                                 #{{::vm.section.name | lowercase  | replaceSpace:'_'}}
