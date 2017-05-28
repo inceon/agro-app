@@ -22,7 +22,7 @@
                         <span ng-repeat="hashtag in vm.hashtags"
                               ng-click="(vm.tag == hashtag?vm.tag = null:vm.tag = hashtag)"
                               ng-class="{'no-active':vm.tag != hashtag}">
-                            #{{::hashtag.name | lowercase}}
+                            #{{::hashtag.name | lowercase | replaceSpace:'_'}}
                         </span>
                     </div>
 
@@ -42,10 +42,10 @@
                         <h2>{{::item.user.username}} {{::item.user.surname}}</h2>
                         <p class="hashtag">
                             <span ng-if="vm.section" ng-click="$event.stopPropagation();">
-                                #{{::vm.section.name}}
+                                #{{::vm.section.name | lowercase  | replaceSpace:'_'}}
                             </span>
                             <span ng-if="vm.tag" ng-click="$event.stopPropagation();">
-                                #{{::vm.tag.name}}
+                                #{{::vm.tag.name | lowercase | replaceSpace:'_'}}
                             </span>
                         </p>
                     </div>

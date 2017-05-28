@@ -13,8 +13,16 @@
     function files(http, url) {
 
         return {
+            upload: upload,
             add: add
         };
+
+        function upload(file) {
+            return http.file(url.uploadfile + file.name, file)
+                .then(function (res) {
+                    return res.data;
+                })
+        }
 
         /**
          *

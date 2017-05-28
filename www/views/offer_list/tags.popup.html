@@ -1,15 +1,1 @@
-<div class="tag" ng-click="vm.select('#hashtag1')">#hashtag1</div>
-<div class="tag" ng-click="vm.select('#hashtag2')">#hashtag2</div>
-<div class="tag" ng-click="vm.select('#hashtag3')">#hashtag3</div>
-<div class="tag" ng-click="vm.select('#hashtag4')">#hashtag4</div>
-<div class="tag" ng-click="vm.select('#hashtag5')">#hashtag5</div>
-<div class="tag" ng-click="vm.select('#hashtag6')">#hashtag6</div>
-<div class="tag" ng-click="vm.select('#hashtag7')">#hashtag7</div>
-<div class="tag" ng-click="vm.select('#hashtag8')">#hashtag8</div>
-<div class="tag" ng-click="vm.select('#hashtag9')">#hashtag9</div>
-<div class="tag" ng-click="vm.select('#hashtag10')">#hashtag10</div>
-<div class="tag" ng-click="vm.select('#hashtag11')">#hashtag11</div>
-<div class="tag" ng-click="vm.select('#hashtag12')">#hashtag12</div>
-<div class="tag" ng-click="vm.select('#hashtag13')">#hashtag13</div>
-<div class="tag" ng-click="vm.select('#hashtag14')">#hashtag14</div>
-<div class="tag" ng-click="vm.select('#hashtag15')">#hashtag15</div>
+<div class="tag" ng-click="vm.select(tag)" ng-repeat="tag in vm.hashtags">#{{tag.name | lowercase}}</div>

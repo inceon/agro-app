@@ -10075,9 +10075,7 @@ md-input-container:not(.md-input-invalid).md-input-has-value {
   background: #757575;
   color: #FFFFFF; }
   .offer-tags-popup .popup-body .tag {
-    width: 44%;
-    padding: 7px 1% 7px 3%;
-    display: inline-block;
+    padding: 7px 3% 7px 3%;
     font-size: 1.15em; }
 
 .call-popup .popup-head, .call-popup .popup-body {

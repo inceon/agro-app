@@ -4,7 +4,7 @@
             <div class="col">
                 <div class="item">
                     <div class="input">
-                        {{vm.type}} #{{vm.section | lowercase}} {{vm.tag}}
+                        {{vm.type=='buy'?'#куплю':'#продам'}} #{{vm.section.name | lowercase | replaceSpace:'_'}} #{{vm.tag.name | lowercase | replaceSpace:'_'}}
                     </div>
                     <div class="input">
                         <md-input-container class="md-block" flex md-no-float>
@@ -14,7 +14,7 @@
                                       ng-maxlength="150"
                                       rows="8"
                                       placeholder="Додати опис..."
-                                      ng-model="vm.data.description"
+                                      ng-model="vm.data.text"
                                       autocomplete="off"
                                       required> </textarea>
                         </md-input-container>
@@ -24,7 +24,7 @@
                             <md-icon md-font-icon="icon text-center fa fa-map-marker" aria-hidden="true"
                                      style="color: indianred; display:inline-block;"></md-icon>
                             <md-autocomplete md-no-cache="true"
-                                             md-selected-item="vm.selectedItem"
+                                             md-selected-item="vm.data.location"
                                              md-search-text-change="vm.search(vm.searchText)"
                                              md-search-text="vm.searchText"
                                              md-items="item in vm.search(vm.searchText)"
@@ -49,6 +49,7 @@
                              ng-class="{'no-active': vm.data.attach.length >= 3}">
                             <i class="fa fa-camera"
                                ngf-multiple="true"
+                               ngf-max-size="10MB"
                                ngf-max-files="{{3 - vm.data.attach.length}}"
                                ngf-select="vm.upload($files)"
                                accept="image/*"
@@ -65,6 +66,7 @@
                              ngf-max-files="{{3 - vm.data.attach.length}}"
                              ngf-select="vm.upload($files)"
                              accept="image/*"
+                             ngf-max-size="10MB"
                              class="photo-label"
                              ng-if="!vm.data.attach.length">
                             Завантажити фото
@@ -87,6 +89,7 @@
                         </md-button>
                         <md-button class="md-primary md-raised waves-effect waves-light"
                                    md-colors="{background: 'grey-700'}"
+                                   ng-click="vm.add()"
                                    flex>
                             Додати
                         </md-button>

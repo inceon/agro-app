@@ -27,33 +27,33 @@
         vm.previous = previous;
 
 
-        vm.items = [
-            {
-                number: '+380957542354',
-                name: 'Юлія',
-                surname: 'Кириченко',
-                text: 'Вже давно відомо, що читабельний зміст буде заважати зосередитись людині, яка ',
-                images: ['https://pbs.twimg.com/media/CsYj-SQXgAAA-FS.jpg', 'https://pbs.twimg.com/media/CsYj-SQXgAAA-FS.jpg', 'http://www.chernihiv-oblast.gov.ua/media/upload/78-300x197.jpg'],
-                city: 'Київ, Полтава',
-                hashtags: ['#зернові', '#мясо']
-            },
-            {
-                number: '+380957542354',
-                name: 'Юлія',
-                surname: 'Кириченко',
-                text: 'Вже давно відомо, що читабельний зміст буде заважати зосередитись людині, яка оцінює композицію сторінки. Сенс використання Lorem Ipsum полягає в тому, що цей текст має більш-менш нормальне розподілення літер на відміну від, наприклад, "Тут іде текст. Тут іде текст."',
-                city: 'Київ, Полтава',
-                hashtags: ['#зернові', '#мясо']
-            },
-            {
-                number: '+380957542354',
-                name: 'Юлія',
-                surname: 'Кириченко',
-                text: 'Вже давно відомо, що читабельний зміст буде заважати зосередитись ',
-                city: 'Київ, Полтава',
-                hashtags: ['#зернові', '#мясо']
-            }
-        ];
+        // vm.items = [
+        //     {
+        //         number: '+380957542354',
+        //         name: 'Юлія',
+        //         surname: 'Кириченко',
+        //         text: 'Вже давно відомо, що читабельний зміст буде заважати зосередитись людині, яка ',
+        //         images: ['https://pbs.twimg.com/media/CsYj-SQXgAAA-FS.jpg', 'https://pbs.twimg.com/media/CsYj-SQXgAAA-FS.jpg', 'http://www.chernihiv-oblast.gov.ua/media/upload/78-300x197.jpg'],
+        //         city: 'Київ, Полтава',
+        //         hashtags: ['#зернові', '#мясо']
+        //     },
+        //     {
+        //         number: '+380957542354',
+        //         name: 'Юлія',
+        //         surname: 'Кириченко',
+        //         text: 'Вже давно відомо, що читабельний зміст буде заважати зосередитись людині, яка оцінює композицію сторінки. Сенс використання Lorem Ipsum полягає в тому, що цей текст має більш-менш нормальне розподілення літер на відміну від, наприклад, "Тут іде текст. Тут іде текст."',
+        //         city: 'Київ, Полтава',
+        //         hashtags: ['#зернові', '#мясо']
+        //     },
+        //     {
+        //         number: '+380957542354',
+        //         name: 'Юлія',
+        //         surname: 'Кириченко',
+        //         text: 'Вже давно відомо, що читабельний зміст буде заважати зосередитись ',
+        //         city: 'Київ, Полтава',
+        //         hashtags: ['#зернові', '#мясо']
+        //     }
+        // ];
 
         if(vm.tag) {
             offers.allInSubCategory(vm.tag.objectId, vm.type)
@@ -89,17 +89,17 @@
         }
 
         function sell() {
-            vm.showModal('#продам');
+            vm.showModal('sell');
         }
 
         function buy() {
-            vm.showModal('#куплю');
+            vm.showModal('buy');
         }
 
         function showModal(title) {
             vm.alertPopup = $ionicPopup.show({
                 templateUrl: 'views/offer_list/tags.popup.html',
-                title: title,
+                title: title=='buy'?'Купити':'Продати',
                 cssClass: 'offer-tags-popup',
                 scope: $scope,
                 buttons: []
@@ -109,13 +109,13 @@
             IonicClosePopupService.register(vm.alertPopup);
         }
 
-        function select(name) {
-            console.log(name);
+        function select(tag) {
+            console.log(tag);
             vm.alertPopup.close();
             $state.go('app.offer_add', {
                 section: vm.section,
                 type: vm.offerType,
-                tag: name
+                tag: tag
             });
         }
 

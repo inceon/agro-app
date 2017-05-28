@@ -13,11 +13,28 @@
     function offers(http, url) {
 
         return {
+            add: add,
             allInCategory: allInCategory,
             allInSubCategory: allInSubCategory,
             images: images,
             comments: comments
         };
+
+        /**
+         *
+         * @param {object} data
+         * @param {string} data.type (buy | sell)
+         * @param {string} data.user - userId
+         * @param {string} data.category - categoryId
+         * @param {string} data.subcategory - subcategoryId
+         */
+        function add(data) {
+            return http
+                .post(url.offers, data)
+                .then(function (res) {
+                    return res;
+                });
+        }
 
         function allInCategory(categoryId, type) {
             return http

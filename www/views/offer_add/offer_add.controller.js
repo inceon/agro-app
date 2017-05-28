@@ -5,14 +5,15 @@
         .module('app')
         .controller('offerAdd', offerAdd);
 
-    offerAdd.$inject = ['$rootScope', '$scope', '$q', '$stateParams', '$ionicHistory'];
+    offerAdd.$inject = ['$rootScope', '$state', '$q', '$stateParams', '$ionicHistory', 'offers', 'files'];
 
-    function offerAdd($rootScope, $scope, $q, $stateParams, $ionicHistory) {
+    function offerAdd($rootScope, $state, $q, $stateParams, $ionicHistory, offers, files) {
         var vm = this;
 
         vm.search = search;
         vm.changeCity = changeCity;
         vm.upload = upload;
+        vm.add = add;
         vm.remove = remove;
         vm.back = back;
 
@@ -28,16 +29,32 @@
          * @param $files
          */
         function upload($files) {
-            console.log($files);
             vm.data.attach = vm.data.attach.concat($files);
             if(vm.data.attach.length > 3)
                 vm.data.attach = vm.data.attach.slice(-3)[0];
+        }
 
-            // angular.forEach($files, function (file) {
-            //     vm.data[file.lastModified] = file;
-            // });
+        function add() {
+            vm.data.location = vm.data.location.description;
+            vm.data.category = vm.section.objectId;
+            vm.data.subcategory = vm.tag.objectId;
+            vm.data.type = vm.type;
+            vm.data.user = 'm0pnvXvF5y'; // TODO current user
 
-            console.log(vm.data);
+            offers.add(vm.data)
+                .then(function (res) {
+                    var source = res.objectId;
+                    angular.forEach(vm.data.attach, function (file) {
+                        files.upload(file)
+                            .then(function (res) {
+                                files.add({
+                                    source: source,
+                                    file: res.url
+                                });
+                            });
+                    });
+                    $state.go("app.offer_list", $stateParams);
+                });
         }
 
         /**
@@ -78,7 +95,7 @@
 
         function changeCity(){
             console.log('click');
-            console.log(vm.selectedItem);
+            console.log(vm.data.location);
         }
 
         /**
