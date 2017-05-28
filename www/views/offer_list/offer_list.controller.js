@@ -16,6 +16,7 @@
         vm.sell = sell;
         vm.showModal = showModal;
         vm.select = select;
+        vm.filter = filter;
         vm.callUser = callUser;
         vm.showImage = showImage;
         vm.closeModal = closeModal;
@@ -23,6 +24,7 @@
         vm.section = $stateParams.section;
         vm.tag = $stateParams.tag;
         vm.city = $rootScope.filter?$rootScope.filter.city:0;
+        vm.allItems = [];
         vm.next = next;
         vm.previous = previous;
 
@@ -84,7 +86,13 @@
                 offers.images(item.objectId)
                     .then(function (res) {
                         item.images = res;
-                    })
+                    });
+
+                angular.forEach(vm.hashtags, function (hashtag) {
+                    if (item.subcategory === hashtag.objectId) {
+                        item.subcategory = hashtag;
+                    }
+                })
             });
         }
 
@@ -117,6 +125,21 @@
                 type: vm.offerType,
                 tag: tag
             });
+        }
+
+        function filter(hashtag) {
+            if (!vm.allItems.length) {
+                angular.copy(vm.items, vm.allItems);
+            }
+            if (vm.tag === hashtag) {
+                vm.tag = null;
+                angular.copy(vm.allItems, vm.items);
+            } else {
+                vm.items = vm.allItems.filter(function (item) {
+                    return item.subcategory.objectId === hashtag.objectId;
+                });
+                vm.tag = hashtag;
+            }
         }
 
         function callUser(number) {

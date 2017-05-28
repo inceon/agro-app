@@ -53,7 +53,9 @@
                                 });
                             });
                     });
-                    $state.go("app.offer_list", $stateParams);
+
+                    $ionicHistory.currentView($ionicHistory.backView());
+                    $state.go("app.offer_list", $stateParams,  {location:'replace'} );
                 });
         }
 

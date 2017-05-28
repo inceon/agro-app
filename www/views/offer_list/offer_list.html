@@ -20,7 +20,7 @@
 
                     <div ng-hide="hideAllTags" class="all-tags">
                         <span ng-repeat="hashtag in vm.hashtags"
-                              ng-click="(vm.tag == hashtag?vm.tag = null:vm.tag = hashtag)"
+                              ng-click="vm.filter(hashtag)"
                               ng-class="{'no-active':vm.tag != hashtag}">
                             #{{::hashtag.name | lowercase | replaceSpace:'_'}}
                         </span>
@@ -41,11 +41,11 @@
                              alt="avatar"/>
                         <h2>{{::item.user.username}} {{::item.user.surname}}</h2>
                         <p class="hashtag">
-                            <span ng-if="vm.section" ng-click="$event.stopPropagation();">
+                            <span ng-click="$event.stopPropagation();">
                                 #{{::vm.section.name | lowercase  | replaceSpace:'_'}}
                             </span>
-                            <span ng-if="vm.tag" ng-click="$event.stopPropagation();">
-                                #{{::vm.tag.name | lowercase | replaceSpace:'_'}}
+                            <span ng-click="$event.stopPropagation();">
+                                #{{::item.subcategory.name | lowercase | replaceSpace:'_'}}
                             </span>
                         </p>
                     </div>
