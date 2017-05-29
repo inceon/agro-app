@@ -24,8 +24,13 @@
          * Function for send data to server
          * and login user
          */
-        function login() {
-            $state.go('app.main');
+        function login(form) {
+            if (form.$invalid) { return; }
+            user.login(vm.data)
+                .then(function (res) {
+                   console.log(res);
+                });
+            // $state.go('app.main');
         }
 
         function signup(){

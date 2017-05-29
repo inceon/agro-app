@@ -1,37 +1,5 @@
-<ion-view class="offer_list" view-title="{{vm.type=='buy'?'Купити':'Продати'}}">
+<ion-view class="bookmark offer_list" view-title="Закладки">
     <ion-content>
-        <div class="row">
-            <div class="col">
-                <div class="header">
-                    <div class="hashtags">
-                        <span>
-                            {{vm.section.name}}
-                        </span>
-                        <span ng-click="vm.tag = null">
-                            {{vm.tag.name}}
-                        </span>
-                    </div>
-                    <div class="more"
-                         ng-init="hideAllTags = true"
-                         ng-click="hideAllTags = !hideAllTags">
-                        <i ng-show="hideAllTags">...</i>
-                        <i ng-hide="hideAllTags" class="fa fa-caret-down" aria-hidden="true"></i>
-                    </div>
-
-                    <div ng-hide="hideAllTags" class="all-tags">
-                        <span ng-repeat="hashtag in vm.hashtags"
-                              ng-click="vm.filter(hashtag)"
-                              ng-class="{'no-active':vm.tag != hashtag}">
-                            #{{::hashtag.name | lowercase | replaceSpace:'_'}}
-                        </span>
-                    </div>
-
-                    <div ng-show="$root.filter.city" class="all-tags">
-                        {{$root.filter.city}}
-                    </div>
-                </div>
-            </div>
-        </div>
         <div class="row" ng-repeat="item in vm.items" ng-cloak>
             <div class="col">
                 <div class="item">
@@ -42,10 +10,10 @@
                         <h2>{{::item.user.name}} {{::item.user.surname}}</h2>
                         <p class="hashtag">
                             <span ng-click="$event.stopPropagation();">
-                                #{{::vm.section.name | lowercase  | replaceSpace:'_'}}
+                                #{{vm.type=='buy'?'купити':'продати'}}
                             </span>
                             <span ng-click="$event.stopPropagation();">
-                                #{{::item.subcategory.name | lowercase | replaceSpace:'_'}}
+                                #{{item.section.name | lowercase  | replaceSpace:'_'}}
                             </span>
                         </p>
                     </div>

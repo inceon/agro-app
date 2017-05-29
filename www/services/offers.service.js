@@ -14,6 +14,7 @@
 
         return {
             add: add,
+            one: one,
             allInCategory: allInCategory,
             allInSubCategory: allInSubCategory,
             images: images,
@@ -33,6 +34,18 @@
                 .post(url.offers, data)
                 .then(function (res) {
                     return res;
+                });
+        }
+
+        function one(offerId) {
+            return http
+                .get(url.offers, {
+                    where: {
+                        "objectId": offerId
+                    }
+                })
+                .then(function (res) {
+                    return res.results;
                 });
         }
 

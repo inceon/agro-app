@@ -5,9 +5,9 @@
         .module('app')
         .controller('offerList', offerList);
 
-    offerList.$inject = ['$state', '$scope', '$ionicPopup', 'IonicClosePopupService', '$ionicModal', '$stateParams', '$rootScope', '$ionicSlideBoxDelegate', 'offers', 'categories', 'user'];
+    offerList.$inject = ['$state', '$scope', '$ionicPopup', 'IonicClosePopupService', '$ionicModal', '$stateParams', '$rootScope', '$ionicSlideBoxDelegate', 'offers', 'categories', 'user', 'bookmark'];
 
-    function offerList($state, $scope, $ionicPopup, IonicClosePopupService, $ionicModal, $stateParams, $rootScope, $ionicSlideBoxDelegate, offers, categories, user) {
+    function offerList($state, $scope, $ionicPopup, IonicClosePopupService, $ionicModal, $stateParams, $rootScope, $ionicSlideBoxDelegate, offers, categories, user, bookmark) {
 
         console.log($stateParams.city);
 
@@ -15,6 +15,7 @@
         vm.buy = buy;
         vm.sell = sell;
         vm.showModal = showModal;
+        vm.changeBookmark = changeBookmark;
         vm.select = select;
         vm.filter = filter;
         vm.callUser = callUser;
@@ -92,7 +93,9 @@
                     if (item.subcategory === hashtag.objectId) {
                         item.subcategory = hashtag;
                     }
-                })
+                });
+
+                item.bookmark = false;
             });
         }
 
@@ -115,6 +118,19 @@
             vm.offerType = title;
 
             IonicClosePopupService.register(vm.alertPopup);
+        }
+
+        function changeBookmark(item) {
+            item.bookmark = !item.bookmark;
+            // TODO current user
+            if(item.bookmark) {
+                bookmark.add({
+                    user: 'm0pnvXvF5y',
+                    offer: item.objectId
+                });
+            } else {
+                bookmark.remove(item.bookmarkId);
+            }
         }
 
         function select(tag) {

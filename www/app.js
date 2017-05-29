@@ -44,7 +44,7 @@
             if ($sessionStorage.auth_key) {
                 $state.go('app.main');
             } else {
-                $state.go('signup');
+                $state.go('app.main');
             }
 
         });

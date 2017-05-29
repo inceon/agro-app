@@ -15,6 +15,7 @@
         return {
             one: one,
             signup: signup,
+            login: login,
             logout: logout,
             checkProfileComplete: checkProfileComplete
         };
@@ -49,6 +50,14 @@
                     $localStorage.auth_key = res.sessionToken;
                     return res;
                 });
+        }
+
+        function login(data) {
+            return http
+                .get(url.user + '/login', data)
+                .then(function (res) {
+                    return res;
+                })
         }
 
         /**

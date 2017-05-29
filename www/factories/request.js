@@ -41,7 +41,8 @@
                     'Accept': 'application/json',
                     'Content-Type': 'application/json; charset=UTF-8',
                     'X-Parse-Application-Id': back4app.appId,
-                    'X-Parse-REST-API-Key': back4app.token
+                    'X-Parse-REST-API-Key': back4app.token,
+                    "X-Parse-Revocable-Session": "1"
                 }
             };
 

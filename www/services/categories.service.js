@@ -14,12 +14,25 @@
 
         return {
             all: all,
+            one: one,
             subcategories: subcategories
         };
 
         function all() {
             return http
                 .get(url.categories)
+                .then(function (res) {
+                    return res.results;
+                });
+        }
+
+        function one(categoryId) {
+            return http
+                .get(url.categories, {
+                    where: {
+                        "objectId": categoryId
+                    }
+                })
                 .then(function (res) {
                     return res.results;
                 });

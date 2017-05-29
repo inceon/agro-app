@@ -10,7 +10,8 @@
             'model.recommend',
             'model.categories',
             'model.offers',
-            'model.files'
+            'model.files',
+            'model.bookmark'
         ])
 })();
 

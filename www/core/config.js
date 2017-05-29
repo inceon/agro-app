@@ -168,6 +168,16 @@
                     }
                 }
             })
+            .state('app.bookmark', {
+                url: '/bookmark',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'views/bookmark/bookmark.html',
+                        controller: 'Bookmark',
+                        controllerAs: 'vm'
+                    }
+                }
+            })
             .state('app.user_rating', {
                 url: '/user_rating',
                 views: {

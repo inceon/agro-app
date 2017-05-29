@@ -21,6 +21,7 @@
                     comments:       baseUrl + 'Comments',
                     offers:         baseUrl + 'Offers',
                     files:          baseUrl + 'Files',
+                    bookmark:       baseUrl + 'Bookmark',
                     uploadfile:     baseFileUrl
                 };
             }

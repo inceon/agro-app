@@ -12,6 +12,7 @@
         var vm = this;
         vm.logout = logout;
         vm.profile = profile;
+        vm.bookmark = bookmark;
 
         function logout() {
             user.logout();
@@ -20,6 +21,10 @@
 
         function profile() {
             $state.go('app.profile');
+        }
+
+        function bookmark() {
+            $state.go('app.bookmark');
         }
     }
 })();
