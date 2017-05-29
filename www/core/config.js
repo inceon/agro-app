@@ -4,17 +4,33 @@
         .module('app')
         .config(mainConfig);
 
-    mainConfig.$inject = ['$stateProvider', '$urlRouterProvider', '$ionicLoadingConfig', '$ionicConfigProvider', '$mdGestureProvider'];
+    mainConfig.$inject = ['$stateProvider', '$urlRouterProvider', 'toastrConfig', '$ionicLoadingConfig', '$ionicConfigProvider', '$mdGestureProvider'];
 
     /**
      * Function for configurate angular app
      */
-    function mainConfig($stateProvider, $urlRouterProvider, $ionicLoadingConfig, $ionicConfigProvider, $mdGestureProvider) {
+    function mainConfig($stateProvider, $urlRouterProvider, toastrConfig, $ionicLoadingConfig, $ionicConfigProvider, $mdGestureProvider) {
 
         // $ionicConfigProvider.views.maxCache(0);
         $ionicConfigProvider.backButton.text('');
         $ionicConfigProvider.views.swipeBackEnabled(false);
         $mdGestureProvider.skipClickHijack();
+
+        angular.extend(toastrConfig, {
+            debug: false,
+            newestOnTop: true,
+            positionClass: "toast-top-full-width",
+            preventOpenDuplicates: true,
+            onclick: null,
+            showDuration: "300",
+            hideDuration: "1000",
+            timeOut: "5000",
+            extendedTimeOut: "1000",
+            showEasing: "swing",
+            hideEasing: "linear",
+            showMethod: "fadeIn",
+            hideMethod: "fadeOut"
+        });
 
         /**
          * Configuring ionic loader
@@ -174,6 +190,16 @@
                     'menuContent': {
                         templateUrl: 'views/bookmark/bookmark.html',
                         controller: 'Bookmark',
+                        controllerAs: 'vm'
+                    }
+                }
+            })
+            .state('app.my_offers', {
+                url: '/my_offers',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'views/my_offers/my_offers.html',
+                        controller: 'MyOffers',
                         controllerAs: 'vm'
                     }
                 }

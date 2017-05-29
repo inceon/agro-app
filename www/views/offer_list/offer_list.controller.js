@@ -58,6 +58,11 @@
         //     }
         // ];
 
+        bookmark.all()
+            .then(function (res) {
+                vm.bookmarks = res;
+            });
+
         if(vm.tag) {
             offers.allInSubCategory(vm.tag.objectId, vm.type)
                 .then(function (res) {
@@ -96,6 +101,14 @@
                 });
 
                 item.bookmark = false;
+
+                angular.forEach(vm.bookmarks, function (bookmark) {
+                    if(bookmark.offer === item.objectId) {
+                        item.bookmark = true;
+                        item.bookmarkId = bookmark.objectId;
+                    }
+                });
+
             });
         }
 

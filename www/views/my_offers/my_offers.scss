@@ -1,0 +1,204 @@
+.offer_list {
+    ion-content {
+        padding-bottom: 15px;
+    }
+    .header {
+        color: white;
+        border-bottom: 1px solid gray;
+        .hashtags {
+            float: left;
+            font-size: 1.3em;
+            padding: 6px 15px;
+        }
+        .more {
+            float: right;
+            font-size: 1.5em;
+            font-weight: bold;
+            padding: 6px 15px;
+        }
+        .all-tags {
+            color: white;
+            margin-left: 15px;
+            margin-bottom: 5px;
+            font-size: 1.1em;
+            .no-active {
+                color: #999;
+            }
+            span {
+                padding: 6px 9px 6px 0;
+            }
+            &:before {
+                clear: both;
+                content: "";
+                display: table;
+                margin: 5px;
+            }
+        }
+        &:after {
+            clear: both;
+            content: "";
+            display: table;
+        }
+    }
+
+    .item {
+        .avatar {
+            width: 100%;
+            img {
+                width: 50px;
+                border-radius: 50%;
+                margin-right: 15px;
+                float: left;
+            }
+            h2 {
+                font-size: 1.05em;
+                font-weight: bold;
+                color: white;
+                margin-bottom: 5px;
+            }
+
+            .hashtag {
+                font-size: 1em;
+                color: #aaa;
+                span {
+                    padding: 8px 5px;
+                    padding-left: 0;
+                }
+            }
+        }
+        .info {
+            width: 100%;
+            padding-top: 5px;
+
+            .text {
+                white-space: normal;
+                color: white;
+                font-size: 0.9em;
+                text-align: justify;
+                line-height: 1.3em;
+            }
+
+            .images {
+                width: 100%;
+                img {
+                    width: 30%;
+                    margin: 0 2%;
+                    &:first-child {
+                        margin-left: 0;
+                    }
+                }
+            }
+
+            .footer-info {
+                display: block;
+                font-size: 1em;
+                color: #ccc;
+                margin-top: 6px;
+                .city {
+                    float: left;
+                    padding-top: 5px;
+                }
+
+                .action {
+                    float: right;
+                    i {
+                        padding: 7px;
+                    }
+                }
+            }
+        }
+    }
+
+    .row:last-of-type {
+        margin-bottom: 70px;
+    }
+
+    .add {
+        position: fixed;
+        right: 5px;
+        bottom: 9px;
+        .menu-item {
+            display: block;
+            background: gray;
+            box-shadow: 0 0 10px 0 #333;
+            padding: 5px 15px;
+            margin: 5px;
+            border-radius: 2px;
+            color: white;
+            font-size: 1.15em;
+        }
+    }
+}
+
+.map-modal {
+    .scroll {
+        height: 100%;
+    }
+
+    #map {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.offer-tags-popup {
+    .popup-head {
+        background: #424242;
+        border-bottom: none;
+        .popup-title {
+            color: #FFFFFF;
+        }
+    }
+    .popup-body {
+        background: #757575;
+        color: #FFFFFF;
+        .tag {
+            padding: 7px 3% 7px 3%;
+            font-size: 1.15em;
+        }
+    }
+}
+
+.call-popup {
+    .popup-head, .popup-body {
+        padding: 0;
+    }
+    .popup-body {
+        margin-top: -1px;
+    }
+    .user {
+        background-color: #424242;
+        box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.75);
+        img {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+        }
+        .name {
+            padding: 12px;
+            font-size: 1.2em;
+            color: white;
+        }
+    }
+    .programs {
+        background-color: #757575;
+        border-bottom: 1px solid #424242;
+        height: 100%;
+        vertical-align: middle;
+        .fa {
+            padding: 15px;
+            color: white;
+            width: 42px;
+            height: 30px;
+        }
+        .label {
+            padding: 15px;
+            font-size: 1.2em;
+            color: white;
+        }
+    }
+    .programs.row {
+        margin-top: 0;
+    }
+}
+

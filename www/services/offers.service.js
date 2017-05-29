@@ -15,6 +15,9 @@
         return {
             add: add,
             one: one,
+            my: my,
+            col: col,
+            remove: remove,
             allInCategory: allInCategory,
             allInSubCategory: allInSubCategory,
             images: images,
@@ -47,6 +50,43 @@
                 .then(function (res) {
                     return res.results;
                 });
+        }
+
+        function my() {
+            // TODO current user
+            return http
+                .get(url.offers, {
+                    where: {
+                        "user": 'm0pnvXvF5y'
+                    }
+                })
+                .then(function (res) {
+                    return res.results;
+                });
+        }
+
+        /**
+         *
+         * @param {string} type (buy or sell)
+         */
+        function col(type) {
+            return http
+                .get(url.offers, {
+                    where: {
+                        "type": type
+                    }
+                })
+                .then(function (res) {
+                    return res.results.length;
+                });
+        }
+
+        function remove(offerId) {
+            return http
+                .delete(url.offers +'/' +offerId)
+                .then(function (res) {
+                    return res;
+                })
         }
 
         function allInCategory(categoryId, type) {

@@ -1,8 +1,9 @@
-<ion-view class="bookmark offer_list" view-title="Закладки">
+<ion-view class="bookmark offer_list" view-title="Мої заявки">
     <ion-content>
         <div class="row" ng-repeat="item in vm.items" ng-cloak>
             <div class="col">
                 <div class="item">
+
                     <div class="avatar" ui-sref="app.user_rating">
                         <img src="img/no-profile-image.png"
                              ng-src="{{::item.user.photo}}"
@@ -34,10 +35,10 @@
                                 {{::item.location}}
                             </span>
                             <span class="action">
-                                <i class="fa fa-phone fa-lg" ng-click="vm.callUser(item.number)"></i>
                                 <i class="fa fa-comments fa-lg" ui-sref="app.comments({id: item.objectId})"></i>
                                 <i class="fa fa-star fa-lg" md-colors="{color: 'red-300'}" ng-if="item.bookmark" ng-click="vm.changeBookmark(item)"></i>
                                 <i class="fa fa-star fa-lg" ng-if="!item.bookmark" ng-click="vm.changeBookmark(item)"></i>
+                                <i class="fa fa-remove fa-lg" md-colors="{color: 'red-300'}" ng-click="vm.deleteMyOffer(item)"></i>
                             </span>
                         </p>
                     </div>
