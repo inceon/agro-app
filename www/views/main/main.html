@@ -5,14 +5,14 @@
                 <div class="item" ui-sref="app.section_list({type:'buy'})">
                     <i class="icon fa fa-shopping-cart" aria-hidden="true"></i>
                     <h2>Купити</h2>
-                    <p>1555 оголошень</p>
+                    <p>{{::vm.colBuy}}</p>
                 </div>
             </div>
             <div class="col">
                 <div class="item" ui-sref="app.section_list({type:'sell'})">
                     <i class="icon ion-star"></i>
                     <h2>Продати</h2>
-                    <p>1555 оголошень</p>
+                    <p>{{::vm.colSell}}</p>
                 </div>
             </div>
         </div>
@@ -21,35 +21,26 @@
                 <div class="item">
                     <i class="icon fa fa-users" aria-hidden="true"></i>
                     <h2>Послуги</h2>
-                    <p>1555 оголошень</p>
+                    <p>0 оголошень</p>
                 </div>
             </div>
             <div class="col">
                 <div class="item" ui-sref="app.news">
                     <i class="icon fa fa-newspaper-o" aria-hidden="true"></i>
                     <h2>Новини</h2>
-                    <p>1555 оголошень</p>
+                    <p>{{::vm.colNews}}</p>
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="col">
-                <div class="item">
-                    <i class="icon fa fa-credit-card" aria-hidden="true"></i>
-                    <h2>Фінанси</h2>
-                    <p>1555 оголошень</p>
-                </div>
-            </div>
             <div class="col">
                 <div class="item">
                     <i class="icon fa fa-comments-o" aria-hidden="true"></i>
                     <h2>Чат</h2>
-                    <p>1555 повідомлень</p>
+                    <p>0 повідомлень</p>
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col col-offset-50">
+            <div class="col">
                 <div class="item" ui-sref="app.recommend">
                     <i class="icon fa fa-paper-plane" aria-hidden="true"></i>
                     <h2>Пропозиції</h2>

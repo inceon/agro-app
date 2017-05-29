@@ -14,7 +14,8 @@
 
         return {
             all: all,
-            one: one
+            one: one,
+            col: col
         };
 
         function all() {
@@ -34,6 +35,13 @@
                 })
                 .then(function (res) {
                     return res.results;
+                });
+        }
+
+        function col() {
+            return all()
+                .then(function (res) {
+                    return res.length;
                 });
         }
 
