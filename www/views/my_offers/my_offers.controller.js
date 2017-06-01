@@ -5,9 +5,9 @@
         .module('app')
         .controller('MyOffers', MyOffers);
 
-    MyOffers.$inject = ['$q', '$scope', '$ionicPopup', 'IonicClosePopupService', '$ionicModal', '$ionicSlideBoxDelegate', 'offers', 'bookmark', 'user', 'categories'];
+    MyOffers.$inject = ['$rootScope', '$scope', '$ionicPopup', 'IonicClosePopupService', '$ionicModal', '$ionicSlideBoxDelegate', 'offers', 'bookmark', 'user', 'categories'];
 
-    function MyOffers($q, $scope, $ionicPopup, IonicClosePopupService, $ionicModal, $ionicSlideBoxDelegate, offers, bookmark, user, categories) {
+    function MyOffers($rootScope, $scope, $ionicPopup, IonicClosePopupService, $ionicModal, $ionicSlideBoxDelegate, offers, bookmark, user, categories) {
 
 
         var vm = this;
@@ -35,10 +35,9 @@
 
         function changeBookmark(item) {
             item.bookmark = !item.bookmark;
-            // TODO current user
             if(item.bookmark) {
                 bookmark.add({
-                    user: 'm0pnvXvF5y',
+                    user: $rootScope.user.objectId,
                     offer: item.objectId
                 });
             } else {

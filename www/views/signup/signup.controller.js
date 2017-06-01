@@ -27,6 +27,11 @@
                 return;
             }
 
+            angular.extend(vm.data, {
+                name: '',
+                surname: ''
+            });
+
             user.signup(vm.data)
                 .then(function (res) {
                     $state.go('app.main');

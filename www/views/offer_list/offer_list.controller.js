@@ -29,35 +29,6 @@
         vm.next = next;
         vm.previous = previous;
 
-
-        // vm.items = [
-        //     {
-        //         number: '+380957542354',
-        //         name: 'Юлія',
-        //         surname: 'Кириченко',
-        //         text: 'Вже давно відомо, що читабельний зміст буде заважати зосередитись людині, яка ',
-        //         images: ['https://pbs.twimg.com/media/CsYj-SQXgAAA-FS.jpg', 'https://pbs.twimg.com/media/CsYj-SQXgAAA-FS.jpg', 'http://www.chernihiv-oblast.gov.ua/media/upload/78-300x197.jpg'],
-        //         city: 'Київ, Полтава',
-        //         hashtags: ['#зернові', '#мясо']
-        //     },
-        //     {
-        //         number: '+380957542354',
-        //         name: 'Юлія',
-        //         surname: 'Кириченко',
-        //         text: 'Вже давно відомо, що читабельний зміст буде заважати зосередитись людині, яка оцінює композицію сторінки. Сенс використання Lorem Ipsum полягає в тому, що цей текст має більш-менш нормальне розподілення літер на відміну від, наприклад, "Тут іде текст. Тут іде текст."',
-        //         city: 'Київ, Полтава',
-        //         hashtags: ['#зернові', '#мясо']
-        //     },
-        //     {
-        //         number: '+380957542354',
-        //         name: 'Юлія',
-        //         surname: 'Кириченко',
-        //         text: 'Вже давно відомо, що читабельний зміст буде заважати зосередитись ',
-        //         city: 'Київ, Полтава',
-        //         hashtags: ['#зернові', '#мясо']
-        //     }
-        // ];
-
         bookmark.all()
             .then(function (res) {
                 vm.bookmarks = res;
@@ -135,10 +106,9 @@
 
         function changeBookmark(item) {
             item.bookmark = !item.bookmark;
-            // TODO current user
             if(item.bookmark) {
                 bookmark.add({
-                    user: 'm0pnvXvF5y',
+                    user: $rootScope.user.objectId,
                     offer: item.objectId
                 });
             } else {

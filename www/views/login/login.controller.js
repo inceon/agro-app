@@ -8,9 +8,9 @@
         .module('app')
         .controller('Login', Login);
 
-    Login.$inject = ['$rootScope', '$state', '$ionicHistory', 'user', 'util'];
+    Login.$inject = ['$rootScope', '$state', '$sessionStorage', 'user', '$localStorage'];
 
-    function Login($rootScope, $state, $ionicHistory, user, util) {
+    function Login($rootScope, $state, $sessionStorage, user, $localStorage) {
 
         $rootScope.page = {};
 
@@ -28,9 +28,11 @@
             if (form.$invalid) { return; }
             user.login(vm.data)
                 .then(function (res) {
-                   console.log(res);
+                    $rootScope.user = res;
+                    $sessionStorage.auth_key = res.sessionToken;
+                    $localStorage.auth_key = res.sessionToken;
+                    $state.go('app.main');
                 });
-            // $state.go('app.main');
         }
 
         function signup(){

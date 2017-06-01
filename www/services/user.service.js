@@ -13,12 +13,21 @@
     function user(http, url, $rootScope, $sessionStorage, $state, $localStorage, $ionicPopup, IonicClosePopupService) {
 
         return {
+            me: me,
             one: one,
             signup: signup,
             login: login,
             logout: logout,
             checkProfileComplete: checkProfileComplete
         };
+
+        function me() {
+            return http
+                .get(url.me)
+                .then(function (res) {
+                    return res;
+                });
+        }
 
         function one(userId) {
             return http
@@ -54,7 +63,7 @@
 
         function login(data) {
             return http
-                .get(url.user + '/login', data)
+                .get(url.login, data)
                 .then(function (res) {
                     return res;
                 })

@@ -15,8 +15,6 @@
 
         vm.addComment = addComment;
 
-        //TODO current user info
-
         offers.comments($stateParams.id)
             .then(function (res) {
                 vm.comments = res;
@@ -28,39 +26,15 @@
                 })
             });
 
-        // vm.comments = [
-        //     {
-        //         img: 'img/cm_5Wvf1VuE.jpg',
-        //         user: 'Колобок Свиридон',
-        //         text: 'Продаем на экспорт - пшеницу, мясо, людей 3го сорта, фураж и другие зерновые. Продаем на экспорт - пшеницу, мясо, людей 3го сорта, фураж и другие зерновые',
-        //         date: new Date()
-        //     },
-        //     {
-        //         img: 'img/cm_5Wvf1VuE.jpg',
-        //         user: 'Колобок Свиридон',
-        //         text: 'Продаем на экспорт - пшеницу, мясо, людей 3го сорта, фураж и другие зерновые',
-        //         date: new Date()
-        //     }
-        // ];
-
         function addComment() {
             if(user.checkProfileComplete()) {
                 vm.comments.push({
-                    img: vm.user.avatar,
-                    user: 'Юля Кириченко',
+                    user: $rootScope.user,
                     text: vm.user.comment,
                     date: new Date()
                 });
                 vm.user.comment = '';
             }
-
-            vm.comments.push({
-                    img: vm.user.avatar,
-                    user: 'Юля Кириченко',
-                    text: vm.user.comment,
-                    date: new Date()
-                });
-            vm.user.comment = '';
         }
     }
 })();

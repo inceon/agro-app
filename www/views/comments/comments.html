@@ -22,7 +22,9 @@
     <div class="comment-field">
         <div class="row">
             <div class="avatar">
-                <img ng-src="{{vm.user.avatar}}" alt="user">
+                <img src="img/no-profile-image.png"
+                     ng-src="{{::$root.user.photo}}"
+                     alt="user">
             </div>
             <input ng-model="vm.user.comment" type="text" placeholder="Додати коментар">
             <md-button class="md-fab md-mini" ng-disabled="vm.user.comment == ''" ng-click="vm.addComment()">

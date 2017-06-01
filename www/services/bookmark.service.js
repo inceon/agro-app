@@ -5,9 +5,9 @@
         .module('model.bookmark', [])
         .service('bookmark', bookmark);
 
-    bookmark.$inject = ['http', 'url'];
+    bookmark.$inject = ['http', 'url', '$rootScope'];
 
-    function bookmark(http, url) {
+    function bookmark(http, url, $rootScope) {
 
         return {
             all: all,
@@ -16,11 +16,10 @@
         };
 
         function all() {
-            // TODO current user
             return http
                 .get(url.bookmark, {
                     where: {
-                        "user": 'm0pnvXvF5y'
+                        "user": $rootScope.user.objectId
                     }
                 })
                 .then(function (res) {

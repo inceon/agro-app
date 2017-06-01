@@ -10,6 +10,8 @@
 
                 var baseUrl = 'https://parseapi.back4app.com/classes/';
                 var baseFileUrl = 'https://parseapi.back4app.com/files/';
+                var loginUrl = 'https://parseapi.back4app.com/login';
+                var meUrl = 'https://parseapi.back4app.com/users/me';
 
                 return {
                     user:           baseUrl + '_User',
@@ -22,7 +24,9 @@
                     offers:         baseUrl + 'Offers',
                     files:          baseUrl + 'Files',
                     bookmark:       baseUrl + 'Bookmark',
-                    uploadfile:     baseFileUrl
+                    uploadfile:     baseFileUrl,
+                    login:          loginUrl,
+                    me:             meUrl
                 };
             }
         ]);

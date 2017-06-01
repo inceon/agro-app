@@ -31,11 +31,9 @@
         });
 
         function add() {
-            vm.data.user = 'm0pnvXvF5y';
+            vm.data.user = $rootScope.user.objectId;
             recommend.add(vm.data)
                 .then(function (res) {
-
-                    // TODO current user data
 
                     vm.items.push(vm.data);
 

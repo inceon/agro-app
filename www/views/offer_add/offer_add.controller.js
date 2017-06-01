@@ -39,7 +39,7 @@
             vm.data.category = vm.section.objectId;
             vm.data.subcategory = vm.tag.objectId;
             vm.data.type = vm.type;
-            vm.data.user = 'm0pnvXvF5y'; // TODO current user
+            vm.data.user = $rootScope.user.objectId;
 
             offers.add(vm.data)
                 .then(function (res) {

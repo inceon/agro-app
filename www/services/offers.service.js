@@ -53,11 +53,10 @@
         }
 
         function my() {
-            // TODO current user
             return http
                 .get(url.offers, {
                     where: {
-                        "user": 'm0pnvXvF5y'
+                        "user": $rootScope.user.objectId
                     }
                 })
                 .then(function (res) {

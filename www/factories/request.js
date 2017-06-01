@@ -2,9 +2,9 @@
     'use strict';
     angular
         .module('factory.request', [])
-        .factory('http', ['$http', '$sessionStorage', '$q', 'back4app', 'toastr', 'Upload', http]);
+        .factory('http', ['$http', '$rootScope', '$sessionStorage', '$localStorage', '$q', 'back4app', 'toastr', 'Upload', http]);
 
-    function http($http, $sessionStorage, $q, back4app, toastr, Upload) {
+    function http($http, $rootScope, $sessionStorage, $localStorage, $q, back4app, toastr, Upload) {
 
         return {
             get: function (url, data) {
@@ -66,11 +66,9 @@
             }
 
             if ($sessionStorage.auth_key) {
-                config.url = url + '?auth_key=' + $sessionStorage.auth_key;
+                config.headers['X-Parse-Session-Token'] = $sessionStorage.auth_key;
             }
-            else {
-                config.url = url;
-            }
+            config.url = url;
 
             return $http(config)
                 .then(requestComplete)
@@ -103,7 +101,14 @@
                 }
                 // console.log('XHR Failed: ' + err.status);
             } else {
-                toastr.error(err.data.error);
+                console.log(err);
+                if (err.data.code === 209 || err.data.error === "unauthorized") {
+                    delete $rootScope.user;
+                    delete $sessionStorage.auth_key;
+                    delete $localStorage.auth_key;
+                } else {
+                    toastr.error(err.data.error);
+                }
             }
 
             return $q.reject(err.data.error);

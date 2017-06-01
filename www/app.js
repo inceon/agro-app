@@ -42,9 +42,17 @@
              * Check whether the user is authorized
              */
             if ($sessionStorage.auth_key) {
-                $state.go('app.main');
+                console.log($sessionStorage.auth_key);
+                user.me()
+                    .then(function (res) {
+                        $rootScope.user = res;
+                        $state.go('app.main');
+                    })
+                    .catch(function () {
+                        $state.go('login');
+                    });
             } else {
-                $state.go('app.main');
+                $state.go('login');
             }
 
         });
