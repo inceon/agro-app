@@ -12,6 +12,7 @@
                 var baseFileUrl = 'https://parseapi.back4app.com/files/';
                 var loginUrl = 'https://parseapi.back4app.com/login';
                 var meUrl = 'https://parseapi.back4app.com/users/me';
+                var updateUser = 'https://parseapi.back4app.com/users/';
 
                 return {
                     user:           baseUrl + '_User',
@@ -26,7 +27,8 @@
                     bookmark:       baseUrl + 'Bookmark',
                     uploadfile:     baseFileUrl,
                     login:          loginUrl,
-                    me:             meUrl
+                    me:             meUrl,
+                    updateUser:     updateUser
                 };
             }
         ]);

@@ -31,15 +31,19 @@
         });
 
         function add() {
-            vm.data.user = $rootScope.user.objectId;
-            recommend.add(vm.data)
-                .then(function (res) {
+            if (user.checkProfileComplete(vm.modal)) {
+                vm.data.user = $rootScope.user.objectId;
+                recommend.add(vm.data)
+                    .then(function (res) {
+                        angular.extend(vm.data, res);
+                        vm.data.user = $rootScope.user;
+                        vm.items.push(angular.copy(vm.data));
+                        console.log(vm.data);
 
-                    vm.items.push(vm.data);
-
-                    vm.data.text = ' ';
-                    vm.modal.hide();
-                });
+                        vm.data.text = ' ';
+                        vm.modal.hide();
+                    });
+            }
         }
     }
 })();

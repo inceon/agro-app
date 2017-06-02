@@ -15,6 +15,7 @@
         return {
             me: me,
             one: one,
+            save: save,
             signup: signup,
             login: login,
             logout: logout,
@@ -39,6 +40,21 @@
                 .then(function (res) {
                     return res.results;
                 });
+        }
+
+        /**
+         *
+         * @param {object} data
+         * @param {string} data.name - user name
+         * @param {string} data.surname - user surname
+         * @param {string} data.photo - photo url
+         */
+        function save(data) {
+            return http
+                .put(url.updateUser + $rootScope.user.objectId, data)
+                .then(function (res) {
+                    return res;
+                })
         }
 
         /**
@@ -81,8 +97,8 @@
         /**
          * Function for checking user profile complete
          */
-        function checkProfileComplete() {
-            if (true) {
+        function checkProfileComplete(modal) {
+            if (!$rootScope.user.name || !$rootScope.user.surname || !$rootScope.user.photo) {
                 var confirmPopup = $ionicPopup.confirm({
                     title: 'Інформація користувача',
                     template: 'Будь-ласка заповніть інформацію про Вас',
@@ -93,6 +109,9 @@
                         text: '<b>Профіль</b>',
                         type: 'button-positive',
                         onTap: function(e) {
+                            if (modal) {
+                                modal.hide();
+                            }
                             $state.go('app.profile');
                         }
                     }]
@@ -108,9 +127,9 @@
                 IonicClosePopupService.register(confirmPopup);
 
                 return false;
-            } else {
-                return true;
             }
+
+            return true;
         }
     }
 })();

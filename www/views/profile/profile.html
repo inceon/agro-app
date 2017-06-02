@@ -4,9 +4,16 @@
             <div class="col">
                 <div class="item">
                     <div class="input">
-                        <img src="img/cm_5Wvf1VuE.jpg"
+                        <img src="img/no-profile-image.png"
+                             ng-src="{{::$root.user.photo}}"
                              alt="avatar"
-                             class="avatar">
+                             class="avatar"
+                             ng-if="!vm.file">
+                        <img ngf-thumbnail="vm.file"
+                             alt="avatar"
+                             class="avatar"
+                             ng-if="vm.file">
+
                         <div class="name">
                             <input ng-model="vm.data.surname" type="text" placeholder="Прізвище">
                             <input ng-model="vm.data.name" type="text" placeholder="Ім'я">
@@ -16,13 +23,15 @@
                         <div class="icon text-center">
                             <i class="fa fa-camera"></i>
                         </div>
-                        <input ng-model="vm.data.photo" type="text" placeholder="Завантажити фото">
+                        <input ngf-select ng-model="vm.file" name="file"
+                               ngf-max-size="20MB" ngf-min-height="100"
+                               type="text" placeholder="Завантажити фото">
                     </div>
                     <div class="input">
                         <div class="icon text-center">
                             <i class="fa fa-phone"></i>
                         </div>
-                        <input ng-model="vm.data.phone" type="text" placeholder="Номер телефону" value="0959999999">
+                        <input ng-value="vm.data.username" type="text" placeholder="Номер телефону" value="0959999999">
                     </div>
                     <div class="input">
                         <div class="icon text-center">
@@ -40,6 +49,7 @@
                     <div layout="column" layout-margin>
                         <md-button class="md-primary md-raised waves-effect waves-light"
                                    md-colors="{background: 'grey-700'}"
+                                   ng-click="vm.save()"
                                    flex>
                             Зберегти
                         </md-button>

@@ -35,7 +35,7 @@
             return http
                 .post(url.suggestion, data)
                 .then(function (res) {
-                    return res.results;
+                    return res;
                 });
         }
 

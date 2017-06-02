@@ -8,9 +8,9 @@
         .module('model.offers', [])
         .service('offers', offers);
 
-    offers.$inject = ['http', 'url'];
+    offers.$inject = ['http', 'url', '$rootScope'];
 
-    function offers(http, url) {
+    function offers(http, url, $rootScope) {
 
         return {
             add: add,
