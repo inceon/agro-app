@@ -39,22 +39,11 @@
         </div>
     </ion-content>
     <div class="add">
-        <md-fab-speed-dial md-open="false" md-direction="left" class="md-scale">
-            <md-fab-trigger>
-                <md-button class=" md-icon-button md-fab waves-effect waves-light"
-                           md-colors="{background: 'red-300'}"
-                           aria-label="true"
-                           ng-click="vm.modal.show()">
-
-                    <md-icon md-font-icon="fa fa-plus fa-lg" aria-hidden="true"></md-icon>
-                </md-button>
-            </md-fab-trigger>
-            <md-fab-actions>
-                <div>
-                    <span class="menu-item" ng-click="vm.buy()">Купити</span>
-                    <span class="menu-item" ng-click="vm.sell()">Продати</span>
-                </div>
-            </md-fab-actions>
-        </md-fab-speed-dial>
+        <md-button class=" md-icon-button md-fab waves-effect waves-light"
+                   md-colors="{background: 'red-300'}"
+                   aria-label="true"
+                   ng-click="vm.add()">
+            <md-icon md-font-icon="fa fa-plus fa-lg" aria-hidden="true"></md-icon>
+        </md-button>
     </div>
 </ion-view>

@@ -194,6 +194,16 @@
                     }
                 }
             })
+            .state('app.services_add', {
+                url: '/services_add',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'views/services_add/services.html',
+                        controller: 'ServicesAdd',
+                        controllerAs: 'vm'
+                    }
+                }
+            })
             .state('app.bookmark', {
                 url: '/bookmark',
                 views: {

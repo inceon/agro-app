@@ -3,11 +3,11 @@
 
     angular
         .module('app')
-        .controller('offerAdd', offerAdd);
+        .controller('ServicesAdd', ServicesAdd);
 
-    offerAdd.$inject = ['$rootScope', '$state', '$q', '$stateParams', '$ionicHistory', 'offers', 'files', 'toastr'];
+    ServicesAdd.$inject = ['$rootScope', '$state', '$q', '$stateParams', '$ionicHistory', 'services', 'files', 'toastr'];
 
-    function offerAdd($rootScope, $state, $q, $stateParams, $ionicHistory, offers, files, toastr) {
+    function ServicesAdd($rootScope, $state, $q, $stateParams, $ionicHistory, services, files, toastr) {
         var vm = this;
 
         vm.search = search;
@@ -37,12 +37,9 @@
         function add() {
             if(!!vm.data.location && !!vm.data.location.description) {
                 vm.data.location = vm.data.location.description;
-                vm.data.category = vm.section.objectId;
-                vm.data.subcategory = vm.tag.objectId;
-                vm.data.type = vm.type;
                 vm.data.user = $rootScope.user.objectId;
-
-                offers.add(vm.data)
+o
+                services.add(vm.data)
                     .then(function (res) {
                         var source = res.objectId;
                         angular.forEach(vm.data.attach, function (file) {
@@ -56,7 +53,7 @@
                         });
 
                         $ionicHistory.currentView($ionicHistory.backView());
-                        $state.go("app.offer_list", $stateParams,  {location:'replace'} );
+                        $state.go("app.services", $stateParams, {location: 'replace'});
                     });
             } else {
                 toastr.error('Заповніть всі текстові поля');

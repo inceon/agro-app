@@ -13,6 +13,7 @@
         vm.callUser = callUser;
         vm.showImage = showImage;
         vm.closeModal = closeModal;
+        vm.add = add;
         vm.next = next;
         vm.previous = previous;
 
@@ -64,6 +65,10 @@
 
         function closeModal() {
             vm.modalImage.hide();
+        }
+
+        function add() {
+            $state.go('app.services_add');
         }
 
         function next() {

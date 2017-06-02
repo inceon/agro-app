@@ -4,14 +4,11 @@
             <div class="col">
                 <div class="item">
                     <div class="input">
-                        {{vm.type=='buy'?'#куплю':'#продам'}} #{{vm.section.name | lowercase | replaceSpace:'_'}} #{{vm.tag.name | lowercase | replaceSpace:'_'}}
-                    </div>
-                    <div class="input">
                         <md-input-container class="md-block" flex md-no-float>
                             <textarea name="description"
                                       class="description"
                                       md-maxlength="350"
-                                      ng-maxlength="450"
+                                      ng-maxlength="350"
                                       rows="8"
                                       placeholder="Додати опис..."
                                       ng-model="vm.data.text"
