@@ -184,6 +184,16 @@
                     }
                 }
             })
+            .state('app.services', {
+                url: '/services',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'views/services/services.html',
+                        controller: 'Services',
+                        controllerAs: 'vm'
+                    }
+                }
+            })
             .state('app.bookmark', {
                 url: '/bookmark',
                 views: {

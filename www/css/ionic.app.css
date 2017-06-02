@@ -9959,96 +9959,96 @@ md-input-container:not(.md-input-invalid).md-input-has-value {
       padding: 0 5px;
       float: right; }
 
-.offer_list ion-content {
+.offer_list ion-content, .services ion-content {
   padding-bottom: 15px; }
 
-.offer_list .header {
+.offer_list .header, .services .header {
   color: white;
   border-bottom: 1px solid gray; }
-  .offer_list .header .hashtags {
+  .offer_list .header .hashtags, .services .header .hashtags {
     float: left;
     font-size: 1.3em;
     padding: 6px 15px; }
-  .offer_list .header .more {
+  .offer_list .header .more, .services .header .more {
     float: right;
     font-size: 1.5em;
     font-weight: bold;
     padding: 6px 15px; }
-  .offer_list .header .all-tags {
+  .offer_list .header .all-tags, .services .header .all-tags {
     color: white;
     margin-left: 15px;
     margin-bottom: 5px;
     font-size: 1.1em; }
-    .offer_list .header .all-tags .no-active {
+    .offer_list .header .all-tags .no-active, .services .header .all-tags .no-active {
       color: #999; }
-    .offer_list .header .all-tags span {
+    .offer_list .header .all-tags span, .services .header .all-tags span {
       padding: 6px 9px 6px 0; }
-    .offer_list .header .all-tags:before {
+    .offer_list .header .all-tags:before, .services .header .all-tags:before {
       clear: both;
       content: "";
       display: table;
       margin: 5px; }
-  .offer_list .header:after {
+  .offer_list .header:after, .services .header:after {
     clear: both;
     content: "";
     display: table; }
 
-.offer_list .item .avatar {
+.offer_list .item .avatar, .services .item .avatar {
   width: 100%; }
-  .offer_list .item .avatar img {
+  .offer_list .item .avatar img, .services .item .avatar img {
     width: 50px;
     border-radius: 50%;
     margin-right: 15px;
     float: left; }
-  .offer_list .item .avatar h2 {
+  .offer_list .item .avatar h2, .services .item .avatar h2 {
     font-size: 1.05em;
     font-weight: bold;
     color: white;
     margin-bottom: 5px; }
-  .offer_list .item .avatar .hashtag {
+  .offer_list .item .avatar .hashtag, .services .item .avatar .hashtag {
     font-size: 1em;
     color: #aaa; }
-    .offer_list .item .avatar .hashtag span {
+    .offer_list .item .avatar .hashtag span, .services .item .avatar .hashtag span {
       padding: 8px 5px;
       padding-left: 0; }
 
-.offer_list .item .info {
+.offer_list .item .info, .services .item .info {
   width: 100%;
   padding-top: 5px; }
-  .offer_list .item .info .text {
+  .offer_list .item .info .text, .services .item .info .text {
     white-space: normal;
     color: white;
     font-size: 0.9em;
     text-align: justify;
     line-height: 1.3em; }
-  .offer_list .item .info .images {
+  .offer_list .item .info .images, .services .item .info .images {
     width: 100%; }
-    .offer_list .item .info .images img {
+    .offer_list .item .info .images img, .services .item .info .images img {
       width: 30%;
       margin: 0 2%; }
-      .offer_list .item .info .images img:first-child {
+      .offer_list .item .info .images img:first-child, .services .item .info .images img:first-child {
         margin-left: 0; }
-  .offer_list .item .info .footer-info {
+  .offer_list .item .info .footer-info, .services .item .info .footer-info {
     display: block;
     font-size: 1em;
     color: #ccc;
     margin-top: 6px; }
-    .offer_list .item .info .footer-info .city {
+    .offer_list .item .info .footer-info .city, .services .item .info .footer-info .city {
       float: left;
       padding-top: 5px; }
-    .offer_list .item .info .footer-info .action {
+    .offer_list .item .info .footer-info .action, .services .item .info .footer-info .action {
       float: right; }
-      .offer_list .item .info .footer-info .action i {
+      .offer_list .item .info .footer-info .action i, .services .item .info .footer-info .action i {
         padding: 7px; }
 
-.offer_list .row:last-of-type {
+.offer_list .row:last-of-type, .services .row:last-of-type {
   margin-bottom: 70px; }
 
-.offer_list .add {
+.offer_list .add, .services .add {
   position: fixed;
   right: 5px;
   bottom: 9px; }
-  .offer_list .add .menu-item {
+  .offer_list .add .menu-item, .services .add .menu-item {
     display: block;
     background: gray;
     box-shadow: 0 0 10px 0 #333;

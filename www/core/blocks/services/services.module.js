@@ -11,7 +11,8 @@
             'model.categories',
             'model.offers',
             'model.files',
-            'model.bookmark'
+            'model.bookmark',
+            'model.services'
         ])
 })();
 

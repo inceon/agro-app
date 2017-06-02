@@ -46,7 +46,7 @@
                 user.me()
                     .then(function (res) {
                         $rootScope.user = res;
-                        $state.go('app.main');
+                        $state.go('app.services');
                     })
                     .catch(function () {
                         $state.go('login');

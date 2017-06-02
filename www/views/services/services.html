@@ -1,0 +1,60 @@
+<ion-view class="services" view-title="{{vm.type=='buy'?'Купити':'Продати'}}">
+    <ion-content>
+        <div class="row" ng-repeat="item in vm.items" ng-cloak>
+            <div class="col">
+                <div class="item">
+                    <div class="avatar" ui-sref="app.user_rating">
+                        <img src="img/no-profile-image.png"
+                             ng-src="{{::item.user.photo}}"
+                             alt="avatar"/>
+                        <h2>{{::item.user.name}} {{::item.user.surname}}</h2>
+                        <p class="hashtag">
+                            &nbsp;
+                        </p>
+                    </div>
+
+                    <div class="info">
+                        <p class="text">
+                            {{::item.text}}
+                        </p>
+
+                        <div class="images" ng-if="item.images">
+                            <img ng-src="{{image.file}}"
+                                 ng-repeat="image in item.images track by $index"
+                                 ng-click="vm.slide = $index; vm.showImage(item.images)">
+                        </div>
+
+                        <p class="footer-info">
+                            <span class="city">
+                                {{::item.location}}
+                            </span>
+                            <span class="action">
+                                <i class="fa fa-phone fa-lg" ng-click="vm.callUser(item.number)"></i>
+                                <i class="fa fa-comments fa-lg" ui-sref="app.comments({id: item.objectId})"></i>
+                            </span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+    <div class="add">
+        <md-fab-speed-dial md-open="false" md-direction="left" class="md-scale">
+            <md-fab-trigger>
+                <md-button class=" md-icon-button md-fab waves-effect waves-light"
+                           md-colors="{background: 'red-300'}"
+                           aria-label="true"
+                           ng-click="vm.modal.show()">
+
+                    <md-icon md-font-icon="fa fa-plus fa-lg" aria-hidden="true"></md-icon>
+                </md-button>
+            </md-fab-trigger>
+            <md-fab-actions>
+                <div>
+                    <span class="menu-item" ng-click="vm.buy()">Купити</span>
+                    <span class="menu-item" ng-click="vm.sell()">Продати</span>
+                </div>
+            </md-fab-actions>
+        </md-fab-speed-dial>
+    </div>
+</ion-view>
