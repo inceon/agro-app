@@ -141,7 +141,9 @@
             }
         }
 
-        function callUser(number) {
+        function callUser(user) {
+            var $scope = $rootScope.$new();
+            $scope.user = user;
             vm.callDialog = $ionicPopup.show({
                 templateUrl: 'views/offer_list/call.popup.html',
                 scope: $scope,

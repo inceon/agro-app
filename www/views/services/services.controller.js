@@ -37,7 +37,9 @@
             });
         }
 
-        function callUser(number) {
+        function callUser(user) {
+            var $scope = $rootScope.$new();
+            $scope.user = user;
             vm.callDialog = $ionicPopup.show({
                 templateUrl: 'views/services/call.popup.html',
                 scope: $scope,
