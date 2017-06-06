@@ -44,7 +44,7 @@
                             <span ng-click="$event.stopPropagation();">
                                 #{{::vm.section.name | lowercase  | replaceSpace:'_'}}
                             </span>
-                            <span ng-click="$event.stopPropagation();">
+                            <span ng-click="$event.stopPropagation();" ng-chow="item.subcategory.name">
                                 #{{::item.subcategory.name | lowercase | replaceSpace:'_'}}
                             </span>
                         </p>

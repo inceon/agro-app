@@ -8,9 +8,9 @@
         .module('app')
         .controller('Comments', Comments);
 
-    Comments.$inject = ['$rootScope', '$state', '$stateParams', 'user', 'offers'];
+    Comments.$inject = ['$rootScope', '$state', '$stateParams', 'user', 'offers', 'comments'];
 
-    function Comments($rootScope, $state, $stateParams, user, offers) {
+    function Comments($rootScope, $state, $stateParams, user, offers, comments) {
         var vm = this;
 
         vm.addComment = addComment;
@@ -28,12 +28,19 @@
 
         function addComment() {
             if(user.checkProfileComplete()) {
-                vm.comments.push({
-                    user: $rootScope.user,
-                    text: vm.user.comment,
-                    date: new Date()
+                comments.add({
+                    source: $stateParams.id,
+                    user: $rootScope.user.objectId,
+                    text: vm.user.comment
+                })
+                .then(function(res) {
+                    vm.comments.push({
+                        user: $rootScope.user,
+                        text: vm.user.comment,
+                        date: new Date()
+                    });
+                    vm.user.comment = '';
                 });
-                vm.user.comment = '';
             }
         }
     }

@@ -18,10 +18,10 @@
         </div>
         <div class="row">
             <div class="col">
-                <div class="item">
+                <div class="item" ui-sref="app.services">
                     <i class="icon fa fa-users" aria-hidden="true"></i>
                     <h2>Послуги</h2>
-                    <p>0 оголошень</p>
+                    <p>{{::vm.colServices}}</p>
                 </div>
             </div>
             <div class="col">
@@ -34,10 +34,10 @@
         </div>
         <div class="row">
             <div class="col">
-                <div class="item">
+                <div class="item"  ui-sref="app.chat">
                     <i class="icon fa fa-comments-o" aria-hidden="true"></i>
                     <h2>Чат</h2>
-                    <p>0 повідомлень</p>
+                    <p>{{::vm.colChat}}</p>
                 </div>
             </div>
             <div class="col">

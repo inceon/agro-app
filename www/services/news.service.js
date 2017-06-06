@@ -39,9 +39,13 @@
         }
 
         function col() {
-            return all()
+            return http
+                .get(url.news, {
+                    limit: 0,
+                    count: 1
+                })
                 .then(function (res) {
-                    return res.length;
+                    return res.count;
                 });
         }
 

@@ -12,7 +12,9 @@
             'model.offers',
             'model.files',
             'model.bookmark',
-            'model.services'
+            'model.services',
+            'model.comments',
+            'model.chat'
         ])
 })();
 

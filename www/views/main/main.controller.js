@@ -5,9 +5,9 @@
         .module('app')
         .controller('Main', Main);
 
-    Main.$inject = ['$rootScope', '$state', '$ionicHistory', 'user', 'news', 'offers'];
+    Main.$inject = ['$rootScope', '$state', '$ionicHistory', 'user', 'news', 'offers', 'services', 'chat'];
 
-    function Main($rootScope, $state, $ionicHistory, user, news, offers) {
+    function Main($rootScope, $state, $ionicHistory, user, news, offers, services, chat) {
 
         var vm = this;
 
@@ -50,6 +50,16 @@
         offers.col('sell')
             .then(function (res) {
                 vm.colSell = res + num2str(res, [' оголошення', ' оголошення', ' оголошень']);
+            });
+
+        services.col()
+            .then(function (res) {
+                vm.colServices = res + num2str(res, [' послуга', ' послуги', ' послуг']);
+            });
+
+        chat.col()
+            .then(function (res) {
+                vm.colChat = res + num2str(res, [' повідомлення', ' повідомлення', ' повідомлень']);
             });
     }
 })();

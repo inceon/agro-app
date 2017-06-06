@@ -24,6 +24,7 @@
                     comments:       baseUrl + 'Comments',
                     offers:         baseUrl + 'Offers',
                     files:          baseUrl + 'Files',
+                    chat:           baseUrl + 'Chat',
                     bookmark:       baseUrl + 'Bookmark',
                     uploadfile:     baseFileUrl,
                     login:          loginUrl,

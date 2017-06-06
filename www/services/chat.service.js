@@ -1,27 +1,26 @@
-/**
- * Recommend model
- */
 (function() {
     'use strict';
 
     angular
-        .module('model.services', [])
-        .service('services', services);
+        .module('model.chat', [])
+        .service('chat', chat);
 
-    services.$inject = ['http', 'url'];
+    chat.$inject = ['http', 'url'];
 
-    function services(http, url) {
+    function chat(http, url) {
 
         return {
             all: all,
             col: col,
             add: add,
-            images: images
+            newest: newest
         };
 
         function all() {
             return http
-                .get(url.services)
+                .get(url.chat, {
+                    limit: 50
+                })
                 .then(function (res) {
                     return res.results;
                 });
@@ -29,7 +28,7 @@
 
         function col() {
             return http
-                .get(url.services, {
+                .get(url.chat, {
                     limit: 0,
                     count: 1
                 })
@@ -41,26 +40,30 @@
         /**
          *
          * @param {object} data
+         * @param {string} data.source - sourceId
+         * @param {string} data.user - userId
+         * @param {string} data.text - comment text
          */
         function add(data) {
             return http
-                .post(url.services, data)
+                .post(url.chat, data)
                 .then(function (res) {
                     return res;
                 });
         }
 
-        function images(serviceId) {
+        function newest(date) {
             return http
-                .get(url.files, {
+                .get(url.chat, {
                     where: {
-                        "source": serviceId
+                        createdAt: {
+                         "$gt": date
+                        }
                     }
                 })
                 .then(function (res) {
-                    return res.results;
+                    return res.count;
                 });
         }
-
     }
 })();

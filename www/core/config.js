@@ -159,6 +159,16 @@
                     id: null
                 }
             })
+            .state('app.chat', {
+                url: '/chat',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'views/chat/chat.html',
+                        controller: 'Chat',
+                        controllerAs: 'vm'
+                    }
+                }
+            })
             .state('app.offer_add', {
                 url: '/offer_add',
                 views: {
