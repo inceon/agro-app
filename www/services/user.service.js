@@ -77,9 +77,15 @@
                 });
         }
 
+        /**
+         * [login description]
+         * @param  {[object]} data [description]
+         * @param  {[object.phone]} data [description]
+         * @param  {[object.password]} data [description]
+         */
         function login(data) {
             return http
-                .get(url.login, data)
+                .post(url.site.login, data)
                 .then(function (res) {
                     return res;
                 })

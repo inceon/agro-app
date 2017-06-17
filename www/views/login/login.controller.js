@@ -26,6 +26,10 @@
          */
         function login(form) {
             if (form.$invalid) { return; }
+            vm.data = {
+                phone: '+100000000000',
+                password: 'qwer4321'
+            }
             user.login(vm.data)
                 .then(function (res) {
                     $rootScope.user = res;

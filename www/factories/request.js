@@ -39,10 +39,7 @@
                 method: method,
                 headers: {
                     'Accept': 'application/json',
-                    'Content-Type': 'application/json; charset=UTF-8',
-                    'X-Parse-Application-Id': back4app.appId,
-                    'X-Parse-REST-API-Key': back4app.token,
-                    "X-Parse-Revocable-Session": "1"
+                    'Content-Type': 'application/json; charset=UTF-8'
                 }
             };
 
@@ -67,6 +64,7 @@
 
             if ($sessionStorage.auth_key) {
                 config.headers['X-Parse-Session-Token'] = $sessionStorage.auth_key;
+                // url += '?auth_key='+$sessionStorage.auth_key;
             }
             config.url = url;
 
