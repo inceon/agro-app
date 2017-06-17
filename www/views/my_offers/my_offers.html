@@ -4,7 +4,7 @@
             <div class="col">
                 <div class="item">
 
-                    <div class="avatar" ui-sref="app.user_rating">
+                    <div class="avatar" ui-sref="app.user_rating({ userId: item.user.objectId})">
                         <img src="img/no-profile-image.png"
                              ng-src="{{::item.user.photo}}"
                              alt="avatar"/>
