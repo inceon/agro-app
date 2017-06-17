@@ -10,6 +10,7 @@
             'model.recommend',
             'model.categories',
             'model.offers',
+            'model.rating',
             'model.files',
             'model.bookmark',
             'model.services',

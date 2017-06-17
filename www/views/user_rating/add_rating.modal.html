@@ -11,10 +11,10 @@
     <ion-content>
         <div class="row">
             <div class="col">
-                <div class="item text-center" ng-click="vm.data.rating = 0">
+                <div class="item text-center" ng-click="vm.data.stars = 0">
                     <i class="fa fa-star fa-2x"
-                       ng-class="{'fill':i <= vm.data.rating}"
-                       ng-click="vm.data.rating = i; $event.stopPropagation();"
+                       ng-class="{'fill':i <= vm.data.stars}"
+                       ng-click="vm.data.stars = i; $event.stopPropagation();"
                        ng-repeat="i in [1,2,3,4,5]"
                        aria-hidden="true">&nbsp;</i>
                 </div>

@@ -22,6 +22,7 @@
                     suggestion:     baseUrl + 'Suggestion',
                     services:       baseUrl + 'Services',
                     comments:       baseUrl + 'Comments',
+                    rating:         baseUrl + 'Rating',
                     offers:         baseUrl + 'Offers',
                     files:          baseUrl + 'Files',
                     chat:           baseUrl + 'Chat',
