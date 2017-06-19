@@ -13,29 +13,14 @@
     function files(http, url) {
 
         return {
-            upload: upload,
-            add: add
-        };
+            upload: upload
+        };h
 
-        function upload(file) {
-            return http.file(url.uploadfile + file.name, file)
+        function upload(files) {
+            return http.file(url.site.files, files)
                 .then(function (res) {
                     return res.data;
                 })
-        }
-
-        /**
-         *
-         * @param {object} data
-         * @param {string} data.source - sourceId
-         * @param {string} data.file - file url
-         */
-        function add(data) {
-            return http
-                .post(url.files, data)
-                .then(function (res) {
-                    return res.results;
-                });
         }
     }
 })();

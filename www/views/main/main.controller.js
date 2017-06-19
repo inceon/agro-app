@@ -37,29 +37,29 @@
             return text_forms[2];
         }
 
-        news.col()
-            .then(function (res) {
-                vm.colNews = res + num2str(res, [' новина', ' новини', ' новин']);
-            });
-
-        offers.col('buy')
-            .then(function (res) {
-                vm.colBuy = res + num2str(res, [' оголошення', ' оголошення', ' оголошень']);
-            });
-
-        offers.col('sell')
-            .then(function (res) {
-                vm.colSell = res + num2str(res, [' оголошення', ' оголошення', ' оголошень']);
-            });
-
-        services.col()
-            .then(function (res) {
-                vm.colServices = res + num2str(res, [' послуга', ' послуги', ' послуг']);
-            });
-
-        chat.col()
-            .then(function (res) {
-                vm.colChat = res + num2str(res, [' повідомлення', ' повідомлення', ' повідомлень']);
-            });
+        // news.col()
+        //     .then(function (res) {
+        //         vm.colNews = res + num2str(res, [' новина', ' новини', ' новин']);
+        //     });
+        //
+        // offers.col('buy')
+        //     .then(function (res) {
+        //         vm.colBuy = res + num2str(res, [' оголошення', ' оголошення', ' оголошень']);
+        //     });
+        //
+        // offers.col('sell')
+        //     .then(function (res) {
+        //         vm.colSell = res + num2str(res, [' оголошення', ' оголошення', ' оголошень']);
+        //     });
+        //
+        // services.col()
+        //     .then(function (res) {
+        //         vm.colServices = res + num2str(res, [' послуга', ' послуги', ' послуг']);
+        //     });
+        //
+        // chat.col()
+        //     .then(function (res) {
+        //         vm.colChat = res + num2str(res, [' повідомлення', ' повідомлення', ' повідомлень']);
+        //     });
     }
 })();

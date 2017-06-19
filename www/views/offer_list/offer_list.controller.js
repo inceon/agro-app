@@ -24,34 +24,25 @@
         vm.type = $stateParams.type;
         vm.section = $stateParams.section;
         vm.tag = $stateParams.tag;
+        vm.hashtags = $stateParams.section.subcategories;
         vm.city = $rootScope.filter?$rootScope.filter.city:0;
         vm.allItems = [];
         vm.next = next;
         vm.previous = previous;
 
-        bookmark.all()
-            .then(function (res) {
-                vm.bookmarks = res;
-            });
+        // bookmark.all()
+        //     .then(function (res) {
+        //         vm.bookmarks = res;
+        //     });
 
-        if(vm.tag) {
-            offers.allInSubCategory(vm.tag.objectId, vm.type)
-                .then(function (res) {
-                    vm.items = res;
-                    getAdditionalInfo();
-                });
-        } else {
-            offers.allInCategory(vm.section.objectId, vm.type)
-                .then(function (res) {
-                    vm.items = res;
-                    getAdditionalInfo();
-                });
-        }
-
-        categories.subcategories(vm.section.objectId)
-            .then(function (res) {
-                vm.hashtags = res;
-            });
+        offers.all({
+            category: vm.section.id,
+            subcategory: vm.tag ? vm.tag.id : null,
+            type: vm.type
+        }).then(function (res) {
+            vm.items = res;
+            // getAdditionalInfo();
+        });
 
         function getAdditionalInfo() {
             angular.forEach(vm.items, function (item) {
@@ -141,9 +132,9 @@
             }
         }
 
-        function callUser(user) {
+        function callUser(author) {
             var $scope = $rootScope.$new();
-            $scope.user = user;
+            $scope.author = author;
             vm.callDialog = $ionicPopup.show({
                 templateUrl: 'views/offer_list/call.popup.html',
                 scope: $scope,

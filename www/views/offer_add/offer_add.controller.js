@@ -11,13 +11,14 @@
         var vm = this;
 
         vm.search = search;
-        vm.changeCity = changeCity;
         vm.upload = upload;
         vm.add = add;
         vm.remove = remove;
         vm.back = back;
 
-        vm.gmapsService = new google.maps.places.AutocompleteService();
+        vm.gmapsService = new google.maps.places.AutocompleteService(null, {
+            types: ['geocode']
+        });
         vm.data = {
             attach: []
         };
@@ -36,31 +37,34 @@
 
         function add() {
             if(!!vm.data.location && !!vm.data.location.description) {
-                vm.data.location = vm.data.location.description;
-                vm.data.category = vm.section.objectId;
-                vm.data.subcategory = vm.tag.objectId;
+                vm.data.address = vm.data.location.description;
+                vm.data.category = vm.section.id;
+                vm.data.subcategory = vm.tag.id;
                 vm.data.type = vm.type;
-                vm.data.user = $rootScope.user.objectId;
 
-                offers.add(vm.data)
-                    .then(function (res) {
-                        var source = res.objectId;
-                        angular.forEach(vm.data.attach, function (file) {
-                            files.upload(file)
-                                .then(function (res) {
-                                    files.add({
-                                        source: source,
-                                        file: res.url
-                                    });
-                                });
+                if (vm.data.attach.length) {
+                    files.upload(vm.data.attach)
+                        .then(function (images) {
+                            selectAddressAndSendRequest(images);
                         });
-
-                        $ionicHistory.currentView($ionicHistory.backView());
-                        $state.go("app.offer_list", $stateParams,  {location:'replace'} );
-                    });
+                } else {
+                    selectAddressAndSendRequest();
+                }
             } else {
                 toastr.error('Заповніть всі текстові поля');
             }
+        }
+
+        function selectAddressAndSendRequest(images) {
+            onSelectAddress(vm.data.location.description, function (res) {
+                vm.data.location = res.lat + '/' + res.lng;
+                vm.data.images = images;
+                offers.add(vm.data)
+                    .then(function (res) {
+                        $ionicHistory.currentView($ionicHistory.backView());
+                        $state.go("app.offer_list", $stateParams,  {location:'replace'} );
+                    });
+            });
         }
 
         /**
@@ -99,9 +103,17 @@
             return deferred.promise;
         }
 
-        function changeCity(){
-            console.log('click');
-            console.log(vm.data.location);
+        function onSelectAddress(address, callback) {
+            var geocoder = new google.maps.Geocoder();
+
+            geocoder.geocode({ 'address': address }, function (results, status) {
+                if (status == google.maps.GeocoderStatus.OK) {
+                    callback({
+                        lat: results[0].geometry.location.lat(),
+                        lng: results[0].geometry.location.lng()
+                    });
+                }
+            });
         }
 
         /**

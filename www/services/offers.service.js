@@ -13,16 +13,31 @@
     function offers(http, url, $rootScope) {
 
         return {
+            all: all,
             add: add,
             one: one,
             my: my,
             col: col,
             remove: remove,
-            allInCategory: allInCategory,
-            allInSubCategory: allInSubCategory,
             images: images,
             comments: comments
         };
+
+        /**
+         *
+         * @param {object} data
+         * @param {string} data.type - (buy / sell)
+         * @param {string} data.category - id category
+         * @param {string} data.subcategory - id subcategory
+         */
+        function all(data) {
+            return http
+                .get(url.offers.all, data)
+                .then(function (res) {
+                    return res;
+                });
+        }
+
 
         /**
          *
@@ -34,7 +49,7 @@
          */
         function add(data) {
             return http
-                .post(url.offers, data)
+                .post(url.offers.add, data)
                 .then(function (res) {
                     return res;
                 });
@@ -86,32 +101,6 @@
                 .then(function (res) {
                     return res;
                 })
-        }
-
-        function allInCategory(categoryId, type) {
-            return http
-                .get(url.offers, {
-                    where: {
-                        "category": categoryId,
-                        "type": type
-                    }
-                })
-                .then(function (res) {
-                    return res.results;
-                });
-        }
-
-        function allInSubCategory(subcategoryId, type) {
-            return http
-                .get(url.offers, {
-                    where: {
-                        "subcategory": subcategoryId,
-                        "type": type
-                    }
-                })
-                .then(function (res) {
-                    return res.results;
-                });
         }
 
         function images(offerId) {

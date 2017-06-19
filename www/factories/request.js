@@ -63,8 +63,7 @@
             }
 
             if ($sessionStorage.auth_key) {
-                config.headers['X-Parse-Session-Token'] = $sessionStorage.auth_key;
-                // url += '?auth_key='+$sessionStorage.auth_key;
+                url += '?auth_token='+$sessionStorage.auth_key;
             }
             config.url = url;
 
@@ -138,15 +137,13 @@
          * @param {object} data - Data to request
          * @returns {promise}
          */
-        function requestFile(url, file) {
-            return Upload.http({
+        function requestFile(url, files) {
+            if ($sessionStorage.auth_key) {
+                url += '?auth_token='+$sessionStorage.auth_key;
+            }
+            return Upload.upload({
                 url: url,
-                headers: {
-                    'Content-Type': file.type,
-                    'X-Parse-Application-Id': back4app.appId,
-                    'X-Parse-REST-API-Key': back4app.token
-                },
-                data: file
+                data: files
             });
         }
     }

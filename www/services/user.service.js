@@ -24,7 +24,7 @@
 
         function me() {
             return http
-                .get(url.me)
+                .get(url.users.me)
                 .then(function (res) {
                     return res;
                 });
@@ -65,14 +65,14 @@
          */
         function signup(data) {
             return http
-                .post(url.user, data)
+                .post(url.site.signup, data)
                 .then(function (res) {
                     one(res.objectId)
                         .then(function (res) {
-                            $rootScope.user = res;
+                            $rootScope.user = res.user;
                         });
-                    $sessionStorage.auth_key = res.sessionToken;
-                    $localStorage.auth_key = res.sessionToken;
+                    $sessionStorage.auth_key = res.token;
+                    $localStorage.auth_key = res.token;
                     return res;
                 });
         }

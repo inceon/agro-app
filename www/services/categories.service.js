@@ -14,41 +14,23 @@
 
         return {
             all: all,
-            one: one,
-            subcategories: subcategories
+            one: one
         };
 
         function all() {
             return http
-                .get(url.categories)
+                .get(url.categories.all)
                 .then(function (res) {
-                    return res.results;
+                    return res;
                 });
         }
 
         function one(categoryId) {
             return http
-                .get(url.categories, {
-                    where: {
-                        "objectId": categoryId
-                    }
-                })
+                .get(url.categories.one + categoryId)
                 .then(function (res) {
-                    return res.results;
+                    return res;
                 });
         }
-
-        function subcategories(categoryId) {
-            return http
-                .get(url.subcategories, {
-                    where: {
-                        "category": categoryId
-                    }
-                })
-                .then(function (res) {
-                    return res.results;
-                });
-        }
-
     }
 })();

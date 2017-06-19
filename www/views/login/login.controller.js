@@ -29,12 +29,12 @@
             vm.data = {
                 phone: '+100000000000',
                 password: 'qwer4321'
-            }
+            };
             user.login(vm.data)
                 .then(function (res) {
-                    $rootScope.user = res;
-                    $sessionStorage.auth_key = res.sessionToken;
-                    $localStorage.auth_key = res.sessionToken;
+                    $rootScope.user = res.user;
+                    $sessionStorage.auth_key = res.token;
+                    $localStorage.auth_key = res.token;
                     $state.go('app.main');
                 });
         }

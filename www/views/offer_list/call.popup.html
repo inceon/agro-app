@@ -1,12 +1,12 @@
 <div>
     <div class="user row">
         <img src="img/no-profile-image.png"
-             ng-src="{{::user.photo}}">
+             ng-src="{{::author.photo}}">
         <div class="name">
-            {{user.name}} {{user.surname}}
+            {{author.name}} {{author.surname}}
         </div>
     </div>
-    <div class="programs row" ng-repeat="item in [user.username] track by $index">
+    <div class="programs row" ng-repeat="item in [author.phone] track by $index">
         <i class="fa fa-phone fa-2x" aria-hidden="true"></i>
         <div class="label">
             {{item}}
