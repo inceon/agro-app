@@ -13,12 +13,7 @@
 
         user.me()
             .then(function (res) {
-                vm.data = {
-                    photo: res.photo,
-                    name: res.name,
-                    surname: res.surname,
-                    username: res.username
-                }
+                vm.data = res;
             });
         vm.save = save;
 

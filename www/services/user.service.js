@@ -51,7 +51,7 @@
          */
         function save(data) {
             return http
-                .put(url.updateUser + $rootScope.user.objectId, data)
+                .put(url.users.update + $rootScope.user.id, data)
                 .then(function (res) {
                     return res;
                 })

@@ -45,7 +45,7 @@
                 console.log($sessionStorage.auth_key);
                 user.me()
                     .then(function (res) {
-                        $rootScope.user = res.user;
+                        $rootScope.user = res;
                         $state.go('app.main');
                     })
                     .catch(function () {

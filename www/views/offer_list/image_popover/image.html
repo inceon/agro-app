@@ -12,7 +12,7 @@
         </div>
         <ion-slide-box active-slide="vm.slide" does-continue="true">
             <ion-slide ng-repeat="image in vm.modalImage.images track by $index">
-                <img ng-src="{{image.file}}" class="fullscreen-image" />
+                <img ng-src="{{image}}" class="fullscreen-image" />
             </ion-slide>
         </ion-slide-box>
     </ion-pane>
