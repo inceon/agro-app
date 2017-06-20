@@ -20,27 +20,11 @@
         services.all()
             .then(function (res) {
                 vm.items = res;
-                getAdditionalInfo();
             });
 
-
-        function getAdditionalInfo() {
-            angular.forEach(vm.items, function (item) {
-                user.one(item.user)
-                    .then(function (res) {
-                        item.user = res[0];
-                    });
-
-                services.images(item.objectId)
-                    .then(function (res) {
-                        item.images = res;
-                    });
-            });
-        }
-
-        function callUser(user) {
+        function callUser(author) {
             var $scope = $rootScope.$new();
-            $scope.user = user;
+            $scope.author = author;
             vm.callDialog = $ionicPopup.show({
                 templateUrl: 'views/services/call.popup.html',
                 scope: $scope,

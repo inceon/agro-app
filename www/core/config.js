@@ -156,7 +156,8 @@
                     }
                 },
                 params: {
-                    id: null
+                    id: null,
+                    source: null
                 }
             })
             .state('app.chat', {

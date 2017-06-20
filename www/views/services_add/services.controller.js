@@ -11,7 +11,6 @@
         var vm = this;
 
         vm.search = search;
-        vm.changeCity = changeCity;
         vm.upload = upload;
         vm.add = add;
         vm.remove = remove;
@@ -36,28 +35,31 @@
 
         function add() {
             if(!!vm.data.location && !!vm.data.location.description) {
-                vm.data.location = vm.data.location.description;
-                vm.data.user = $rootScope.user.objectId;
-o
-                services.add(vm.data)
-                    .then(function (res) {
-                        var source = res.objectId;
-                        angular.forEach(vm.data.attach, function (file) {
-                            files.upload(file)
-                                .then(function (res) {
-                                    files.add({
-                                        source: source,
-                                        file: res.url
-                                    });
-                                });
-                        });
+                vm.data.address = vm.data.location.description;
 
-                        $ionicHistory.currentView($ionicHistory.backView());
-                        $state.go("app.services", $stateParams, {location: 'replace'});
-                    });
+                if (vm.data.attach.length) {
+                    files.upload(vm.data.attach)
+                        .then(function (images) {
+                            selectAddressAndSendRequest(images);
+                        });
+                } else {
+                    selectAddressAndSendRequest();
+                }
             } else {
                 toastr.error('Заповніть всі текстові поля');
             }
+        }
+
+        function selectAddressAndSendRequest(images) {
+            onSelectAddress(vm.data.location.description, function (res) {
+                vm.data.location = res.lat + '/' + res.lng;
+                vm.data.images = images;
+                services.add(vm.data)
+                    .then(function (res) {
+                        $ionicHistory.currentView($ionicHistory.backView());
+                        $state.go("app.services", $stateParams, {location: 'replace'});
+                    });
+            });
         }
 
         /**
@@ -96,9 +98,17 @@ o
             return deferred.promise;
         }
 
-        function changeCity(){
-            console.log('click');
-            console.log(vm.data.location);
+        function onSelectAddress(address, callback) {
+            var geocoder = new google.maps.Geocoder();
+
+            geocoder.geocode({ 'address': address }, function (results, status) {
+                if (status == google.maps.GeocoderStatus.OK) {
+                    callback({
+                        lat: results[0].geometry.location.lat(),
+                        lng: results[0].geometry.location.lng()
+                    });
+                }
+            });
         }
 
         /**

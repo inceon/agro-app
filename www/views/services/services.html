@@ -5,9 +5,9 @@
                 <div class="item">
                     <div class="avatar" ui-sref="app.user_rating">
                         <img src="img/no-profile-image.png"
-                             ng-src="{{::item.user.avatar}}"
+                             ng-src="{{::item.author.avatar}}"
                              alt="avatar"/>
-                        <h2>{{::item.user.name}} {{::item.user.surname}}</h2>
+                        <h2>{{::item.author.name}} {{::item.author.surname}}</h2>
                         <p class="hashtag">
                             &nbsp;
                         </p>
@@ -19,18 +19,18 @@
                         </p>
 
                         <div class="images" ng-if="item.images">
-                            <img ng-src="{{image.file}}"
+                            <img ng-src="{{image}}"
                                  ng-repeat="image in item.images track by $index"
                                  ng-click="vm.slide = $index; vm.showImage(item.images)">
                         </div>
 
                         <p class="footer-info">
                             <span class="city">
-                                {{::item.location}}
+                                {{::item.address}}
                             </span>
                             <span class="action">
-                                <i class="fa fa-phone fa-lg" ng-click="vm.callUser(item.user)"></i>
-                                <i class="fa fa-comments fa-lg" ui-sref="app.comments({id: item.objectId})"></i>
+                                <i class="fa fa-phone fa-lg" ng-click="vm.callUser(item.author)"></i>
+                                <i class="fa fa-comments fa-lg" ui-sref="app.comments({id: item.id, source:'Service'})"></i>
                             </span>
                         </p>
                     </div>

@@ -14,51 +14,39 @@
 
         return {
             all: all,
-            col: col,
             add: add,
-            images: images
+            one: one
         };
 
         function all() {
             return http
-                .get(url.services)
+                .get(url.services.all)
                 .then(function (res) {
-                    return res.results;
-                });
-        }
-
-        function col() {
-            return http
-                .get(url.services, {
-                    limit: 0,
-                    count: 1
-                })
-                .then(function (res) {
-                    return res.count;
+                    return res;
                 });
         }
 
         /**
          *
          * @param {object} data
+         * @param {string} data.text
+         * @param {string} data.location
+         * @param {string} data.address
+         * @param {array} data.images - images link
          */
         function add(data) {
             return http
-                .post(url.services, data)
+                .post(url.services.add, data)
                 .then(function (res) {
                     return res;
                 });
         }
 
-        function images(serviceId) {
+        function one(serviceId) {
             return http
-                .get(url.files, {
-                    where: {
-                        "source": serviceId
-                    }
-                })
+                .get(url.services.one + serviceId)
                 .then(function (res) {
-                    return res.results;
+                    return res;
                 });
         }
 

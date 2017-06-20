@@ -8,22 +8,30 @@
         .module('app')
         .controller('Comments', Comments);
 
-    Comments.$inject = ['$rootScope', '$state', '$stateParams', 'user', 'offers', 'comments'];
+    Comments.$inject = ['$rootScope', '$state', '$stateParams', 'user', 'offers', 'comments', 'services'];
 
-    function Comments($rootScope, $state, $stateParams, user, offers, comments) {
+    function Comments($rootScope, $state, $stateParams, user, offers, comments, services) {
         var vm = this;
 
         vm.addComment = addComment;
+        vm.source = $stateParams.source;
 
-        offers.one($stateParams.id)
-            .then(function (res) {
-                vm.comments = res.comments;
-            });
+        if (vm.source === 'Offer') {
+            offers.one($stateParams.id)
+                .then(function (res) {
+                    vm.comments = res.comments;
+                });
+        } else if (vm.source === 'Service') {
+            services.one($stateParams.id)
+                .then(function (res) {
+                    vm.comments = res.comments;
+                });
+        }
 
         function addComment() {
             if(user.checkProfileComplete()) {
                 comments.add({
-                    kind: 'Offer',
+                    kind: vm.source,
                     resource: $stateParams.id,
                     body: vm.user.comment
                 })

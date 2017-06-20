@@ -29,6 +29,11 @@
                         add:     baseUrl + 'offers',
                         one:     baseUrl + 'offers/'
                     },
+                    services: {
+                        all:     baseUrl + 'services',
+                        add:     baseUrl + 'services',
+                        one:     baseUrl + 'services/'
+                    },
                     comments: {
                         get:     baseUrl + 'comments/',
                         add:     baseUrl + 'comments'
