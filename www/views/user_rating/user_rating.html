@@ -1,22 +1,22 @@
-<ion-view class="user_rating" view-title="Юлія Кириченко 2">
+<ion-view class="user_rating" view-title="{{vm.user.name}} {{vm.user.surname}}">
     <ion-content>
         <div class="info">
-            <img src="img/cm_5Wvf1VuE.jpg"
+            <img src="img/no-profile-image.png"
+                 ng-src="{{::vm.user.photo}}"
                  alt="avatar"
                  class="avatar"/>
             <div class="name">
-                Юлія Кириченко 2
+                {{::vm.user.name}} {{::vm.user.surname}}
             </div>
             <div class="stars">
-                <i class="fa fa-star fa-lg fill" aria-hidden="true"></i>
-                <i class="fa fa-star fa-lg fill" aria-hidden="true"></i>
-                <i class="fa fa-star fa-lg fill" aria-hidden="true"></i>
-                <i class="fa fa-star fa-lg " aria-hidden="true"></i>
-                <i class="fa fa-star fa-lg " aria-hidden="true"></i>
-                <div class="count">172 голоса</div>
+                <i class="fa fa-star fa-lg"
+                   ng-class="{'fill':i <= vm.midStars}"
+                   ng-repeat="i in [1,2,3,4,5]"
+                   aria-hidden="true">&nbsp;</i>
+                <div class="count">{{vm.colStars}}</div>
             </div>
             <div class="phone">
-                Номер телефону: <span>0959999999</span>
+                Номер телефону: <span>{{vm.user.username}}</span>
             </div>
         </div>
         <span class="text">Відгуки про роботу</span>
@@ -25,14 +25,16 @@
                 <div class="item waves-effect waves-light"
                      ng-repeat="item in vm.items">
                     <div class="avatar">
-                        <img ng-src="{{item.avatar}}" alt="avatar"/>
+                        <img src="img/no-profile-image.png"
+                             ng-src="{{::item.photo}}"
+                             alt="avatar"/>
                     </div>
                     <div class="info">
                         <div class="clearfix">
-                            <h2 ui-sref="app.user_rating">{{::item.name}} {{::item.surname}}</h2>
+                            <h2>{{::item.name}} {{::item.surname}}</h2>
                             <p class="stars">
                                 <i class="fa fa-star"
-                                   ng-class="{'fill':i <= item.rating}"
+                                   ng-class="{'fill':i <= item.stars}"
                                    ng-repeat="i in [1,2,3,4,5]"
                                    aria-hidden="true">&nbsp;</i>
                             </p>

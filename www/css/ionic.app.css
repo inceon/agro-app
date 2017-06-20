@@ -10308,12 +10308,14 @@ md-input-container:not(.md-input-invalid).md-input-has-value {
       color: #dedede; }
       .profile .item input input, .profile .item .name input {
         width: 100%;
-        margin: 5px 0 0; }
+        margin: 5px 0 0;
+        padding-left: 5px; }
         .profile .item input input:first-child, .profile .item .name input:first-child {
           border-bottom: 1px solid #666;
           padding-bottom: 25px; }
     .profile .item .avatar {
-      width: 60px;
+      width: 55px;
+      margin-top: 10px;
       border-radius: 50%;
       display: inline-block; }
     .profile .item h2 {
@@ -10404,38 +10406,38 @@ md-input-container:not(.md-input-invalid).md-input-has-value {
 .user_rating .row {
   margin-bottom: 70px; }
 
-.recommend .item .avatar, .comments .item .avatar {
+.recommend .item .avatar, .comments .item .avatar, .chat .item .avatar {
   width: 50px;
   border-radius: 50%;
   float: left;
   margin-right: 10px; }
 
-.recommend .item h2, .comments .item h2 {
+.recommend .item h2, .comments .item h2, .chat .item h2 {
   font-size: 1.05em;
   font-weight: bold;
   color: white;
   margin-bottom: 5px; }
 
-.recommend .item p, .comments .item p {
+.recommend .item p, .comments .item p, .chat .item p {
   white-space: normal;
   color: white;
   font-size: 0.9em;
   text-align: justify;
   line-height: 1.3em; }
-  .recommend .item p.text, .comments .item p.text {
+  .recommend .item p.text, .comments .item p.text, .chat .item p.text {
     font-size: 1em;
     width: 100%;
     margin-top: 8px; }
 
-.recommend .item .date, .comments .item .date {
+.recommend .item .date, .comments .item .date, .chat .item .date {
   display: block;
   color: #ccc;
   margin-top: 6px; }
 
-.recommend .row:last-of-type, .comments .row:last-of-type {
+.recommend .row:last-of-type, .comments .row:last-of-type, .chat .row:last-of-type {
   margin-bottom: 70px; }
 
-.recommend .add, .comments .add {
+.recommend .add, .comments .add, .chat .add {
   position: fixed;
   right: 5px;
   bottom: 9px; }
@@ -10507,39 +10509,39 @@ md-input-container:not(.md-input-invalid).md-input-has-value {
       color: #b9b9b9;
       padding: 10px 0; }
 
-.comments ion-content {
+.comments ion-content, .chat ion-content {
   margin-bottom: 69px;
   background-color: #312f31; }
 
-.comments .comment-field {
+.comments .comment-field, .chat .comment-field {
   position: fixed;
   bottom: 0;
   z-index: 999;
   width: 100%;
   border-top: 1px solid #515151;
   background-color: #312f31; }
-  .comments .comment-field .row {
+  .comments .comment-field .row, .chat .comment-field .row {
     padding: 0;
     margin-bottom: -3px; }
-    .comments .comment-field .row .avatar {
+    .comments .comment-field .row .avatar, .chat .comment-field .row .avatar {
       width: 68px;
       display: inline-block;
       margin: 10px 5px 3px 10px; }
-      .comments .comment-field .row .avatar img {
+      .comments .comment-field .row .avatar img, .chat .comment-field .row .avatar img {
         width: 100%;
         border-radius: 50%; }
-    .comments .comment-field .row .md-button.md-fab.md-mini {
+    .comments .comment-field .row .md-button.md-fab.md-mini, .chat .comment-field .row .md-button.md-fab.md-mini {
       margin: 0;
       width: 80px;
       height: 68px;
       border-radius: 0;
       background-color: #515151; }
-    .comments .comment-field .row input {
+    .comments .comment-field .row input, .chat .comment-field .row input {
       height: inherit;
       width: 83%;
       padding-right: 3px;
       background-color: #312f31; }
-    .comments .comment-field .row input[placeholder] {
+    .comments .comment-field .row input[placeholder], .chat .comment-field .row input[placeholder] {
       color: #d2d0d2; }
 
 .text-overflow {

@@ -2,9 +2,9 @@
     'use strict';
     angular
         .module('factory.request', [])
-        .factory('http', ['$http', '$rootScope', '$sessionStorage', '$localStorage', '$q', 'back4app', 'toastr', 'Upload', http]);
+        .factory('http', ['$http', '$rootScope', '$sessionStorage', '$ionicLoading', '$localStorage', '$q', 'back4app', 'toastr', 'Upload', http]);
 
-    function http($http, $rootScope, $sessionStorage, $localStorage, $q, back4app, toastr, Upload) {
+    function http($http, $rootScope, $sessionStorage, $ionicLoading, $localStorage, $q, back4app, toastr, Upload) {
 
         return {
             get: function (url, data) {
@@ -56,6 +56,11 @@
             }
             config.url = url;
 
+            $ionicLoading.show({
+                template: '<md-progress-circular md-mode="indeterminate"></md-progress-circular>',
+                noBackdrop: false
+            });
+
             return $http(config)
                 .then(requestComplete)
                 .catch(requestFailed);
@@ -68,6 +73,8 @@
          */
         function requestFailed(err) {
             console.info('error', err.config.url, err);
+
+            $ionicLoading.hide();
 
             if (err.data == null || !err.data.error) {
                 if (err.status === 200) {
@@ -107,6 +114,7 @@
          */
         function requestComplete(response) {
             var promise = $q.defer();
+            $ionicLoading.hide();
 
             console.info('response complete', response.config.url, response);
 

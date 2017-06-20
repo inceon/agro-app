@@ -243,6 +243,9 @@
                         controller: 'UserRating',
                         controllerAs: 'vm'
                     }
+                },
+                params: {
+                    userId: null
                 }
             })
             .state('app.recommend', {

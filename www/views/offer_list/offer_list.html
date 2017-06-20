@@ -35,7 +35,7 @@
         <div class="row" ng-repeat="item in vm.items" ng-cloak>
             <div class="col">
                 <div class="item">
-                    <div class="avatar" ui-sref="app.user_rating">
+                    <div class="avatar" ui-sref="app.user_rating({ userId: item.user.objectId})">
                         <img src="img/no-profile-image.png"
                              ng-src="{{::item.author.avatar}}"
                              alt="avatar"/>
