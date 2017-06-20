@@ -27,10 +27,7 @@
                 return;
             }
 
-            angular.extend(vm.data, {
-                name: '',
-                surname: ''
-            });
+            vm.data.phone = '+38' + vm.data.phone;
 
             user.signup(vm.data)
                 .then(function (res) {

@@ -30,6 +30,7 @@
             //     phone: '+100000000000',
             //     password: 'qwer4321'
             // };
+            vm.data.phone = '+38' + vm.data.phone;
             user.login(vm.data)
                 .then(function (res) {
                     $rootScope.user = res.user;
