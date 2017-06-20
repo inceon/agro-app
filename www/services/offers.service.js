@@ -57,13 +57,9 @@
 
         function one(offerId) {
             return http
-                .get(url.offers, {
-                    where: {
-                        "objectId": offerId
-                    }
-                })
+                .get(url.offers.one + offerId)
                 .then(function (res) {
-                    return res.results;
+                    return res;
                 });
         }
 

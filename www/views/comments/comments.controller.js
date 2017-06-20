@@ -15,22 +15,23 @@
 
         vm.addComment = addComment;
 
-        comments.get($stateParams.id)
+        offers.one($stateParams.id)
             .then(function (res) {
-                vm.comments = res;
+                vm.comments = res.comments;
             });
 
         function addComment() {
             if(user.checkProfileComplete()) {
                 comments.add({
+                    kind: 'Offer',
                     resource: $stateParams.id,
                     body: vm.user.comment
                 })
                 .then(function(res) {
                     vm.comments.push({
-                        user: $rootScope.user,
-                        text: vm.user.comment,
-                        date: new Date()
+                        author: $rootScope.user,
+                        body: vm.user.comment,
+                        created_at: new Date()
                     });
                     vm.user.comment = '';
                 });

@@ -26,7 +26,8 @@
                     },
                     offers: {
                         all:     baseUrl + 'offers',
-                        add:     baseUrl + 'offers'
+                        add:     baseUrl + 'offers',
+                        one:     baseUrl + 'offers/'
                     },
                     comments: {
                         get:     baseUrl + 'comments/',
