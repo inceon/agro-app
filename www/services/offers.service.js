@@ -17,10 +17,7 @@
             add: add,
             one: one,
             my: my,
-            col: col,
             remove: remove,
-            images: images,
-            comments: comments
         };
 
         /**
@@ -65,62 +62,18 @@
 
         function my() {
             return http
-                .get(url.offers, {
-                    where: {
-                        "user": $rootScope.user.objectId
-                    }
-                })
+                .get(url.users.my_offers)
                 .then(function (res) {
-                    return res.results;
-                });
-        }
-
-        /**
-         *
-         * @param {string} type (buy or sell)
-         */
-        function col(type) {
-            return http
-                .get(url.offers, {
-                    where: {
-                        "type": type
-                    }
-                })
-                .then(function (res) {
-                    return res.results.length;
+                    return res;
                 });
         }
 
         function remove(offerId) {
             return http
-                .delete(url.offers +'/' +offerId)
+                .delete(url.offers.one + offerId)
                 .then(function (res) {
                     return res;
                 })
-        }
-
-        function images(offerId) {
-            return http
-                .get(url.files, {
-                    where: {
-                        "source": offerId
-                    }
-                })
-                .then(function (res) {
-                    return res.results;
-                });
-        }
-
-        function comments(offerId) {
-            return http
-                .get(url.comments, {
-                    where: {
-                        "source": offerId
-                    }
-                })
-                .then(function (res) {
-                    return res.results;
-                });
         }
 
     }

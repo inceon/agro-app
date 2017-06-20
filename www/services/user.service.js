@@ -104,7 +104,7 @@
          * Function for checking user profile complete
          */
         function checkProfileComplete(modal) {
-            if (!$rootScope.a.name || !$rootScope.a.surname) {
+            if (!$rootScope.user.name || !$rootScope.user.surname) {
                 var confirmPopup = $ionicPopup.confirm({
                     title: 'Інформація користувача',
                     template: 'Будь-ласка заповніть інформацію про Вас',

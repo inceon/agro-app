@@ -19,7 +19,8 @@
                     users: {
                         me:             baseUrl + 'users/me',
                         update:         baseUrl + 'users/',
-                        favourites:     baseUrl + 'users/favourites'
+                        favourites:     baseUrl + 'users/favourites',
+                        my_offers:      baseUrl + 'users/my_offers'
                     },
                     categories: {
                         all:            baseUrl + 'categories',

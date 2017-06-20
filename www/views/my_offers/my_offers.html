@@ -14,7 +14,7 @@
                                 #{{vm.type=='buy'?'купити':'продати'}}
                             </span>
                             <span ng-click="$event.stopPropagation();">
-                                #{{item.section.name | lowercase  | replaceSpace:'_'}}
+                                #{{item.category.name | lowercase  | replaceSpace:'_'}}
                             </span>
                         </p>
                     </div>
@@ -25,17 +25,17 @@
                         </p>
 
                         <div class="images" ng-if="item.images">
-                            <img ng-src="{{image.file}}"
+                            <img ng-src="{{image}}"
                                  ng-repeat="image in item.images track by $index"
                                  ng-click="vm.slide = $index; vm.showImage(item.images)">
                         </div>
 
                         <p class="footer-info">
                             <span class="city">
-                                {{::item.location}}
+                                {{::item.address}}
                             </span>
                             <span class="action">
-                                <i class="fa fa-comments fa-lg" ui-sref="app.comments({id: item.objectId})"></i>
+                                <i class="fa fa-comments fa-lg" ui-sref="app.comments({id: item.id, source:'Offers'})"></i>
                                 <i class="fa fa-star fa-lg" md-colors="{color: 'red-300'}" ng-if="item.bookmark" ng-click="vm.changeBookmark(item)"></i>
                                 <i class="fa fa-star fa-lg" ng-if="!item.bookmark" ng-click="vm.changeBookmark(item)"></i>
                                 <i class="fa fa-remove fa-lg" md-colors="{color: 'red-300'}" ng-click="vm.deleteMyOffer(item)"></i>
