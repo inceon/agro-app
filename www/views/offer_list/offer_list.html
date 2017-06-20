@@ -37,7 +37,7 @@
                 <div class="item">
                     <div class="avatar" ui-sref="app.user_rating">
                         <img src="img/no-profile-image.png"
-                             ng-src="{{::item.user.photo}}"
+                             ng-src="{{::item.user.avatar}}"
                              alt="avatar"/>
                         <h2>{{::item.author.name}} {{::item.author.surname}}</h2>
                         <p class="hashtag">
@@ -67,7 +67,7 @@
                             </span>
                             <span class="action">
                                 <i class="fa fa-phone fa-lg" ng-click="vm.callUser(item.author)"></i>
-                                <i class="fa fa-comments fa-lg" ui-sref="app.comments({id: item.objectId})"></i>
+                                <i class="fa fa-comments fa-lg" ui-sref="app.comments({id: item.id})"></i>
                                 <i class="fa fa-star fa-lg" md-colors="{color: 'red-300'}" ng-if="item.bookmark" ng-click="vm.changeBookmark(item)"></i>
                                 <i class="fa fa-star fa-lg" ng-if="!item.bookmark" ng-click="vm.changeBookmark(item)"></i>
                             </span>

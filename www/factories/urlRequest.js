@@ -29,7 +29,8 @@
                         add:     baseUrl + 'offers'
                     },
                     comments: {
-                        get:     baseUrl + 'comments/'
+                        get:     baseUrl + 'comments/',
+                        add:     baseUrl + 'comments'
                     }
                 };
             }

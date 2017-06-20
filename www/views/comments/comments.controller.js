@@ -15,23 +15,16 @@
 
         vm.addComment = addComment;
 
-        offers.comments($stateParams.id)
+        comments.get($stateParams.id)
             .then(function (res) {
                 vm.comments = res;
-                angular.forEach(vm.comments, function (comment) {
-                    user.one(comment.user)
-                        .then(function (res) {
-                            comment.user = res[0];
-                        })
-                })
             });
 
         function addComment() {
             if(user.checkProfileComplete()) {
                 comments.add({
-                    source: $stateParams.id,
-                    user: $rootScope.user.objectId,
-                    text: vm.user.comment
+                    resource: $stateParams.id,
+                    body: vm.user.comment
                 })
                 .then(function(res) {
                     vm.comments.push({

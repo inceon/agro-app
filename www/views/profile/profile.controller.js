@@ -21,9 +21,9 @@
             if (vm.data.password && vm.data.password != vm.data.rpassword) {
                 toastr.error('Паролі не однакові');
             } else if (vm.file) {
-                files.upload(vm.file)
+                files.upload([vm.file])
                     .then(function (res) {
-                        vm.data.photo = res.url;
+                        vm.data.avatar = res[0];
                         user.save(vm.data)
                             .then(function (res) {
                                 console.log(res);

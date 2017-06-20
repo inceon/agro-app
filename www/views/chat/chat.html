@@ -5,7 +5,7 @@
                 <div class="item">
                     <div>
                         <img src="img/no-profile-image.png"
-                             ng-src="{{::item.user.photo}}"
+                             ng-src="{{::item.user.avatar}}"
                              alt="avatar"
                              class="avatar"/>
                         <h2>{{item.user.name}} {{item.user.surname}}</h2>
@@ -23,7 +23,7 @@
         <div class="row">
             <div class="avatar">
                 <img src="img/no-profile-image.png"
-                     ng-src="{{::$root.user.photo}}"
+                     ng-src="{{::$root.user.avatar}}"
                      alt="user">
             </div>
             <input ng-model="vm.user.comment" type="text" placeholder="Додати коментар">

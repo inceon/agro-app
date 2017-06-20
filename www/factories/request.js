@@ -104,7 +104,7 @@
                     delete $sessionStorage.auth_key;
                     delete $localStorage.auth_key;
                 } else {
-                    toastr.error(err.data.error);
+                    toastr.error(err.data.error.message);
                 }
             }
 

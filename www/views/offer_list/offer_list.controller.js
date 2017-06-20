@@ -83,16 +83,18 @@
         }
 
         function showModal(title) {
-            vm.alertPopup = $ionicPopup.show({
-                templateUrl: 'views/offer_list/tags.popup.html',
-                title: title=='buy'?'Купити':'Продати',
-                cssClass: 'offer-tags-popup',
-                scope: $scope,
-                buttons: []
-            });
-            vm.offerType = title;
+            if(user.checkProfileComplete()) {
+                vm.alertPopup = $ionicPopup.show({
+                    templateUrl: 'views/offer_list/tags.popup.html',
+                    title: title == 'buy' ? 'Купити' : 'Продати',
+                    cssClass: 'offer-tags-popup',
+                    scope: $scope,
+                    buttons: []
+                });
+                vm.offerType = title;
 
-            IonicClosePopupService.register(vm.alertPopup);
+                IonicClosePopupService.register(vm.alertPopup);
+            }
         }
 
         function changeBookmark(item) {
