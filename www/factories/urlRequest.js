@@ -12,31 +12,32 @@
 
                 return {
                     site: {
-                        files:   baseUrl + 'files',
-                        login:   baseUrl + 'site/login',
-                        signup:  baseUrl + 'site/signup',
+                        files:          baseUrl + 'files',
+                        login:          baseUrl + 'site/login',
+                        signup:         baseUrl + 'site/signup',
                     },
                     users: {
-                        me:      baseUrl + 'users/me',
-                        update:  baseUrl + 'users/'
+                        me:             baseUrl + 'users/me',
+                        update:         baseUrl + 'users/',
+                        favourites:     baseUrl + 'users/favourites'
                     },
                     categories: {
-                        all:     baseUrl + 'categories',
-                        one:     baseUrl + 'categories/'
+                        all:            baseUrl + 'categories',
+                        one:            baseUrl + 'categories/'
                     },
                     offers: {
-                        all:     baseUrl + 'offers',
-                        add:     baseUrl + 'offers',
-                        one:     baseUrl + 'offers/'
+                        all:            baseUrl + 'offers',
+                        add:            baseUrl + 'offers',
+                        one:            baseUrl + 'offers/'
                     },
                     services: {
-                        all:     baseUrl + 'services',
-                        add:     baseUrl + 'services',
-                        one:     baseUrl + 'services/'
+                        all:            baseUrl + 'services',
+                        add:            baseUrl + 'services',
+                        one:            baseUrl + 'services/'
                     },
                     comments: {
-                        get:     baseUrl + 'comments/',
-                        add:     baseUrl + 'comments'
+                        get:            baseUrl + 'comments/',
+                        add:            baseUrl + 'comments'
                     }
                 };
             }

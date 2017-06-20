@@ -5,15 +5,15 @@
                 <div class="item">
                     <div class="avatar" ui-sref="app.user_rating">
                         <img src="img/no-profile-image.png"
-                             ng-src="{{::item.user.avatar}}"
+                             ng-src="{{::item.author.avatar}}"
                              alt="avatar"/>
-                        <h2>{{::item.user.name}} {{::item.user.surname}}</h2>
+                        <h2>{{::item.author.name}} {{::item.author.surname}}</h2>
                         <p class="hashtag">
                             <span ng-click="$event.stopPropagation();">
                                 #{{vm.type=='buy'?'купити':'продати'}}
                             </span>
                             <span ng-click="$event.stopPropagation();">
-                                #{{item.section.name | lowercase  | replaceSpace:'_'}}
+                                #{{item.category.name | lowercase  | replaceSpace:'_'}}
                             </span>
                         </p>
                     </div>

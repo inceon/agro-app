@@ -6,9 +6,9 @@
 
                     <div class="avatar" ui-sref="app.user_rating">
                         <img src="img/no-profile-image.png"
-                             ng-src="{{::item.user.avatar}}"
+                             ng-src="{{::item.author.avatar}}"
                              alt="avatar"/>
-                        <h2>{{::item.user.name}} {{::item.user.surname}}</h2>
+                        <h2>{{::item.author.name}} {{::item.author.surname}}</h2>
                         <p class="hashtag">
                             <span ng-click="$event.stopPropagation();">
                                 #{{vm.type=='buy'?'купити':'продати'}}

@@ -17,36 +17,26 @@
 
         function all() {
             return http
-                .get(url.bookmark, {
-                    where: {
-                        "user": $rootScope.user.objectId
-                    }
-                })
-                .then(function (res) {
-                    return res.results;
-                });
-        }
-
-        /**
-         *
-         * @param {object} data
-         * @param {string} data.user - userId
-         * @param {string} data.offer - offerId
-         */
-        function add(data) {
-            return http
-                .post(url.bookmark, data)
-                .then(function (res) {
-                    return res.results;
-                });
-        }
-
-        function remove(bookmarkId) {
-            return http
-                .delete(url.bookmark +'/' +bookmarkId)
+                .get(url.users.favourites)
                 .then(function (res) {
                     return res;
-                })
+                });
+        }
+
+        function add(offerId) {
+            return http
+                .post(url.offers.one + offerId + '/add_to_favourites')
+                .then(function (res) {
+                    return res;
+                });
+        }
+
+        function remove(offerId) {
+            return http
+                .delete(url.offers.one + offerId + '/add_to_favourites')
+                .then(function (res) {
+                    return res;
+                });
         }
 
     }

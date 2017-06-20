@@ -5,10 +5,10 @@
                 <div class="item">
                     <div>
                         <img src="img/no-profile-image.png"
-                             ng-src="{{::item.user.avatar}}"
+                             ng-src="{{::item.author.avatar}}"
                              alt="avatar"
                              class="avatar"/>
-                        <h2>{{item.user.name}} {{item.user.surname}}</h2>
+                        <h2>{{item.author.name}} {{item.author.surname}}</h2>
                         <p class="date">{{::item.createdAt | date : 'dd.MM.yyyy HH:mm:ss'}}</p>
                     </div>
                     <trunc-text limit="120"

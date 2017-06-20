@@ -41,38 +41,7 @@
             type: vm.type
         }).then(function (res) {
             vm.items = res;
-            // getAdditionalInfo();
         });
-
-        function getAdditionalInfo() {
-            angular.forEach(vm.items, function (item) {
-                user.one(item.user)
-                    .then(function (res) {
-                        item.user = res[0];
-                    });
-
-                offers.images(item.objectId)
-                    .then(function (res) {
-                        item.images = res;
-                    });
-
-                angular.forEach(vm.hashtags, function (hashtag) {
-                    if (item.subcategory === hashtag.objectId) {
-                        item.subcategory = hashtag;
-                    }
-                });
-
-                item.bookmark = false;
-
-                angular.forEach(vm.bookmarks, function (bookmark) {
-                    if(bookmark.offer === item.objectId) {
-                        item.bookmark = true;
-                        item.bookmarkId = bookmark.objectId;
-                    }
-                });
-
-            });
-        }
 
         function sell() {
             vm.showModal('sell');
@@ -100,12 +69,9 @@
         function changeBookmark(item) {
             item.bookmark = !item.bookmark;
             if(item.bookmark) {
-                bookmark.add({
-                    user: $rootScope.user.objectId,
-                    offer: item.objectId
-                });
+                bookmark.add(item.id);
             } else {
-                bookmark.remove(item.bookmarkId);
+                bookmark.remove(item.id);
             }
         }
 

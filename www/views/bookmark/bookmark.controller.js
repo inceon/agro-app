@@ -23,19 +23,7 @@
         vm.hashtags = [];
         bookmark.all()
             .then(function (res) {
-                var prom = [];
-
-                angular.forEach(res, function (item) {
-                    prom.push(offers.one(item.offer)
-                                    .then(function (res) {
-                                        res[0].bookmarkId = item.objectId;
-                                        return vm.items.push(res[0]);
-                                    }));
-                });
-                $q.all(prom).then(function () {
-                    console.log(vm.items);
-                    getAdditionalInfo();
-                });
+                vm.items = res;
             });
 
         function changeBookmark(item) {
@@ -50,28 +38,9 @@
             }
         }
 
-        function getAdditionalInfo() {
-            angular.forEach(vm.items, function (item) {
-                user.one(item.user)
-                    .then(function (res) {
-                        item.user = res[0];
-                    });
-
-                offers.images(item.objectId)
-                    .then(function (res) {
-                        item.images = res;
-                    });
-
-                categories.one(item.category)
-                    .then(function (res) {
-                        item.section = res[0];
-                    });
-
-                item.bookmark = true;
-            });
-        }
-
-        function callUser(number) {
+        function callUser(author) {
+            var $scope = $rootScope.$new();
+            $scope.author = author;
             vm.callDialog = $ionicPopup.show({
                 templateUrl: 'views/offer_list/call.popup.html',
                 scope: $scope,
