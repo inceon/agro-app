@@ -11,7 +11,6 @@
 
         return {
             all: all,
-            col: col,
             add: add,
             newest: newest
         };
@@ -23,17 +22,6 @@
                 })
                 .then(function (res) {
                     return res.results;
-                });
-        }
-
-        function col() {
-            return http
-                .get(url.chat, {
-                    limit: 0,
-                    count: 1
-                })
-                .then(function (res) {
-                    return res.count;
                 });
         }
 

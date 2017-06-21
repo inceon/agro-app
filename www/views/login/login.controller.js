@@ -33,9 +33,6 @@
             vm.data.phone = '+38' + vm.data.phone;
             user.login(vm.data)
                 .then(function (res) {
-                    $rootScope.user = res.user;
-                    $sessionStorage.auth_key = res.token;
-                    $localStorage.auth_key = res.token;
                     $state.go('app.main');
                 });
         }

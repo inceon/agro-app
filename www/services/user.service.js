@@ -32,13 +32,9 @@
 
         function one(userId) {
             return http
-                .get(url.user, {
-                    where: {
-                        "objectId": userId
-                    }
-                })
+                .get(url.user.one + userId)
                 .then(function (res) {
-                    return res.results;
+                    return res;
                 });
         }
 
@@ -47,7 +43,8 @@
          * @param {object} data
          * @param {string} data.name - user name
          * @param {string} data.surname - user surname
-         * @param {string} data.photo - photo url
+         * @param {string} data.avatar - photo url
+         * @param {string} data.password - user password
          */
         function save(data) {
             return http
@@ -60,17 +57,14 @@
         /**
          *
          * @param {object} data
-         * @param {string} data.username - phone number
+         * @param {string} data.phone - phone number
          * @param {string} data.password - password
          */
         function signup(data) {
             return http
                 .post(url.site.signup, data)
                 .then(function (res) {
-                    one(res.objectId)
-                        .then(function (res) {
-                            $rootScope.user = res.user;
-                        });
+                    $rootScope.user = res.user;
                     $sessionStorage.auth_key = res.token;
                     $localStorage.auth_key = res.token;
                     return res;
@@ -78,7 +72,7 @@
         }
 
         /**
-         * [login description]
+         *
          * @param  {[object]} data [description]
          * @param  {[object.phone]} data [description]
          * @param  {[object.password]} data [description]
@@ -87,6 +81,9 @@
             return http
                 .post(url.site.login, data)
                 .then(function (res) {
+                    $rootScope.user = res.user;
+                    $sessionStorage.auth_key = res.token;
+                    $localStorage.auth_key = res.token;
                     return res;
                 })
         }

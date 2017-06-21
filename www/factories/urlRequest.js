@@ -18,6 +18,7 @@
                     },
                     users: {
                         me:             baseUrl + 'users/me',
+                        one:            baseUrl + 'users/',
                         update:         baseUrl + 'users/',
                         favourites:     baseUrl + 'users/favourites',
                         my_offers:      baseUrl + 'users/my_offers'

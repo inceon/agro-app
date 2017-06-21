@@ -10,17 +10,8 @@
     function comments(http, url) {
 
         return {
-            get: get,
             add: add
         };
-
-        function get(sourceId) {
-            return http
-                .get(url.comments.get + sourceId)
-                .then(function (res) {
-                    return res;
-                });
-        }
 
         /**
          *
@@ -33,7 +24,7 @@
             return http
                 .post(url.comments.add, data)
                 .then(function (res) {
-                    return res.results;
+                    return res;
                 });
         }
     }

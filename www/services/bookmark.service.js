@@ -31,6 +31,7 @@
                 });
         }
 
+        // TODO
         function remove(offerId) {
             return http
                 .delete(url.offers.one + offerId + '/add_to_favourites')

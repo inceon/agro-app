@@ -14,7 +14,7 @@
 
         return {
             upload: upload
-        };h
+        };
 
         function upload(files) {
             return http.file(url.site.files, files)
