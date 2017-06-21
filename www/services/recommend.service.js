@@ -19,21 +19,20 @@
 
         function all() {
             return http
-                .get(url.suggestion)
+                .get(url.suggestion.all)
                 .then(function (res) {
-                    return res.results;
+                    return res;
                 });
         }
 
         /**
          *
          * @param {object} data
-         * @param {string} data.user - user id
-         * @param {string} data.text - recommend text
+         * @param {string} data.body - recommend text
          */
         function add(data) {
             return http
-                .post(url.suggestion, data)
+                .post(url.suggestion.add, data)
                 .then(function (res) {
                     return res;
                 });

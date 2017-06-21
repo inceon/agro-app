@@ -36,6 +36,10 @@
                         add:            baseUrl + 'services',
                         one:            baseUrl + 'services/'
                     },
+                    suggestion: {
+                        all:            baseUrl + 'suggestions',
+                        add:            baseUrl + 'suggestions'
+                    },
                     comments: {
                         get:            baseUrl + 'comments/',
                         add:            baseUrl + 'comments'
