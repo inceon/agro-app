@@ -31,10 +31,9 @@
                 });
         }
 
-        // TODO
         function remove(offerId) {
             return http
-                .delete(url.offers.one + offerId + '/add_to_favourites')
+                .delete(url.offers.one + offerId + '/remove_from_favourites')
                 .then(function (res) {
                     return res;
                 });
