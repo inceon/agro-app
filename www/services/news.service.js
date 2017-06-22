@@ -14,40 +14,23 @@
 
         return {
             all: all,
-            one: one,
-            col: col
+            one: one
         };
 
         function all() {
             return http
-                .get(url.news)
+                .get(url.news.all)
                 .then(function (res) {
-                    return res.results;
+                    return res;
                 });
         }
 
         function one(newsId) {
             return http
-                .get(url.news, {
-                    where: {
-                        "objectId": newsId
-                    }
-                })
+                .get(url.news.one + newsId)
                 .then(function (res) {
-                    return res.results;
+                    return res;
                 });
         }
-
-        function col() {
-            return http
-                .get(url.news, {
-                    limit: 0,
-                    count: 1
-                })
-                .then(function (res) {
-                    return res.count;
-                });
-        }
-
     }
 })();

@@ -23,6 +23,10 @@
                         favourites:     baseUrl + 'users/favourites',
                         my_offers:      baseUrl + 'users/my_offers'
                     },
+                    news: {
+                        all:            baseUrl + 'news',
+                        one:            baseUrl + 'news/'
+                    },
                     categories: {
                         all:            baseUrl + 'categories',
                         one:            baseUrl + 'categories/'

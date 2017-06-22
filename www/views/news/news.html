@@ -1,6 +1,6 @@
 <ion-view class="news" view-title="Новини">
     <ion-content>
-        <div class="card-news" ui-sref="app.news_details({id: item.objectId})"
+        <div class="card-news" ui-sref="app.news_details({id: item.id})"
              ng-repeat="item in vm.list | orderBy:'$index':true track by $index">
             <div class="card-img">
                 <img ng-src="{{item.photo}}" alt="img">

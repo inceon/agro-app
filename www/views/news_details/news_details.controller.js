@@ -17,7 +17,7 @@
 
         news.one($stateParams.id)
             .then(function (res) {
-                vm.data = res[0];
+                vm.data = res;
             });
 
     }
