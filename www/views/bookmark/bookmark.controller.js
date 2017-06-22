@@ -29,12 +29,9 @@
         function changeBookmark(item) {
             item.bookmark = !item.bookmark;
             if(item.bookmark) {
-                bookmark.add({
-                    user: $rootScope.user.objectId,
-                    offer: item.objectId
-                });
+                bookmark.add(item.id);
             } else {
-                bookmark.remove(item.bookmarkId);
+                bookmark.remove(item.id);
             }
         }
 

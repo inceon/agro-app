@@ -15,6 +15,7 @@
                         files:          baseUrl + 'files',
                         login:          baseUrl + 'site/login',
                         signup:         baseUrl + 'site/signup',
+                        count:          baseUrl + 'site/count'
                     },
                     users: {
                         me:             baseUrl + 'users/me',

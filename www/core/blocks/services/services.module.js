@@ -15,7 +15,8 @@
             'model.bookmark',
             'model.services',
             'model.comments',
-            'model.chat'
+            'model.chat',
+            'model.site'
         ])
 })();
 
