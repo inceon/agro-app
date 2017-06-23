@@ -7,4 +7,4 @@ plugins/
 .idea/
 .editorconfig
 *.log
-
+www/lib/*
