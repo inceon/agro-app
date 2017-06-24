@@ -29,8 +29,8 @@
                 console.log(res);
             });
 
-            socket.on('error', function (res) {
-                toastr.error(res);
+            socket.on('err', function (res) {
+                toastr.error(res.message);
             });
         }
 

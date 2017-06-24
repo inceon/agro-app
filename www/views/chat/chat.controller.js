@@ -16,6 +16,7 @@
         vm.addComment = addComment;
 
         vm.comments = [];
+        vm.comment = '';
 
         chat.get()
             .then(function (res) {
@@ -25,8 +26,8 @@
         chat.connect();
 
         function addComment() {
-            chat.add(vm.user.comment);
-            vm.user.comment = null;
+            chat.add(vm.comment);
+            vm.comment = '';
         }
 
         $rootScope.$on('new message', function (event, data) {

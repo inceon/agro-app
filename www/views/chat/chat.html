@@ -26,8 +26,8 @@
                      ng-src="{{::$root.user.avatar}}"
                      alt="user">
             </div>
-            <input ng-model="vm.user.comment" type="text" placeholder="Додати коментар">
-            <md-button class="md-fab md-mini" ng-disabled="vm.user.comment == ''" ng-click="vm.addComment()">
+            <input ng-model="vm.comment" type="text" placeholder="Додати коментар">
+            <md-button class="md-fab md-mini" ng-disabled="vm.comment == ''" ng-click="vm.addComment()">
                 <md-icon md-font-icon="fa fa-check fa-lg" aria-hidden="true"></md-icon>
             </md-button>
         </div>
