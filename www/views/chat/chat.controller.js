@@ -8,89 +8,30 @@
         .module('app')
         .controller('Chat', Chat);
 
-    Chat.$inject = ['$scope', '$rootScope', '$timeout', '$state', '$stateParams', 'user', 'offers', 'chat'];
+    Chat.$inject = ['$scope', '$rootScope', '$timeout', '$state', '$stateParams', 'chat'];
 
-    function Chat($scope, $rootScope, $timeout, $state, $stateParams, user, offers, chat) {
+    function Chat($scope, $rootScope, $timeout, $state, $stateParams, chat) {
         var vm = this;
 
         vm.addComment = addComment;
 
-        var socket = io.connect('85.143.223.54:4000');
         vm.comments = [];
 
-        socket.on('chat message', function(data){
-            vm.comments.push(data);
-            $scope.$apply();
-        });
+        chat.get()
+            .then(function (res) {
+                vm.comments = res;
+            });
 
-        // var promise;
-
-        // chat.all()
-        //     .then(function (res) {
-        //         vm.comments = res;
-        //         angular.forEach(vm.comments, function (comment) {
-        //             user.one(comment.user)
-        //                 .then(function (res) {
-        //                     comment.user = res[0];
-        //                 })
-        //         })
-                
-        //         promise = $timeout(update, 1000);   
-
-        //     });
-
-        // function update() {
-        //     console.log('update chat');
-        //     vm.newComments = [];
-        //     var maped = vm.comments.map(function (item) {
-        //         return item.objectId;
-        //     });
-        //     chat.all()
-        //         .then(function (res) {
-        //             angular.forEach(res, function (comment) {
-        //                 if (maped.indexOf(comment.objectId) == -1) {
-        //                     user.one(comment.user)
-        //                         .then(function (res) {
-        //                             comment.user = res[0];
-        //                             vm.newComments.push(comment);
-        //                         });
-        //                 }
-        //             });
-        //             vm.comments = vm.comments.concat(vm.newComments);
-        //             promise = $timeout(update, 400);
-        //         });
-        // }
-
-        // $scope.$on('$destroy',function(){
-        //     if(promise)
-        //         $timeout.cancel(promise);   
-        // });
+        chat.connect();
 
         function addComment() {
-
-            socket.emit('chat message', {
-                    user: {
-                        name: 'trest',
-                        surname: 'kek'
-                    },
-                    message: vm.user.comment
-                });
-
-            // if(user.checkProfileComplete()) {
-            //     chat.add({
-            //         user: $rootScope.user.objectId,
-            //         message: vm.user.comment
-            //     })
-            //     .then(function(res) {
-            //         vm.comments.push({
-            //             objectId: res.objectId,
-            //             user: $rootScope.user,
-            //             message: vm.user.comment,
-            //             date: new Date()
-            //         });
-            //         vm.user.comment = '';
-            //     });
-            // }
+            chat.add(vm.user.comment);
+            vm.user.comment = null;
         }
+
+        $rootScope.$on('new message', function (event, data) {
+            vm.comments.push(data.message);
+            $scope.$apply();
+        });
     }
 })();

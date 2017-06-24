@@ -5,53 +5,45 @@
         .module('model.chat', [])
         .service('chat', chat);
 
-    chat.$inject = ['http', 'url'];
+    chat.$inject = ['http', 'url', '$sessionStorage', '$rootScope', 'toastr'];
 
-    function chat(http, url) {
+    function chat(http, url, $sessionStorage, $rootScope, toastr) {
+
+        var socket = io.connect('85.143.223.54:4000');
 
         return {
-            all: all,
-            add: add,
-            newest: newest
+            connect: connect,
+            get: get,
+            add: add
         };
 
-        function all() {
-            return http
-                .get(url.chat, {
-                    limit: 50
-                })
-                .then(function (res) {
-                    return res.results;
-                });
+        function connect() {
+            socket.emit('add user', $sessionStorage.auth_key);
+
+            socket.on('new message', function (res) {
+                console.log(res);
+                $rootScope.$broadcast('new message', res);
+            });
+
+            socket.on('login', function (res) {
+                console.log(res);
+            });
+
+            socket.on('error', function (res) {
+                toastr.error(res);
+            });
         }
 
-        /**
-         *
-         * @param {object} data
-         * @param {string} data.source - sourceId
-         * @param {string} data.user - userId
-         * @param {string} data.text - comment text
-         */
-        function add(data) {
+        function get() {
             return http
-                .post(url.chat, data)
+                .get(url.chat.get)
                 .then(function (res) {
                     return res;
                 });
         }
 
-        function newest(date) {
-            return http
-                .get(url.chat, {
-                    where: {
-                        createdAt: {
-                         "$gt": date
-                        }
-                    }
-                })
-                .then(function (res) {
-                    return res.count;
-                });
+        function add(data) {
+            socket.emit('new message', data);
         }
     }
 })();

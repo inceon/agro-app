@@ -49,6 +49,9 @@
                     comments: {
                         get:            baseUrl + 'comments/',
                         add:            baseUrl + 'comments'
+                    },
+                    chat: {
+                        get:            baseUrl + 'general_chat'
                     }
                 };
             }

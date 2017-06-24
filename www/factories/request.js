@@ -52,7 +52,7 @@
             }
 
             if ($sessionStorage.auth_key) {
-                url += '?auth_token='+$sessionStorage.auth_key;
+                config.headers['Authorization'] = $sessionStorage.auth_key;
             }
             config.url = url;
 
@@ -135,13 +135,16 @@
          * @returns {promise}
          */
         function requestFile(url, files) {
-            if ($sessionStorage.auth_key) {
-                url += '?auth_token='+$sessionStorage.auth_key;
-            }
-            return Upload.upload({
+            var config = {
                 url: url,
                 data: files
-            });
+            };
+            if ($sessionStorage.auth_key) {
+                config.headers = {
+                    'Authorization': $sessionStorage.auth_key
+                };
+            }
+            return Upload.upload(config);
         }
     }
 }());
