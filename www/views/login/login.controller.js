@@ -26,10 +26,14 @@
          */
         function login(form) {
             if (form.$invalid) { return; }
+            var tmp = vm.data.phone;
             vm.data.phone = '+38' + vm.data.phone;
             user.login(vm.data)
                 .then(function (res) {
+                    vm.data.phone = tmp;
                     $state.go('app.main');
+                }, function () {
+                    vm.data.phone = tmp;
                 });
         }
 

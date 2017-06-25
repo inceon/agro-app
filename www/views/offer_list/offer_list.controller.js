@@ -94,7 +94,7 @@
                 angular.copy(vm.allItems, vm.items);
             } else {
                 vm.items = vm.allItems.filter(function (item) {
-                    return item.subcategory.objectId === hashtag.objectId;
+                    return item.subcategory.id === hashtag.id;
                 });
                 vm.tag = hashtag;
             }

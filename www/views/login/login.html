@@ -18,7 +18,7 @@
             </md-input-container>
             <md-input-container class="md-block" flex>
                 <md-icon md-font-icon="fa fa-lock fa-2x" aria-hidden="true"></md-icon>
-                <input ng-model="vm.data.password" type="text" placeholder="Пароль">
+                <input ng-model="vm.data.password" type="password" placeholder="Пароль">
             </md-input-container>
         </form>
         <div layout="column" layout-margin>
@@ -30,7 +30,7 @@
             </md-button>
         </div>
         <div class="link">
-            <a ng-click="vm.reset()">Забули пароль?</a>
+            <!--<a ng-click="vm.reset()">Забули пароль?</a>-->
             <a ng-click="vm.signup()">Зареєструватися</a>
         </div>
     </ion-content>

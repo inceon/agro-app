@@ -9,7 +9,7 @@
 
     function chat(http, url, $sessionStorage, $rootScope, toastr) {
 
-        var socket = io.connect('85.143.223.54:4000');
+        var socket = io.connect('http://85.143.223.54:4000');
 
         return {
             connect: connect,
