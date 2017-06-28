@@ -1,0 +1,17 @@
+sudo: required
+language: android
+android:
+  components:
+    - build-tools-19.1.0
+    - android-22
+    - extra
+language: node_js
+node_js:
+  - "7"
+install:
+  - yarn global add bower
+  - yarn global add cordova
+  - yarn
+  - bower install
+script: 
+  - cordova build android
